@@ -23,6 +23,7 @@ $site_info = $this->konfigurasi_model->listing();
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/tema/assets/css/lightcase.css" media="all" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/tema/assets/css/jquery.nstSlider.css" media="all" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/tema/assets/css/flexslider.css" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/tema/assets/css/style3.css" media="all" />
 <!-- own style css -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/tema/assets/css/style.css" media="all" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/tema/assets/css/rtl.css" media="all" />

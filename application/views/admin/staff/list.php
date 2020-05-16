@@ -45,7 +45,7 @@ echo form_open(base_url('admin/staff/proses'));
             </div>
         </th>
         <th style="vertical-align: middle;" class="text-center" width="25%">NAMA</th>
-        <th style="vertical-align: middle;" class="text-center" width="20%">JABATAN</th>
+        <th style="vertical-align: middle;" class="text-center" width="20%">DIVISI</th>
         <th style="vertical-align: middle;" class="text-center">STATUS</th>
         <th style="vertical-align: middle;" class="text-center">URUTAN</th>
         <th width="15%"></th>

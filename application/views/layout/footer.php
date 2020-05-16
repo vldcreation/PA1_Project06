@@ -5,10 +5,11 @@ $site = $this->konfigurasi_model->listing();
   .kontakwa {
     z-index: 9999;
     position: fixed;
-    background-color: #cc9000;
-    padding: 10px;
+    background-color: #3c9efa;
+    padding: 1px;
+    margin-bottom: 20px;
     bottom: 0;
-    right: 120px;
+    left: 20px;
     font-weight: 700;
     font-size: 40px;
     color: white;
@@ -22,10 +23,10 @@ $site = $this->konfigurasi_model->listing();
   .telepon {
     z-index: 9999;
     position: fixed;
-    background-color: #cc8800;
+    background-color: #3c9efa;
     padding: 10px;
     bottom: 0;
-    right: 200px;
+    left: 20px;
     min-width: 80px;
     font-weight: 700;
     font-size: 40px;
@@ -43,18 +44,24 @@ $site = $this->konfigurasi_model->listing();
     text-align: center;
   }
   .kontakwa:hover, .telepon:hover {
-    background-color: pink;
+    background-color: #97c9f7;
 
   }
 </style>
-<div class="telepon">
-  <a href="tel:<?php echo $site->telepon ?>"><i class="fa fa-phone"></i></a>
-</div>
 <div class="kontakwa">
-  <a href="https://wa.me/<?php echo str_replace('+','',$site->hp) ?>?text=Saya%20tertarik%20untuk%20Menggunakan%20Layanan%20di%20Perusahan%20Anda.%20Apakah%20bisa%20dibantu?" class="topbar-social-item"><i class="fa fa-whatsapp"></i>
+  <a href="https://wa.me/<?php echo str_replace('+','',$site->hp) ?>" class=""><i class="fa fa-whatsapp"></i>
         </a>
 </div>
 <!-- END WA -->
+
+<!-- Start Live chat -->
+<!-- Live Chat Widget powered by https://keyreply.com/chat/ -->
+<!-- Advanced options: -->
+<!-- data-align="left" -->
+<!-- data-overlay="true" -->
+<script data-align="right" data-overlay="false" id="keyreply-script" src="//keyreply.com/chat/widget.js" data-color="#03A9F4" data-apps="JTdCJTIyd2hhdHNhcHAlMjI6JTIyMDgyMjc2NTg0ODE0JTIyLCUyMnBob25lJTIyOiUyMjA4MjI3NjU4NDgxNCUyMiwlMjJlbWFpbCUyMjolMjJ2bGRjcmVhdGlvbjIxQGdtYWlsLmNvbSUyMiU3RA=="></script>
+
+<!--End Live chat -->
 <?php 
 $site           = $this->konfigurasi_model->listing();
 $nav_profil     = $this->nav_model->nav_profil();
@@ -139,7 +146,7 @@ $nav_profil     = $this->nav_model->nav_profil();
 <div class="row">
     <div class="footer-bottom">
         <div class="copyright-txt">
-            <p>&copy; <?php echo date('Y') ?>. Designer By <a href="http://javawebmedia.com" title="Java Web Media">Java Web Media</a></p>
+            <p>&copy; <?php echo date('Y') ?>. Designer By <a href="http://DCC_ITDel.com" title="Java Web Media">PA1_006_D3TI</a></p>
         </div>
         <!-- .copyright-txt -->
         <div class="social-box">
@@ -190,6 +197,7 @@ $nav_profil     = $this->nav_model->nav_profil();
 <script type="text/javascript" src="<?php echo base_url() ?>assets/tema/assets/js/isotope.pkgd.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url() ?>assets/tema/assets/js/custom.isotope.js"></script>
 <script type="text/javascript" src="<?php echo base_url() ?>assets/tema/assets/js/custom.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>assets/tema/assets/js/style3.js"></script>
 <!-- Select2 -->
 <script src="<?php echo base_url() ?>assets/admin/plugins/select2/select2.full.min.js"></script>
 <!-- DataTables JS -->

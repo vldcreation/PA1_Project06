@@ -92,7 +92,7 @@ $site = $this->konfigurasi_model->listing();
 
 <!-- Start Pre-Loader-->
 
-<div id="loading">
+<!-- <div id="loading">
 <div id="loading-center">
 <div id="loading-center-absolute">
 <div class="object" id="object_one"></div>
@@ -102,9 +102,14 @@ $site = $this->konfigurasi_model->listing();
 </div>
 </div>
 </div>
-
-
-<div class="box-layout">
+<div class="box-layout"> -->
+<!-- Pre Loader 2 -->
+<div id="loader-wrapper">
+<h2 class="loadertext">Loading...</h2>
+<div id="loader"></div>
+<div class="loader-section section-left"></div>
+<div class="loader-section section-right"></div>
+</div>
 
 <!-- End Pre-Loader -->
 

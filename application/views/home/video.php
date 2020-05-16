@@ -7,8 +7,8 @@
         <div class="container">
             <div class="row">
                 <div class="compaian-video">
-                    <a href="https://www.youtube.com/embed/imVlGxbHxEo" data-rel="lightcase:myCollection"><img src="<?php echo base_url() ?>assets/tema/assets/images/home02/video-icon.png" alt="video-icon" /></a>
-                    <h3>WATCH OUR LATEST CAMPAIGN VIDEO</h3>
+                    <a href="https://www.youtube.com/embed/M1lka-Mkb34" data-rel="lightcase:myCollection"><img src="<?php echo base_url() ?>assets/tema/assets/images/home02/video-icon.png" alt="video-icon" /></a>
+                    <h3>Learn about Cloud Computing</h3>
                 </div>
                 <!-- .compaian-video -->
             </div>

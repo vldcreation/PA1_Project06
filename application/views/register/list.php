@@ -59,10 +59,20 @@
           <input type="text" name="member_nim" class="form-control" placeholder="NIM">
         </div>
         <div class="form-group">
-          <input type="text" name="member_prodi" class="form-control" placeholder="PRODI">
+          <select name="member_prodi" class="form-control">
+            <option value="NULL" selected>--Select Prodi--</option>
+            <option value="IF">Informatika</option>
+            <option value="TE">Teknik Elektro</option>
+            <option value="SI">Sistem Informasi</option>
+            <option value="BP">Bioteknologi</option>
+            <option value="MR">Manajemen Rekayasa</option>
+            <option value="TI">Teknologi Informasi</option>
+            <option value="TRPL">Teknologi Rekayasa Perangkat Lunak</option>
+            <option value="NM">Teknlogi Komputer</option>
+          </select>
         </div>
         <div class="form-group">
-          <textarea name="member_motivasi" class="form-control" id="" cols="76" rows="5" placeholder="Motivasi Anda...">
+        <textarea class="form-control text-area" rows="3" placeholder="Motivasi Anda..."></textarea>
           </textarea>
         </div>
         <div class="form-group">

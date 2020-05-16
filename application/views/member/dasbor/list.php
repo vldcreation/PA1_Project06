@@ -81,10 +81,6 @@
     <div class="info-box mb-3">
       <span class="info-box-icon bg-danger elevation-1"><i class="fa fa-money"></i></span>
 
-      <div class="info-box-content">
-        <span class="info-box-text">Client</span>
-        <span class="info-box-number"><?php echo $this->dasbor_model->client()->total; ?></span>
-      </div>
       <!-- /.info-box-content -->
     </div>
     <!-- /.info-box -->

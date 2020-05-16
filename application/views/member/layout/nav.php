@@ -122,15 +122,7 @@
             </ul>
           </li>
 
-          <!-- CLIENT -->
-          <li class="nav-item">
-            <a href="<?php echo base_url('member/client') ?>" class="nav-link">
-              <i class="nav-icon fa fa-group"></i>
-              <p>
-                DATA CLIENT
-              </p>
-            </a>
-          </li>
+          
           <?php if($this->session->userdata('akses_level')=="Admin") { ?>
           <!-- STAFF -->
           <li class="nav-item has-treeview">

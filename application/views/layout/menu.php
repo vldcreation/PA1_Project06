@@ -32,7 +32,8 @@ $nav_layanan                = $this->nav_model->nav_layanan();
 
             <!-- berita -->
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">BERITA <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-newspaper-o"></i> NEWS <span class="caret"></span></a>
                 <ul class="dropdown-menu sub-menu">
                     <?php foreach($nav_berita as $nav_berita) { ?>
                     <li class="sub-active"><a href="<?php echo base_url('berita/kategori/'.$nav_berita->slug_kategori) ?>"><i class="fa fa-angle-double-right" aria-hidden="true"></i> <?php echo $nav_berita->nama_kategori ?></a></li>
@@ -43,7 +44,8 @@ $nav_layanan                = $this->nav_model->nav_layanan();
 
             <!-- LAYANAN -->
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LAYANAN<span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-calendar"></i>TIMELINE<span class="caret"></span></a>
                 <ul class="dropdown-menu sub-menu">
                     <?php foreach($nav_layanan as $nav_layanan) { ?>
                     <li class="sub-active"><a href="<?php echo base_url('berita/layanan/'.$nav_layanan->slug_berita) ?>"><i class="fa fa-angle-double-right" aria-hidden="true"></i> <?php echo $nav_layanan->judul_berita ?></a></li>
@@ -63,7 +65,8 @@ $nav_layanan                = $this->nav_model->nav_layanan();
 
             <!-- galeri -->
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">GALERI <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-image"></i> GALERI <span class="caret"></span></a>
                 <ul class="dropdown-menu sub-menu">
                     
                     <li class="sub-active"><a href="<?php echo base_url('galeri'); ?>"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Galeri Foto</a></li>
@@ -73,18 +76,25 @@ $nav_layanan                = $this->nav_model->nav_layanan();
             
 
             <!-- DOWNLOAD -->
-            <li><a href="<?php echo base_url('download') ?>">UNDUHAN</a></li>
+            <li><a href="<?php echo base_url('download') ?>"><i class="fa fa-download"></i>UNDUHAN</a></li>
             
             <!-- kontak  -->
             <li><a href="<?php echo base_url('kontak') ?>">KONTAK</a></li>
-            <?php if($this->session->userdata("akses_level")=="User")  {?>
+            <?php if(!$this->session->userdata("akses_level")=="")  {?>
+                <li><a class="nav-link" href="<?php echo base_url('member/dasbor') ?>">
+                <i class="fa fa-home"></i>Dashboard
+                </a></li>
                 <li class="nav-item text-success text-strong">
                 <a class="nav-link" href="<?php echo base_url('member/akun') ?>">
                 <i class="fa fa-user"></i> <?php echo $this->session->userdata('nama'); ?>
                 </a>
             </li>
-                <li><a class="nav-link" href="<?php echo base_url('login/logout') ?>">
+                <li><a class="nav-link" href="<?php echo base_url('loginmember/logout') ?>">
           <i class="fa fa-sign-out"></i> Keluar
+        </a></li>
+            <?php }else { ?>
+            <li><a class="nav-link" href="<?php echo base_url('loginmember') ?>">
+          <i class="fa fa-sign-in"></i> Login
         </a></li>
             <?php } ?>
         </ul>

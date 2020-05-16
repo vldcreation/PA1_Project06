@@ -39,6 +39,12 @@ class Login extends CI_Controller {
 		$this->simple_login->logout();
 	}
 
+	public function logout2()
+	{
+		// Panggil library logout
+		$this->simple_login->logoutUser();
+	}
+
 }
 
 /* End of file Login.php */

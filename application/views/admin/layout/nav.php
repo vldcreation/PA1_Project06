@@ -46,7 +46,7 @@
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-newspaper-o"></i>
-              <p>BERITA, PROFIL &amp; LAYANAN <i class="right fa fa-angle-left"></i></p>
+              <p>NEWS, PROFIL &amp; LAYANAN <i class="right fa fa-angle-left"></i></p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item"><a href="<?php echo base_url('admin/berita') ?>" class="nav-link"><i class="fa fa-table nav-icon"></i><p>Data Berita &amp; Profil</p></a>
@@ -110,7 +110,7 @@
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-calendar"></i>
-              <p>AGENDA <i class="right fa fa-angle-left"></i></p>
+              <p>TIMELINE <i class="right fa fa-angle-left"></i></p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item"><a href="<?php echo base_url('admin/agenda') ?>" class="nav-link"><i class="fa fa-sitemap nav-icon"></i><p>Data Agenda/Event</p></a>
@@ -121,15 +121,7 @@
             </ul>
           </li>
 
-          <!-- CLIENT -->
-          <li class="nav-item">
-            <a href="<?php echo base_url('admin/client') ?>" class="nav-link">
-              <i class="nav-icon fa fa-group"></i>
-              <p>
-                DATA CLIENT
-              </p>
-            </a>
-          </li>
+          
           <?php if($this->session->userdata('akses_level')=="Admin") { ?>
           <!-- STAFF -->
           <li class="nav-item has-treeview">

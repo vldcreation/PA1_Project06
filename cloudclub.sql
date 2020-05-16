@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2020 at 05:44 PM
+-- Generation Time: May 16, 2020 at 10:24 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -40,13 +40,6 @@ CREATE TABLE `agenda` (
   `isi` longtext NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `agenda`
---
-
-INSERT INTO `agenda` (`id_agenda`, `nama`, `jenis_agenda`, `panitia`, `tempat`, `mulai`, `selesai`, `ringkasan`, `isi`, `tanggal`) VALUES
-(1, 'Pelantikan Gubernur DKI Jakarta', 'Internal', 'Pusdatin', 'Balai Kota', '2017-09-08', '2017-09-09', 'adada', '<p>adada</p>\r\n', '2017-09-08 01:18:36');
 
 -- --------------------------------------------------------
 
@@ -108,52 +101,13 @@ CREATE TABLE `berita` (
 --
 
 INSERT INTO `berita` (`id_berita`, `id_user`, `id_kategori`, `updater`, `slug_berita`, `judul_berita`, `isi`, `status_berita`, `jenis_berita`, `keywords`, `gambar`, `icon`, `hits`, `urutan`, `tanggal_mulai`, `tanggal_selesai`, `tanggal_post`, `tanggal_publish`, `tanggal`) VALUES
-(1, 1, 5, '', 'pembuatan-website-profil', 'Pembuatan Website Profil', '<h3><strong>Tujuan</strong></h3>\r\n<p>Website perusahaan dibangun sebagai:</p>\r\n<ul>\r\n<li>Sarana komunikasi resmi perusahaan dengan pelanggan</li>\r\n<li>Menyediakan informasi resmi perusahaan</li>\r\n<li>Menyajikan informasi produk dan layanan yang dimiliki</li>\r\n<li>Sebagai media pemasaran bagi perusahaan</li>\r\n</ul>\r\n<h3><strong>Fitur-fitur utama</strong></h3>\r\n<p>Website perusahaan ini menyediakan fitur-fitur sebagai berikut (disesuaikan dengan paket yang dipilih):</p>\r\n<ol>\r\n<li>Modul Berita untuk mengelola dan menampilkan berita</li>\r\n<li>Modul Profil untuk mengelola dan menampilkan profil perusahaan</li>\r\n<li>Modul Staff untuk mengelola dan menampilkan data staff/personil perusahaan</li>\r\n<li>Modul Galeri untuk mengelola galeri foto dan menampilkannya</li>\r\n<li>Modul Video berfungsi untuk mempublikasikan video sebagai sarana komunikasi</li>\r\n<li>Modul Agenda/Event untuk menampilkan event-event atau agenda yang ada di perusahaan</li>\r\n<li>Modul Produk dan layanan untuk mengelola dan menampilkan produk/layanan yang dipasarkan</li>\r\n<li>Modul Kontak untuk mengelola komunikasi pelanggan/customer dengan perusahaan</li>\r\n<li>Modul SEO untuk membantu hasil pencarian di Google</li>\r\n<li>Integrasi dengan jejaring sosial yang dimiliki</li>\r\n<li>Dan fitur-fitur lainnya</li>\r\n</ol>\r\n<h3>Paket Dasar</h3>\r\n<table class=\"table table-bordered table-stripped table-hover tiny-table\" border=\"0\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\r\n<tbody>\r\n<tr>\r\n<td>Website UKM Dasar</td>\r\n<td>Hosting 250MB<br />Bandwidth Unlimited</td>\r\n<td>Rp. 1.500.000&nbsp;<sup class=\"text-danger\">*</sup></td>\r\n</tr>\r\n<tr>\r\n<td>Website Perusahaan Kecil</td>\r\n<td>Hosting dan bandwidth unlimeted<br />Fully responsive web design</td>\r\n<td>Rp. 3.000.000&nbsp;<sup class=\"text-danger\">*</sup></td>\r\n</tr>\r\n<tr>\r\n<td colspan=\"3\"><span class=\"text-danger\">* Harga dasar dengan syarat tertentu</span></td>\r\n</tr>\r\n</tbody>\r\n</table>', 'Publish', 'Berita', 'Pastikan perusahaan Anda bisa diakses secara online sehingga meningkatkan brand image perusahaan yang akhirnya meningkatkan omset usaha.', 'website-perusahaan-company-profile-web-javawebmedia11.jpg', '', 6, 0, NULL, NULL, '2019-05-13 15:51:51', '2019-05-13 15:51:36', '2020-05-10 12:50:19'),
-(2, 1, 5, '', 'kursus-statistik', 'Kursus Statistik', '<p>Tujuan dari kursus ini adalah mampu melakukan manajemen dan analisis data dengan SPSS/Stata dan melakukan analisis deskriptif dan penyajian data serta intrepretasinya.</p>\r\n<p>Materi Kursus:</p>\r\n<ul>\r\n<ul>\r\n<li>Pengantar manajemen dan analisis data</li>\r\n<li>Transfer data, Entry data dan Cleaning Data</li>\r\n<li>Transformasi data (select cases, recode, split, dll)</li>\r\n<li>Statistik deskriptif untuk data numeric (mean, median, standar deviasi, varians, percentile dll) dan data kategorik (proporsi/persentase)</li>\r\n<li>Penyajian data (Box Plot, Bar Diagram, Pie, Histogram, dll)</li>\r\n</ul>\r\n</ul>\r\n<p><strong>Bonus: Uji Validitas dan Reliabilitas Instrumen, durasi 1 jam</strong></p>\r\n<h3><strong>Paket In house Training</strong></h3>\r\n<p>Paket in house training ini dilakukan sesuai kebutuhan institusi atau personal. Untuk materi dan biaya akan kami ajukan melalui proposal.</p>', 'Publish', 'Layanan', 'Credibly utcost efective an expertise and web enabled proces that improvements Completely seamless channels', 'instagram-kursus-statistik-javawebmedia.png', 'fa fa-check', 5, 0, NULL, NULL, '2019-05-17 04:15:33', '2019-05-17 04:06:15', '2020-05-11 12:27:38'),
-(3, 1, 5, '', 'kursus-web-development', 'Kursus Web Development', '<h2>Materi kursus</h2>\r\n<p>Anda akan mempelajari hal-hal berikut ini:</p>\r\n<ul>\r\n<li>Dasar-dasar HTML, CSS dan Bootstrap</li>\r\n<li>Mengembangkan website profil perusahaan dengan framework Codeigniter / Laraveldan database MySQL</li>\r\n<li>Integrasi framework JavaScript dengan Codeigniter / Laravel</li>\r\n</ul>\r\n<h2><a name=\"_Toc32320298\"></a>Tujuan Kursus</h2>\r\n<p>Setelah Anda belajar&nbsp;di&nbsp;<strong>Kursus Web Development</strong>, Anda akan dapat:</p>\r\n<ul>\r\n<li>Membuat website profil perusahaan (<em>company profile</em>) dengan framework Codeigniter / Laravel dan database MySQL</li>\r\n<li>Aplikasi pendaftaran online sederhana</li>\r\n<li>Bekerja sebagai&nbsp;<strong>&nbsp;Web Programmer&nbsp;</strong>atau&nbsp;<strong>Web Developer dengan keahlian Bootstrap, HTML, CSS, JavaScript dan framework Codeigniter / Larevel.</strong></li>\r\n</ul>\r\n<h2><a name=\"_Toc32320299\"></a>Urutan materi</h2>\r\n<ol>\r\n<li>Installasi Software pendukung</li>\r\n<li>Dasar-dasar HTML, CSS dan Bootstrap</li>\r\n<li>Membuat&nbsp;<em><strong>Brief project ,&nbsp;</strong></em>yaitu merencanakan website yang akan dibuat sehingga nantinya bisa diwujudkan menjadi website sebenarnya</li>\r\n<li>Merencanakan, membuat dan mengelola database MySQL</li>\r\n<li>Integrasi template&nbsp;<em>front end&nbsp;</em>dan&nbsp;<em>back end&nbsp;</em>dengan framework Codeigniter / Laravel</li>\r\n<li>Authentication (Login, Logout &amp; Proteksi Halaman)</li>\r\n<li>CRUD&nbsp;<em>(Create, Read, Update &amp; Delete)&nbsp;</em>Dasar</li>\r\n<li>CRUD Kompleks dengan relasi database</li>\r\n<li>Laporan PDF dengan MPDF</li>\r\n<li>Security review atas aplikasi yang telah dibuat</li>\r\n<li>Upload web ke hosting atau meng-onlinekan website</li>\r\n</ol>\r\n<h2><a name=\"_Toc32320300\"></a>Software yang digunakan</h2>\r\n<p>XAMPP, Sublime Text/Notepad/Visual Studio, Browser, Aplikasi pengolah gambar, Composer dll.</p>', 'Publish', 'Layanan', 'Anda akan belajar membangun website profil perusahaan dengan menggunakan bootstrap, framework JavaScript, PHP framework Codeigniter / Laravel dan database MySQL.', 'web-development-javawebmedia11.png', 'fa fa-globe', 2, 2, NULL, NULL, '2019-05-17 04:37:00', '2019-05-17 04:36:19', '2020-02-13 00:40:58'),
-(4, 1, 5, '', 'Profile-Cloud-Club', 'Profil Cloud CLub Del', '<p>Java Web Media didirikan oleh Andoyo dan online pada tanggal 26 April 2010. Java Web Media awalnya hanya bergerak di bidang pembuatan dan pengembangan website serta agensi desain grafis. Awal tahun 2011, perusahaan ini kemudian mulai bergera di bidang pengembangan sumber daya manusia, khususnya di bidang keahlian computer Graphic Design, Web Design dan Web Development.</p>', 'Publish', 'Profil', '', 'logo.png', '', 10, 1, NULL, NULL, '2019-07-26 10:38:15', '2019-07-26 10:36:47', '2020-05-12 15:44:33'),
-(6, 1, 5, '', 'kursus-android-developer', 'Kursus Android Developer', '<p>Anda akan belajar&nbsp;membuat aplikasi Android dengan menggunakan Android Studio, Genie Motion dan software-software pendukung lainnya. Aplikasi Android yang dibuat nantinya akan support terhadap berbagai ukuran&nbsp;<em>device</em>&nbsp;dan bisa dipublikasikan di Google Play Store.</p>\r\n<p>Kursus ini diselenggarakan bekerjasama dengan&nbsp;<strong>Rumah Coding atau&nbsp;</strong><strong>Fazri Labs (www.<a href=\"https://fazrilabs.com/\">fazrilabs.com</a>)</strong></p>\r\n<h3>Level Kursus (Tingkat Kesulitan)</h3>\r\n<p>Secara umum kursus ini dibagi menjadi dua paket utama, yaitu:</p>\r\n<ul>\r\n<li>Level&nbsp;<strong><em>Beginner Class</em></strong><em><br /></em>Level ini diperuntukkan bagi yang benar-benar pemula atau baru belajar membuat aplikasi Android.</li>\r\n<li>Level&nbsp;<em><strong>Intermediate Class&nbsp;</strong></em><br />Bagi Anda yang telah memiliki dasar-dasar pembuatan aplikasi Android maka Anda dapat mengambil kelas lanjut ini.<strong><br /><br /></strong></li>\r\n</ul>\r\n<h3>Tujuan Kursus</h3>\r\n<p>Setelah Anda belajar&nbsp;di&nbsp;<em><strong>Kursus Android (Android Developer Course)</strong></em>, Anda akan dapat:</p>\r\n<ul>\r\n<li>Membuat&nbsp;aplikasi Android</li>\r\n<li>Membuat aplikasi Android untuk situs berita</li>\r\n<li>Membuat aplikasi chat realtime</li>\r\n<li>Bekerja sebagai&nbsp;<strong>Junior Mobile Developer/Programmer</strong></li>\r\n</ul>\r\n<h3>Materi untuk&nbsp;<em>Beginner Class</em></h3>\r\n<ol>\r\n<li>Activity dan layout aplikasi</li>\r\n<li>View/tampilan</li>\r\n<li>Resource</li>\r\n<li>Java dan XML</li>\r\n<li>SQLite dan shared preferences</li>\r\n<li>List view</li>\r\n<li>List adapter dan activity lifecycle</li>\r\n<li>Menu dan style</li>\r\n<li>Dialog</li>\r\n<li>Android Volley</li>\r\n</ol>\r\n<h3>Materi untuk&nbsp;<em>Intermediate</em><em>&nbsp;Class</em></h3>\r\n<ol>\r\n<li>Constraint layout</li>\r\n<li>Fragment</li>\r\n<li>Navigation drawer</li>\r\n<li>Custom Drawable</li>\r\n<li>Android Animation</li>\r\n<li>Google Maps</li>\r\n<li>Firebase Cloud Messaging</li>\r\n<li>Service and intent services</li>\r\n<li>Task schedulling</li>\r\n<li>Multil anguage</li>\r\n<li>Google analytic and ad mobs</li>\r\n<li>Unit test framework</li>\r\n</ol>', 'Publish', 'Layanan', 'Anda akan belajar membuat aplikasi Android dengan menggunakan Android Studio, Genie Motion dan software-software pendukung lainnya. Aplikasi Android yang dibuat nantinya akan support terhadap berbagai ukuran device dan bisa dipublikasikan di Google Play Store.', 'android-kursus-javawebmedia.png', 'fa fa-mobile', 3, 0, NULL, NULL, '2020-02-13 07:42:56', '2020-02-13 07:41:51', '2020-05-11 08:39:53'),
-(7, 1, 5, '', 'web-based-application', 'Web Based Application', '<p>Aplikasi bisnis berbasis web? Situs pendaftaran online untuk menunjang bisnis Anda? Kami berpengalaman dalam merencanakan &amp; mengembangkan aplikasi tersebut.</p>\r\n<h3><strong>Tujuan</strong></h3>\r\n<p>Website perusahaan dibangun sebagai:</p>\r\n<ul>\r\n<li>Otomasi proses bisnis yang bisa diakses 24 jam dengan internet</li>\r\n<li>Menyederhanakan proses pengumpulan data konsumen/customer/siswa dsb</li>\r\n<li>Sarana pengelolaan proses bisnis/usaha yang mudah dan praktis</li>\r\n</ul>\r\n<h3><strong>Fitur-fitur utama</strong></h3>\r\n<p>Website perusahaan ini menyediakan fitur-fitur sebagai berikut (disesuaikan dengan paket yang dipilih):</p>\r\n<ol>\r\n<li><strong>Fitur pendaftaran online</strong></li>\r\n<li><strong>Fitur login, logout, update profile dan transaksi bagi konsumen/customer</strong></li>\r\n<li><strong>Fitur-fitur lain yang disesuaikan dengan kebutuhan perusahaan</strong></li>\r\n<li>Modul Berita untuk mengelola dan menampilkan berita</li>\r\n<li>Modul Profil untuk mengelola dan menampilkan profil perusahaan</li>\r\n<li>Modul Staff untuk mengelola dan menampilkan data staff/personil perusahaan</li>\r\n<li>Modul Galeri untuk mengelola galeri foto dan menampilkannya</li>\r\n<li>Modul Video berfungsi untuk mempublikasikan video sebagai sarana komunikasi</li>\r\n<li>Modul Agenda/Event untuk menampilkan event-event atau agenda yang ada di perusahaan</li>\r\n<li>Modul Produk dan layanan untuk mengelola dan menampilkan produk/layanan yang dipasarkan</li>\r\n<li>Modul Kontak untuk mengelola komunikasi pelanggan/customer dengan perusahaan</li>\r\n<li>Modul SEO untuk membantu hasil pencarian di Google</li>\r\n<li>Integrasi dengan jejaring sosial yang dimiliki</li>\r\n<li>Dan fitur-fitur lainnya</li>\r\n</ol>', 'Publish', 'Berita', 'Aplikasi bisnis berbasis web? Situs pendaftaran online untuk menunjang bisnis Anda? Kami berpengalaman dalam merencanakan & mengembangkan aplikasi tersebut.', 'web-application-pendaftaran-online-javawebmedia.jpg', '', 0, 0, NULL, NULL, '2020-02-13 07:45:07', '2020-02-13 07:44:27', '2020-02-13 00:45:07');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `client`
---
-
-CREATE TABLE `client` (
-  `id_client` int(11) NOT NULL,
-  `id_user` int(11) DEFAULT NULL,
-  `jenis_client` enum('Perorangan','Perusahaan','Organisasi') NOT NULL,
-  `nama` varchar(255) NOT NULL,
-  `pimpinan` varchar(255) DEFAULT NULL,
-  `alamat` varchar(300) DEFAULT NULL,
-  `telepon` varchar(255) DEFAULT NULL,
-  `website` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `password` varchar(64) DEFAULT NULL,
-  `password_hint` varchar(64) DEFAULT NULL,
-  `isi` text DEFAULT NULL,
-  `status_testimoni` varchar(20) DEFAULT NULL,
-  `isi_testimoni` text DEFAULT NULL,
-  `gambar` varchar(200) DEFAULT NULL,
-  `status_client` varchar(20) NOT NULL,
-  `keywords` varchar(200) DEFAULT NULL,
-  `status_baca` enum('Sudah','Belum') NOT NULL,
-  `status_siswa` enum('Aktif','Calon','Lulus') NOT NULL,
-  `ip_address` varchar(24) NOT NULL,
-  `tempat_lahir` varchar(255) DEFAULT NULL,
-  `tanggal_lahir` date DEFAULT NULL,
-  `tanggal` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `client`
---
-
-INSERT INTO `client` (`id_client`, `id_user`, `jenis_client`, `nama`, `pimpinan`, `alamat`, `telepon`, `website`, `email`, `password`, `password_hint`, `isi`, `status_testimoni`, `isi_testimoni`, `gambar`, `status_client`, `keywords`, `status_baca`, `status_siswa`, `ip_address`, `tempat_lahir`, `tanggal_lahir`, `tanggal`) VALUES
-(2, 1, 'Perorangan', 'PT Java Web Media', 'Bapak Andoyo', 'Jalan Lapangan Banteng Barat No. 3-4\r\nTromol Pos 3500', '', '', 'javawebmedia@gmail.com', '776b2fb9648279f619e30410efdc58b0b2c8dc47', 'i2xuqmoa', NULL, 'No', '', NULL, 'No', '', 'Sudah', 'Aktif', '', 'JAKARTA', '1962-01-02', '2020-05-12 07:20:11'),
-(3, 4, 'Perorangan', 'PT Indosat Sukses  Makmur', 'Eflita Meiyetriani', '', '0813 8841 0829', '', 'admin@kabupatenlestari.org', '02493d83b9e0692742a80fe6eb463b94aac3a66b', '5jsyjaqg', NULL, 'No', '', NULL, 'No', '', 'Sudah', 'Aktif', '', '', '1970-01-01', '2020-05-10 16:59:56');
+(1, 1, 5, '', 'binus-cloud-computing', 'Binus Cloud Computing', '<h3><strong><em>Dirjen Pembelajaran dan Kemahasiswaan (Belmawa) Kemenristekdikti bekerja sama dengan <a href=\"https://sis.binus.ac.id/2019/07/04/cloud-computing-5/\">CLOUD_BINUS</a> dan Universitas Indonesia (UI)</em></strong><br /><br /></h3>', 'Publish', 'Berita', 'Pastikan perusahaan Anda bisa diakses secara online sehingga meningkatkan brand image perusahaan yang akhirnya meningkatkan omset usaha.', 'Binus.png', 'fa fa-check', 7, 0, NULL, NULL, '2019-05-13 15:51:51', '2020-05-15 15:51:36', '2020-05-14 16:54:36'),
+(2, 1, 5, '', 'rapat-bph', 'Rapat BPH', '<p>Rapat BPH pemilihan PIC setiap Divisi Club</p>', 'Publish', 'Layanan', 'Untuk melakukan revisi mengenai kebijakan kebijakan pada Del Cloud Club,BPH akan mengadakan rapat dengan Kordinator pembina,demi menyelaraskan pesan dan kesan member untuk kemajuan Club', 'iconDCC13.png', 'fa fa-check', 20, 0, NULL, NULL, '2019-05-17 04:15:33', '2019-05-17 04:06:15', '2020-05-16 05:29:43'),
+(3, 1, 5, '', 'seleksi-team', 'Seleksi Team', '<h2>Rules</h2>\r\n<p>&nbsp;Setiap akan melakukan seleksi denga seluruh anggota,team yang masuk 5besar akan maju untuk kompetisi</p>', 'Publish', 'Layanan', 'Cloud Computing ITB,Untuk membantu para IT Generation memahami lebih dalam tentang Cloud Computing.Seleksi Team Del Cloud Club ', 'iconDCC12.png', 'fa fa-globe', 6, 2, NULL, NULL, '2019-05-17 04:37:00', '2020-05-15 04:36:19', '2020-05-16 05:27:21'),
+(4, 1, 5, '', 'profil-cloud-club-del', 'Profil Cloud CLub Del', '<p>Cloud Club Del merupakan salah satu UKM IT Del,yang bergerak dibidang Cloud Computing.UKM ini berfokus pada Cloud Computing dan membahas seputar Kompetisi dan Sistem dari Cloud sendiri.</p>', 'Publish', 'Profil', '', 'iconDCC1.png', '', 12, 1, NULL, NULL, '2019-07-26 10:38:15', '2019-07-26 10:36:47', '2020-05-14 17:11:25'),
+(6, 1, 5, '', 'sharing-session-diskusi-bph', 'Sharing Session Diskusi BPH', '<p>Dalam Rangka Cloud Computing yang akan Diadakan di Del Institut Of Technologie,Maka DCC akan bekerja sama denga Bem IT Del.Maka dari itu,BPH akan mengadakan Rapat untuk memperbincang beberapa topik dan skema Alur kerja Persiapan yang dilakukan.</p>', 'Publish', 'Layanan', 'BPH Del Cloud Club akan mengadakan Sharing Session dengan member,yang di pimpin langsung oleh kordinator pembina Del Cloud Club.', 'iconDCC11.png', 'fa fa-mobile', 11, 0, NULL, NULL, '2020-02-13 07:42:56', '2020-05-20 07:41:51', '2020-05-16 05:28:26'),
+(7, 1, 5, '', 'nation-competition-cloud-computing-amazon', 'Nation Competition Cloud Computing Amazon', '<p><strong><em>Dirjen Pembelajaran dan Kemahasiswaan (Belmawa) Kemenristekdikti bekerja sama dengan&nbsp;<a href=\"https://aws.amazon.com/\">Amazon Web Service (AWS)</a>&nbsp;dan Universitas Indonesia (UI)</em></strong></p>', 'Publish', 'Berita', 'Aplikasi bisnis berbasis web? Situs pendaftaran online untuk menunjang bisnis Anda? Kami berpengalaman dalam merencanakan & mengembangkan aplikasi tersebut.', 'amazon.jpg', 'fa fa-check', 2, 0, NULL, NULL, '2020-02-13 07:45:07', '2020-05-14 07:44:27', '2020-05-14 16:57:52'),
+(8, 1, 5, '', 'cloud-computing-itb-2020', 'Cloud Computing ITB 2020', '<p>Rekan Rekan Anggota Del CLoud Club,berhubung Cloud Computing ITB 2020 akan berlangsung di minggu dekat,maka BPH yang sebelumnya sudah melakukan Rapat untuk pengambilan keputusan.Adapun Kesimpulan yang diambil,akan dilakukan seleksi terhadap team yang akan maju nantinya,maka dari itu,dibuka pendaftaran untuk seleksi pada team yang akan maju.Untuk Detailnya,dapat di unduh di &lt;a href=\"download\"&gt;Disini</p>', 'Publish', 'Berita', '', 'Layanan1.png', 'fa fa-check', 6, 0, NULL, NULL, '2020-05-14 23:44:22', '2020-05-14 23:39:17', '2020-05-15 16:16:12');
 
 -- --------------------------------------------------------
 
@@ -179,9 +133,9 @@ CREATE TABLE `download` (
 --
 
 INSERT INTO `download` (`id_download`, `id_kategori_download`, `id_user`, `judul_download`, `jenis_download`, `isi`, `gambar`, `website`, `hits`, `tanggal`) VALUES
-(3, 2, 1, 'Paket Harga Kursus Desain dan Programming Java Web Media 2020', 'Download', '<p>Paket Harga Kursus Desain dan Programming Java Web Media 2020</p>', 'Daftar_Harga_Kursus_2020_v2.pdf', '', 0, '2020-02-12 17:50:27'),
-(4, 1, 4, 'Formulir Pendaftaran Siswa Kursus', 'Download', '<p>Formulir Pendaftaran Siswa Kursus</p>', 'error.PNG', '', 0, '2020-05-10 15:03:27'),
-(5, 2, 1, 'Paket Harga Kursus Statistik Java Web Media 2020', 'Download', '<p>Paket Harga Kursus Statistik Java Web Media 2020</p>', 'KURSUS_STATISTIK.pdf', '', 0, '2020-02-12 17:50:48');
+(3, 2, 1, 'Cloud Computing Result', 'Download', '<p>&nbsp;Hasil seleksi Cloud Computing Contest</p>', '', '', 0, '2020-05-15 17:35:53'),
+(4, 1, 1, 'Formulir Pendaftaran Cloud Computing Del', 'Download', '<p>Formulir Pendaftaran Peserta seleksi Cloud Computing Del&nbsp;</p>', 'error.PNG', '', 0, '2020-05-15 17:35:30'),
+(5, 2, 1, 'Info Cloud Computing ITB 2020', 'Download', '<p>Informasi selengkapnya tentang Cloud Computing ITB 2020</p>', '', '', 0, '2020-05-15 17:34:51');
 
 -- --------------------------------------------------------
 
@@ -211,12 +165,12 @@ CREATE TABLE `galeri` (
 
 INSERT INTO `galeri` (`id_galeri`, `id_kategori_galeri`, `id_user`, `judul_galeri`, `jenis_galeri`, `isi`, `gambar`, `website`, `hits`, `popup_status`, `urutan`, `status_text`, `tanggal`) VALUES
 (4, 5, 1, 'Aktivitas CLoud Computing Club', 'Homepage', '<p> Bergabung dengan kami,untuk mengikuti kegiatan selengkapnya </p>', 'website.jpg', 'http://delcloudclub.com', NULL, 'Publish', 1, 'Ya', '2020-05-11 12:09:27'),
-(5, 5, 1, 'Events Cloud Computing Club', 'Homepage', '<p>Ikuti events events terbaru dari Cloud Club</p>', 'DCCbackground.jpg', 'http://delcloudclub.com', NULL, 'Publish', 1, 'Ya', '2020-05-11 12:09:41'),
-(6, 5, 1, 'Cloud Computing Service', 'Homepage', '<p>Bergabung dengan kami untuk mendapatkan layanan selengkapnya</p>', 'Layanan.png', 'http://delcloudclub.com', NULL, 'Publish', 1, 'Ya', '2020-05-11 12:09:47'),
-(7, 5, 1, 'Kursus Web Development Java Web Media', 'Galeri', '<p>Kursus Web Development Java Web Media</p>', 'web-development-javawebmedia1.png', '', NULL, 'Publish', 0, 'Ya', '2020-02-13 00:52:02'),
-(8, 5, 1, 'Web Application Java Web Media', 'Galeri', '<p>Web Application Java Web Media</p>', 'web-application-pendaftaran-online-javawebmedia1.jpg', '', NULL, 'Publish', 0, 'Ya', '2020-02-13 00:52:18'),
-(9, 5, 1, 'Kursus Statistik di Java Web Media', 'Galeri', '<p>Kursus Statistik di Java Web Media</p>', 'instagram-kursus-statistik-javawebmedia1.png', '', NULL, 'Publish', 0, 'Ya', '2020-02-13 00:53:55'),
-(10, 5, 1, 'Web Development Java Web Media', 'Galeri', '<p>Web Development Java Web Media</p>', 'website-perusahaan-company-profile-web-javawebmedia12.jpg', '', 3, 'Publish', 0, 'Ya', '2020-05-10 15:04:45');
+(5, 5, 1, 'Events Cloud Computing Club', 'Homepage', '<p>Ikuti events events terbaru dari Cloud Club</p>', 'DCCbackground1.jpg', 'http://delcloudclub.com', NULL, 'Publish', 1, 'Ya', '2020-05-14 18:13:18'),
+(6, 5, 1, 'Cloud Computing Service', 'Homepage', '<p>Bergabung dengan kami untuk mendapatkan layanan selengkapnya</p>', 'Layanan2.png', 'http://delcloudclub.com', NULL, 'Publish', 1, 'Ya', '2020-05-14 18:13:31'),
+(8, 5, 1, 'What i can get for this...?', 'Galeri', '<p>&nbsp; Sebenarnya, kelebihan utama dari teknologi satu ini adalah potensi penghematan biaya. Maka dari itu ada banyak sekali perusahaan-perusahaan baik dari yang skala bisnisnya kecil hingga besar memakai jasa cloud ini. Komputasi awan ini juga mampu memberi kebebasan bagi penggunanya untuk dapat memakai layanan sesuai kebutuhan masing-masing dan membayar sesuai pemakaian yang ada, jadinya lebih fleksibel. Tanpa menghabiskan banyak sumber daya internal, Anda bisa menjalankan operasi IT dengan baik.</p>', '11.jpg', '', NULL, 'Publish', 3, 'Ya', '2020-05-15 16:59:40'),
+(9, 5, 1, 'Why Cloud Computing??', 'Galeri', '<p>&nbsp; Dengan peningkatan jumlah pemakaian komputer dan para pengguna seluler, penyimpanan data/data storage telah menjadi prioritas di hampir segala bidang bisnis. Bisnis skala besar ataupun skala kecil saat ini sangat berkembang dengan data sebagai pusatnya. Mereka biasanya menghabiskan sejumlah besar uang demi mempertahankan data yang berharga tersebut.</p>', '3.jpg', '', NULL, 'Publish', 2, 'Ya', '2020-05-15 16:57:37'),
+(10, 5, 1, 'Learn more about Cloud Computing', 'Galeri', '<p>&nbsp;Cloud Computing (dalam bahasa Indonesia disebut komputasi awan) adalah proses pengolahan daya komputasi (baik CPU, RAM, Network Speeds, Software, OS maupun Storage) melalui jaringan (biasanya lewat internet). Jadi transfer data yang terjadi bukan secara fisik dan sumber daya komputasi yang dimiliki berada di lokasi pengguna yang memakai layanannya.</p>', '6.jpg', '', 3, 'Publish', 1, 'Ya', '2020-05-15 16:56:34'),
+(11, 5, 1, 'Structure of Cloud Computing', 'Galeri', '<p>&nbsp; &nbsp;Cloud computing terdiri dari dua komponen yaitu Front End dan juga Back End. Front End terdiri dari klien Cloud Computing system-nya. Lalu dibagi lagi menjadi dua yaitu interface dan aplikasi yang diperlukan dalam mengakses platform cloud computing-nya.</p>\r\n<p>&nbsp; &nbsp;Sementara Back End mengacu ke cloud itu sendiri, yaitu yang terdiri dari sumber daya. Sumber daya tersebut diperlukan bagi layanan komputasi awan. Layanannya apa saja? Ada berbagai layanan yang disediakan teknologi komputasi awan yaitu virtual machine, server, data storage, security mechanism, dan lain sebagainya. Jadi, semua layanan itu berada di bawah kendali si provider/penyedia komputasi awan.</p>', '12.png', '', NULL, 'Publish', 5, 'Ya', '2020-05-15 17:03:36');
 
 -- --------------------------------------------------------
 
@@ -297,14 +251,6 @@ CREATE TABLE `kategori_staff` (
   `urutan` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `kategori_staff`
---
-
-INSERT INTO `kategori_staff` (`id_kategori_staff`, `slug_kategori_staff`, `nama_kategori_staff`, `urutan`) VALUES
-(1, 'pejabat-eselon-1', 'Pejabat Eselon 1', 1),
-(2, 'pejabat-struktural', 'Pejabat Struktural', 2);
-
 -- --------------------------------------------------------
 
 --
@@ -384,7 +330,7 @@ CREATE TABLE `konfigurasi` (
 --
 
 INSERT INTO `konfigurasi` (`id_konfigurasi`, `namaweb`, `singkatan`, `tagline`, `tentang`, `deskripsi`, `website`, `email`, `email_cadangan`, `alamat`, `telepon`, `hp`, `fax`, `logo`, `icon`, `footer`, `keywords`, `metatext`, `facebook`, `twitter`, `instagram`, `google_plus`, `google_map`, `judul_1`, `pesan_1`, `judul_2`, `pesan_2`, `judul_3`, `pesan_3`, `judul_4`, `pesan_4`, `judul_5`, `pesan_5`, `judul_6`, `pesan_6`, `isi_1`, `isi_2`, `isi_3`, `isi_4`, `isi_5`, `isi_6`, `link_1`, `link_2`, `link_3`, `link_4`, `link_5`, `link_6`, `javawebmedia`, `gambar`, `video`, `rekening`, `gambar_berita`, `status_form_booking`, `max_room_booking`, `nama_direktur`, `jabatan`, `stempel_tanda_tangan`, `protocol`, `smtp_host`, `smtp_port`, `smtp_timeout`, `smtp_user`, `smtp_pass`, `id_user`, `tanggal`) VALUES
-(1, 'Del Cloud Club', 'Cloud Computing Club', 'Institut Teknologi Del', '<p>Java Web Media adalah Pusat Kursus Private dan Reguler bidang Desain Grafis, Web Programming, Mobile Application dan Statistik</p>', 'Hotel Bumi Wiyata is a three stars hotel that located on Jl. Margonda Raya Depok 16423 West Java.Â \r\n\r\nHotel Bumi Wiyata has 13 ha areas and 91 Rooms which divided into six types of room; Standard Room, Superior Room, Deluxe Superior Room, Suite Room, Deluxe Suite Room & Executive Room.\r\n\r\nHotel Bumi Wiyata is the perfect choice for your business activity, gathering, wedding, outbound and family. With the concept of the greatest hotel for recreational meeting surrounding with traditional nature, various facilities and warm hospitality will makes all your event become a memorable one.', 'http://cloudclubdel.com', 'contact@javawebmedia.co.id', 'bmwiyata@hotelbumiwiyata.com', '<p><strong>Java Web Media</strong><br />MALL DEPOK TOWN SQUARE<br />Lantai 2 Unit SS No. 5-7<br />(Samping Gerai Samsung)<br />Jl. Margonda Raya No 1<br />Kemiri Muka, Kecamatan Beji, Kota Depok, Jawa Barat 16424<br />Telepon: 085715100485<br />Whatsapp: +6281210697841<br />Email: contact@javawebmedia.co.id</p>', '+6285715100485', '+6281210697841', '+6285715100485', 'logo.png', 'iconDCC.png', 'footer.png', 'Java Web Media adalah Pusat Kursus Private dan Reguler bidang Desain Grafis, Web Programming, Mobile Application dan Statistik\r\n', '', 'https://www.facebook.com/javawebmedia', 'http://twitter.com/javawebmedia', 'https://instagram.com/javawebmedia', 'https://www.youtube.com/channel/UCmm6mFZXYQ3ZylUMa0Tmc2Q', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.1145209004862!2d106.82752101476999!3d-6.379215695384046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ec0869e31b4f%3A0xaa40278d69385917!2sHotel+Bumi+Wiyata!5e0!3m2!1sid!2sid!4v1532643481549\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>', 'Bersedekah untuk anak yatim', 'fa-money', 'Pengasuh yang santun', 'fa-thumbs-up', 'Jadwal Flexibel', 'fa-adn', 'Menjaga Amanah', 'fa-check-square-o', 'Tempat belajar nyaman', 'fa-home', 'Online service', 'fa-laptop', 'Berbagi kebahagiaan dengan anak yatim adalah perintah Allah dan rasul', 'Pengasuh yang baik dan santun serta memberikan teladan yang baik bagi anak asuh', 'Bagi Anda siswa yang ingin belajar, kami menerapkan jadwal flexibel', 'Kami senantiasa menjaga amanah yang diberikan kepada donatur agar sampai di tangan yang berhak.', 'Kami menyediakan tempat belajar yang nyaman dan menyenangkan', 'Website kamu selalu uptodate, Anda bisa mengunduh apa yang dipelajari', '', '', '', '', '', '', '<p>Berawal dari keinginan ibunda Hj.Masah Muhari diakhir hidupnya untuk mewakaan sebagian hartanya dijalan Allah, gayungpun bersambut pada bulan Mei 2011 saat kami akan melaksanakan ibadah umrah, Seorang rekan kami sesama Jamaah bernama ustadzah Hj. Zainur Fahmid memberikan informasi Tentang Anggota yang hendak mewakaan sebidang tanahnya di wilayah Beji Timur. Kami pun memanjatkan doa di kota suci dengan penuh rasa harap pertolongan Allah untuk menunjukan jalan terbaik-Nya, maka sepulang umroh kami mengadakan pertemuan di kediaman Ibu Dra Hj Ratna Mardjanah untuk membicarakan visi misi kami dalam wakaf tersebut dan sepakat untuk mendirikan Istana Yatim Riyadhul Jannah ini.</p>\r\n<p>Nama Riyadhul Jannah Sendiri diambil dari nama pengelola wakaf (H. Ahmad Riyadh Muchtar, Lc) dan pemberi wakaf (Dra Hj Ratna Mardjanah). Istana Yatim Riyadhul Jannah hadir untuk melayani dan memfasilitasi segala kebutuhan anak yatim, terutama pendidikan agama, akhlak dan kehidupan yang layak untuk bekal masa depan mereka yang cerah agar bisa memberi manfaat bagi umat. Harapan kami semoga dengan membangunkan istana untuk anak yatim, maka Allah akan berikan istana-Nya di surga kelak dan kita termasuk manusia yang bisa memberika manfaat bagi sesama sebagaimana sabda Rasulullah SAW yang artinya:&nbsp;</p>\r\n<p>&ldquo;Sebaik-baik manusia adalah yang paling bermanfaat bagi manusia lainnya&rdquo;&nbsp;</p>\r\n<p>erimakasih atas segala bentuk bantuan yang dipercayakan kepada kami baik secara materi, tenaga dan kiran serta doa para muhsinin dan muhsinat Istana Yatim Riyadhul Jannah selama ini, mulai dari rencana pendirian hingga berkembang seperti saat ini. Semoga segala amal menjadi shadaqah jariyah disisi-Nya.&nbsp;</p>\r\n<p>&nbsp;</p>', 'istana-yatim.png', 'fsH_KhUWfho', '<table id=\"dataTables-example\" class=\"table table-bordered\" width=\"100%\">\r\n<thead>\r\n<tr>\r\n<th tabindex=\"0\" colspan=\"1\" rowspan=\"1\" width=\"19%\">Nama Bank</th>\r\n<th tabindex=\"0\" colspan=\"1\" rowspan=\"1\" width=\"21%\">Nomor Rekening</th>\r\n<th tabindex=\"0\" colspan=\"1\" rowspan=\"1\" width=\"7%\">Atas nama</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td>BCA KCP Margo City</td>\r\n<td>4212548204</td>\r\n<td>Andoyo</td>\r\n</tr>\r\n<tr>\r\n<td>Bank Mandiri KCP Universitas Indonesia</td>\r\n<td>1570001807768</td>\r\n<td>Eflita Meiyetriani</td>\r\n</tr>\r\n<tr>\r\n<td>Bank BNI Syariah Kantor Cabang Jakarta Selatan</td>\r\n<td>0105301001</td>\r\n<td>Eflita Meiyetriani</td>\r\n</tr>\r\n</tbody>\r\n</table>', 'balairung-budiutomo-01.jpg', 'Aktif', 3, 'Sigit Yuwono Wachid', 'Direktur', 'tanda-tangan-nba.png', 'smtp', 'ssl://mail.websitemu.com', 465, 7, 'contact@websitemu.com', 'muhammad', 0, '2020-05-12 15:34:41');
+(1, 'Del Cloud Club', 'Cloud Computing Club', 'Institut Teknologi Del', '<p>Java Web Media adalah Pusat Kursus Private dan Reguler bidang Desain Grafis, Web Programming, Mobile Application dan Statistik</p>', 'Hotel Bumi Wiyata is a three stars hotel that located on Jl. Margonda Raya Depok 16423 West Java.Â \r\n\r\nHotel Bumi Wiyata has 13 ha areas and 91 Rooms which divided into six types of room; Standard Room, Superior Room, Deluxe Superior Room, Suite Room, Deluxe Suite Room & Executive Room.\r\n\r\nHotel Bumi Wiyata is the perfect choice for your business activity, gathering, wedding, outbound and family. With the concept of the greatest hotel for recreational meeting surrounding with traditional nature, various facilities and warm hospitality will makes all your event become a memorable one.', 'http://cloudclubdel.com', 'AdminDCC@gmail.com', 'vldcreation21@gmail.com', '<p><strong>Cloud Club Del</strong><br />\r\nWebsite Del Cloud Club<br>Dibentuk untuk mempermudah Penyampain Informasi Club.\r\n</p>', '+6282276584814', '+6282276584814', '+6282276584814', 'logo.png', 'iconDCC.png', 'footer.png', 'Cloud Club Del', '', 'https://www.facebook.com/DCC_ITDel', 'http://twitter.com/DCC_ITDel', 'https://instagram.com/DCC_ITDel', 'https://www.youtube.com/channel/UCmm6mFZXYQ3ZylUMa0Tmc2Q', '<div style=\"width: 100%\"><iframe width=\"100%\" height=\"600\" src=\"https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=Jl.%20P.I.%20Del%2C%20Sitoluama%2C%20Lagu%20Boti%2C%20Kabupaten%20Toba%20Samosir%2C%20Sumatera%20Utara%2022381+(Del%20Cloud%20Club%20IT%20Del)&amp;ie=UTF8&amp;t=h&amp;z=17&amp;iwloc=B&amp;output=embed\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"><a href=\"https://www.maps.ie/draw-radius-circle-map/\">Create radius map</a></iframe></div><br />', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '<table id=\"dataTables-example\" class=\"table table-bordered\" width=\"100%\">\r\n<thead>\r\n<tr>\r\n<th tabindex=\"0\" colspan=\"1\" rowspan=\"1\" width=\"19%\">Nama Bank</th>\r\n<th tabindex=\"0\" colspan=\"1\" rowspan=\"1\" width=\"21%\">Nomor Rekening</th>\r\n<th tabindex=\"0\" colspan=\"1\" rowspan=\"1\" width=\"7%\">Atas nama</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td>BCA KCP Margo City</td>\r\n<td>4212548204</td>\r\n<td>Andoyo</td>\r\n</tr>\r\n<tr>\r\n<td>Bank Mandiri KCP Universitas Indonesia</td>\r\n<td>1570001807768</td>\r\n<td>Eflita Meiyetriani</td>\r\n</tr>\r\n<tr>\r\n<td>Bank BNI Syariah Kantor Cabang Jakarta Selatan</td>\r\n<td>0105301001</td>\r\n<td>Eflita Meiyetriani</td>\r\n</tr>\r\n</tbody>\r\n</table>', '', 'Aktif', 3, '', 'Direktur', 'tanda-tangan-nba.png', 'smtp', 'ssl://mail.websitemu.com', 465, 7, 'contact@websitemu.com', 'muhammad', 0, '2020-05-15 17:23:18');
 
 -- --------------------------------------------------------
 
@@ -1208,7 +1154,464 @@ INSERT INTO `kunjungan` (`id_kunjungan`, `alamat`, `ip_address`, `hari`, `waktu`
 (799, 'http://localhost/psw2/Project3/PA1/berita/profil/profil-java-web-media', '::1', '2020-05-12', '2020-05-12 22:40:06', '2020-05-12 15:40:06'),
 (800, 'http://localhost/psw2/Project3/PA1/berita/profil/profil-java-web-media', '::1', '2020-05-12', '2020-05-12 22:42:27', '2020-05-12 15:42:27'),
 (801, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-12', '2020-05-12 22:44:28', '2020-05-12 15:44:28'),
-(802, 'http://localhost/psw2/Project3/PA1/berita/profil/Profile-Cloud-Club', '::1', '2020-05-12', '2020-05-12 22:44:33', '2020-05-12 15:44:33');
+(802, 'http://localhost/psw2/Project3/PA1/berita/profil/Profile-Cloud-Club', '::1', '2020-05-12', '2020-05-12 22:44:33', '2020-05-12 15:44:33'),
+(803, 'http://localhost/psw2/Project3/PA1/download', '::1', '2020-05-12', '2020-05-12 22:46:57', '2020-05-12 15:46:57'),
+(804, 'http://localhost/psw2/Project3/PA1/r', '::1', '2020-05-13', '2020-05-13 00:36:46', '2020-05-12 17:36:46'),
+(805, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 00:36:49', '2020-05-12 17:36:49'),
+(806, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 00:37:02', '2020-05-12 17:37:02'),
+(807, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 00:39:52', '2020-05-12 17:39:52'),
+(808, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 00:40:01', '2020-05-12 17:40:01'),
+(809, 'http://localhost/psw2/Project3/PA1/berita/layanan/kursus-statistik', '::1', '2020-05-13', '2020-05-13 00:40:06', '2020-05-12 17:40:06'),
+(810, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 00:40:08', '2020-05-12 17:40:08'),
+(811, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 00:40:19', '2020-05-12 17:40:19'),
+(812, 'http://localhost/psw2/Project3/PA1/berita/kategori/kegiatan', '::1', '2020-05-13', '2020-05-13 00:40:25', '2020-05-12 17:40:25'),
+(813, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 00:40:27', '2020-05-12 17:40:27'),
+(814, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 00:40:37', '2020-05-12 17:40:37'),
+(815, 'http://localhost/psw2/Project3/PA1/download', '::1', '2020-05-13', '2020-05-13 00:40:45', '2020-05-12 17:40:45'),
+(816, 'http://localhost/psw2/Project3/PA1/download', '::1', '2020-05-13', '2020-05-13 00:43:56', '2020-05-12 17:43:56'),
+(817, 'http://localhost/psw2/Project3/PA1/berita/kategori/kegiatan', '::1', '2020-05-13', '2020-05-13 00:44:01', '2020-05-12 17:44:01'),
+(818, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 00:50:39', '2020-05-12 17:50:39'),
+(819, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 00:51:21', '2020-05-12 17:51:21'),
+(820, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 00:51:31', '2020-05-12 17:51:31'),
+(821, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 00:52:32', '2020-05-12 17:52:32'),
+(822, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 00:52:58', '2020-05-12 17:52:58'),
+(823, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 00:53:11', '2020-05-12 17:53:11'),
+(824, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 00:53:36', '2020-05-12 17:53:36'),
+(825, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 00:54:11', '2020-05-12 17:54:11'),
+(826, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 01:15:47', '2020-05-12 18:15:47'),
+(827, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 01:16:08', '2020-05-12 18:16:08'),
+(828, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 01:17:10', '2020-05-12 18:17:10'),
+(829, 'http://localhost/psw2/Project3/PA1/login/logoutUser', '::1', '2020-05-13', '2020-05-13 01:17:14', '2020-05-12 18:17:14'),
+(830, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 01:18:28', '2020-05-12 18:18:28'),
+(831, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 01:18:31', '2020-05-12 18:18:31'),
+(832, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 01:18:42', '2020-05-12 18:18:42'),
+(833, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 01:19:37', '2020-05-12 18:19:37'),
+(834, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 01:28:19', '2020-05-12 18:28:19'),
+(835, 'http://localhost/psw2/Project3/PA1/login2/logout2', '::1', '2020-05-13', '2020-05-13 01:28:24', '2020-05-12 18:28:24'),
+(836, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 01:30:58', '2020-05-12 18:30:58'),
+(837, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 01:31:00', '2020-05-12 18:31:00'),
+(838, 'http://localhost/psw2/Project3/PA1/loginmember/logout2', '::1', '2020-05-13', '2020-05-13 01:31:03', '2020-05-12 18:31:03'),
+(839, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 01:32:11', '2020-05-12 18:32:11'),
+(840, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 01:35:26', '2020-05-12 18:35:26'),
+(841, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 01:35:31', '2020-05-12 18:35:31'),
+(842, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 02:07:53', '2020-05-12 19:07:53'),
+(843, 'http://localhost/psw2/Project3/PA1/loginMember/logout2', '::1', '2020-05-13', '2020-05-13 02:08:35', '2020-05-12 19:08:35'),
+(844, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 02:09:17', '2020-05-12 19:09:17'),
+(845, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 02:09:27', '2020-05-12 19:09:27'),
+(846, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 02:10:00', '2020-05-12 19:10:00'),
+(847, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 19:02:58', '2020-05-13 12:02:58'),
+(848, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 20:12:35', '2020-05-13 13:12:35'),
+(849, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 20:16:58', '2020-05-13 13:16:58'),
+(850, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 20:17:13', '2020-05-13 13:17:13'),
+(851, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 20:17:18', '2020-05-13 13:17:18'),
+(852, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 20:17:24', '2020-05-13 13:17:24'),
+(853, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 20:17:37', '2020-05-13 13:17:37'),
+(854, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 20:17:45', '2020-05-13 13:17:45'),
+(855, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 20:17:55', '2020-05-13 13:17:55'),
+(856, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 20:18:07', '2020-05-13 13:18:07'),
+(857, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 20:35:18', '2020-05-13 13:35:18'),
+(858, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 20:35:27', '2020-05-13 13:35:27'),
+(859, 'http://localhost/psw2/Project3/PA1/registrasi', '::1', '2020-05-13', '2020-05-13 20:39:09', '2020-05-13 13:39:09'),
+(860, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 20:39:12', '2020-05-13 13:39:12'),
+(861, 'http://localhost/psw2/Project3/PA1/registrasi', '::1', '2020-05-13', '2020-05-13 20:43:50', '2020-05-13 13:43:50'),
+(862, 'http://localhost/psw2/Project3/PA1/registrasi', '::1', '2020-05-13', '2020-05-13 20:44:04', '2020-05-13 13:44:04'),
+(863, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 20:44:10', '2020-05-13 13:44:10'),
+(864, 'http://localhost/psw2/Project3/PA1/registrasi', '::1', '2020-05-13', '2020-05-13 20:46:42', '2020-05-13 13:46:42'),
+(865, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 20:46:49', '2020-05-13 13:46:49'),
+(866, 'http://localhost/psw2/Project3/PA1/loginmember/asdas', '::1', '2020-05-13', '2020-05-13 20:47:17', '2020-05-13 13:47:17'),
+(867, 'http://localhost/psw2/Project3/PA1/loginmember/asdas', '::1', '2020-05-13', '2020-05-13 20:47:33', '2020-05-13 13:47:33'),
+(868, 'http://localhost/psw2/Project3/PA1/berita/layanan/kursus-statistik', '::1', '2020-05-13', '2020-05-13 20:47:40', '2020-05-13 13:47:40'),
+(869, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 20:49:32', '2020-05-13 13:49:32'),
+(870, 'http://localhost/psw2/Project3/PA1/loginmember/registrasi', '::1', '2020-05-13', '2020-05-13 20:50:06', '2020-05-13 13:50:06'),
+(871, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 22:38:26', '2020-05-13 15:38:26');
+INSERT INTO `kunjungan` (`id_kunjungan`, `alamat`, `ip_address`, `hari`, `waktu`, `tanggal`) VALUES
+(872, 'http://localhost/psw2/Project3/PA1/berita/layanan/kursus-statistik', '::1', '2020-05-13', '2020-05-13 23:05:47', '2020-05-13 16:05:47'),
+(873, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 23:05:51', '2020-05-13 16:05:51'),
+(874, 'http://localhost/psw2/Project3/PA1/berita/layanan/kursus-web-development', '::1', '2020-05-13', '2020-05-13 23:05:56', '2020-05-13 16:05:56'),
+(875, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 23:10:12', '2020-05-13 16:10:12'),
+(876, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 23:10:29', '2020-05-13 16:10:29'),
+(877, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 23:10:39', '2020-05-13 16:10:39'),
+(878, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 23:10:52', '2020-05-13 16:10:52'),
+(879, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 23:11:04', '2020-05-13 16:11:04'),
+(880, 'http://localhost/psw2/Project3/PA1/registrasi', '::1', '2020-05-13', '2020-05-13 23:18:04', '2020-05-13 16:18:04'),
+(881, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 23:18:09', '2020-05-13 16:18:09'),
+(882, 'http://localhost/psw2/Project3/PA1/download', '::1', '2020-05-13', '2020-05-13 23:18:23', '2020-05-13 16:18:23'),
+(883, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 23:18:27', '2020-05-13 16:18:27'),
+(884, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 23:19:33', '2020-05-13 16:19:33'),
+(885, 'http://localhost/psw2/Project3/PA1/registrasi', '::1', '2020-05-13', '2020-05-13 23:20:25', '2020-05-13 16:20:25'),
+(886, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 23:20:34', '2020-05-13 16:20:34'),
+(887, 'http://localhost/psw2/Project3/PA1/registrasi', '::1', '2020-05-13', '2020-05-13 23:24:05', '2020-05-13 16:24:05'),
+(888, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 23:24:07', '2020-05-13 16:24:07'),
+(889, 'http://localhost/psw2/Project3/PA1/registrasi', '::1', '2020-05-13', '2020-05-13 23:24:14', '2020-05-13 16:24:14'),
+(890, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-13', '2020-05-13 23:43:04', '2020-05-13 16:43:04'),
+(891, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 08:44:28', '2020-05-14 01:44:28'),
+(892, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-14', '2020-05-14 08:45:04', '2020-05-14 01:45:04'),
+(893, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 08:45:08', '2020-05-14 01:45:08'),
+(894, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 08:45:23', '2020-05-14 01:45:23'),
+(895, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 08:51:33', '2020-05-14 01:51:33'),
+(896, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 08:51:47', '2020-05-14 01:51:47'),
+(897, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 08:53:58', '2020-05-14 01:53:58'),
+(898, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 09:02:50', '2020-05-14 02:02:50'),
+(899, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 09:06:01', '2020-05-14 02:06:01'),
+(900, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 09:06:13', '2020-05-14 02:06:13'),
+(901, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 09:06:16', '2020-05-14 02:06:16'),
+(902, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 09:06:45', '2020-05-14 02:06:45'),
+(903, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 09:06:54', '2020-05-14 02:06:54'),
+(904, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 09:07:05', '2020-05-14 02:07:05'),
+(905, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 09:08:59', '2020-05-14 02:08:59'),
+(906, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 09:09:12', '2020-05-14 02:09:12'),
+(907, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 09:09:17', '2020-05-14 02:09:17'),
+(908, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 09:09:31', '2020-05-14 02:09:31'),
+(909, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 09:10:07', '2020-05-14 02:10:07'),
+(910, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 09:10:17', '2020-05-14 02:10:17'),
+(911, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 09:10:49', '2020-05-14 02:10:49'),
+(912, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 09:13:06', '2020-05-14 02:13:06'),
+(913, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 11:23:51', '2020-05-14 04:23:51'),
+(914, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 11:23:57', '2020-05-14 04:23:57'),
+(915, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 11:24:03', '2020-05-14 04:24:03'),
+(916, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 13:01:17', '2020-05-14 06:01:17'),
+(917, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 13:01:32', '2020-05-14 06:01:32'),
+(918, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 22:09:43', '2020-05-14 15:09:43'),
+(919, 'http://localhost/psw2/Project3/PA1/berita', '::1', '2020-05-14', '2020-05-14 22:10:33', '2020-05-14 15:10:33'),
+(920, 'http://localhost/psw2/Project3/PA1/berita/read/Profile-Cloud-Club', '::1', '2020-05-14', '2020-05-14 22:11:01', '2020-05-14 15:11:01'),
+(921, 'http://localhost/psw2/Project3/PA1/berita', '::1', '2020-05-14', '2020-05-14 22:11:24', '2020-05-14 15:11:24'),
+(922, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 22:26:36', '2020-05-14 15:26:36'),
+(923, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 22:29:56', '2020-05-14 15:29:56'),
+(924, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 22:30:21', '2020-05-14 15:30:21'),
+(925, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 22:30:41', '2020-05-14 15:30:41'),
+(926, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 22:34:01', '2020-05-14 15:34:01'),
+(927, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 22:34:14', '2020-05-14 15:34:14'),
+(928, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 22:34:36', '2020-05-14 15:34:36'),
+(929, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 22:34:57', '2020-05-14 15:34:57'),
+(930, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 22:35:10', '2020-05-14 15:35:10'),
+(931, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 22:36:39', '2020-05-14 15:36:39'),
+(932, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 22:39:27', '2020-05-14 15:39:27'),
+(933, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 22:39:53', '2020-05-14 15:39:53'),
+(934, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 22:40:14', '2020-05-14 15:40:14'),
+(935, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 22:40:25', '2020-05-14 15:40:25'),
+(936, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 22:40:38', '2020-05-14 15:40:38'),
+(937, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 22:42:59', '2020-05-14 15:42:59'),
+(938, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 22:46:07', '2020-05-14 15:46:07'),
+(939, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 22:48:26', '2020-05-14 15:48:26'),
+(940, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 22:48:50', '2020-05-14 15:48:50'),
+(941, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 22:55:14', '2020-05-14 15:55:14'),
+(942, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 22:57:19', '2020-05-14 15:57:19'),
+(943, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 22:58:58', '2020-05-14 15:58:58'),
+(944, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 22:59:34', '2020-05-14 15:59:34'),
+(945, 'http://localhost/psw2/Project3/PA1/berita', '::1', '2020-05-14', '2020-05-14 22:59:59', '2020-05-14 15:59:59'),
+(946, 'http://localhost/psw2/Project3/PA1/berita', '::1', '2020-05-14', '2020-05-14 23:01:56', '2020-05-14 16:01:56'),
+(947, 'http://localhost/psw2/Project3/PA1/berita', '::1', '2020-05-14', '2020-05-14 23:02:14', '2020-05-14 16:02:14'),
+(948, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-14', '2020-05-14 23:07:19', '2020-05-14 16:07:19'),
+(949, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-14', '2020-05-14 23:07:29', '2020-05-14 16:07:29'),
+(950, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-14', '2020-05-14 23:07:33', '2020-05-14 16:07:33'),
+(951, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-14', '2020-05-14 23:10:01', '2020-05-14 16:10:01'),
+(952, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-14', '2020-05-14 23:10:10', '2020-05-14 16:10:10'),
+(953, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-14', '2020-05-14 23:16:55', '2020-05-14 16:16:55'),
+(954, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-14', '2020-05-14 23:17:38', '2020-05-14 16:17:38'),
+(955, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 23:22:17', '2020-05-14 16:22:17'),
+(956, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-14', '2020-05-14 23:22:26', '2020-05-14 16:22:26'),
+(957, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-14', '2020-05-14 23:22:53', '2020-05-14 16:22:53'),
+(958, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-14', '2020-05-14 23:23:53', '2020-05-14 16:23:53'),
+(959, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 23:23:59', '2020-05-14 16:23:59'),
+(960, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-14', '2020-05-14 23:26:41', '2020-05-14 16:26:41'),
+(961, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-14', '2020-05-14 23:26:55', '2020-05-14 16:26:55'),
+(962, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-14', '2020-05-14 23:27:10', '2020-05-14 16:27:10'),
+(963, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-14', '2020-05-14 23:29:26', '2020-05-14 16:29:26'),
+(964, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 23:30:02', '2020-05-14 16:30:02'),
+(965, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 23:33:07', '2020-05-14 16:33:07'),
+(966, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 23:34:07', '2020-05-14 16:34:07'),
+(967, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 23:34:22', '2020-05-14 16:34:22'),
+(968, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 23:34:36', '2020-05-14 16:34:36'),
+(969, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-14', '2020-05-14 23:35:53', '2020-05-14 16:35:53'),
+(970, 'http://localhost/psw2/Project3/PA1/berita/kategori/kegiatan', '::1', '2020-05-14', '2020-05-14 23:36:11', '2020-05-14 16:36:11'),
+(971, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-14', '2020-05-14 23:36:55', '2020-05-14 16:36:55'),
+(972, 'http://localhost/psw2/Project3/PA1/berita/layanan/kursus-statistik', '::1', '2020-05-14', '2020-05-14 23:38:24', '2020-05-14 16:38:24'),
+(973, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-14', '2020-05-14 23:38:31', '2020-05-14 16:38:31'),
+(974, 'http://localhost/psw2/Project3/PA1/berita/layanan/kursus-statistik', '::1', '2020-05-14', '2020-05-14 23:40:15', '2020-05-14 16:40:15'),
+(975, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-14', '2020-05-14 23:40:25', '2020-05-14 16:40:25'),
+(976, 'http://localhost/psw2/Project3/PA1/download', '::1', '2020-05-14', '2020-05-14 23:43:46', '2020-05-14 16:43:46'),
+(977, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-14', '2020-05-14 23:43:53', '2020-05-14 16:43:53'),
+(978, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-14', '2020-05-14 23:44:43', '2020-05-14 16:44:43'),
+(979, 'http://localhost/psw2/Project3/PA1/berita/kategori/kegiatan', '::1', '2020-05-14', '2020-05-14 23:44:48', '2020-05-14 16:44:48'),
+(980, 'http://localhost/psw2/Project3/PA1/berita/read/cloud-computing-itb-2020', '::1', '2020-05-14', '2020-05-14 23:45:04', '2020-05-14 16:45:04'),
+(981, 'http://localhost/psw2/Project3/PA1/berita/read/cloud-computing-itb-2020', '::1', '2020-05-14', '2020-05-14 23:45:24', '2020-05-14 16:45:24'),
+(982, 'http://localhost/psw2/Project3/PA1/berita/read/cloud-computing-itb-2020', '::1', '2020-05-14', '2020-05-14 23:51:44', '2020-05-14 16:51:44'),
+(983, 'http://localhost/psw2/Project3/PA1/berita/read/cloud-computing-itb-2020', '::1', '2020-05-14', '2020-05-14 23:54:30', '2020-05-14 16:54:30'),
+(984, 'http://localhost/psw2/Project3/PA1/berita/read/binus-cloud-computing', '::1', '2020-05-14', '2020-05-14 23:54:36', '2020-05-14 16:54:36'),
+(985, 'http://localhost/psw2/Project3/PA1/berita/read/nation-competition-cloud-computing-amazon', '::1', '2020-05-14', '2020-05-14 23:54:51', '2020-05-14 16:54:51'),
+(986, 'http://localhost/psw2/Project3/PA1/berita/read/nation-competition-cloud-computing-amazon', '::1', '2020-05-14', '2020-05-14 23:57:52', '2020-05-14 16:57:52'),
+(987, 'http://localhost/psw2/Project3/PA1/berita/layanan/kursus-statistik', '::1', '2020-05-14', '2020-05-14 23:58:08', '2020-05-14 16:58:08'),
+(988, 'http://localhost/psw2/Project3/PA1/berita/kategori/kegiatan', '::1', '2020-05-14', '2020-05-14 23:58:20', '2020-05-14 16:58:20'),
+(989, 'http://localhost/psw2/Project3/PA1/berita/kategori/kegiatan', '::1', '2020-05-15', '2020-05-15 00:05:30', '2020-05-14 17:05:30'),
+(990, 'http://localhost/psw2/Project3/PA1/berita/kategori/kegiatan', '::1', '2020-05-15', '2020-05-15 00:06:50', '2020-05-14 17:06:50'),
+(991, 'http://localhost/psw2/Project3/PA1/berita/kategori/kegiatan', '::1', '2020-05-15', '2020-05-15 00:07:04', '2020-05-14 17:07:04'),
+(992, 'http://localhost/psw2/Project3/PA1/berita/kategori/kegiatan', '::1', '2020-05-15', '2020-05-15 00:07:18', '2020-05-14 17:07:18'),
+(993, 'http://localhost/psw2/Project3/PA1/berita/kategori/kegiatan', '::1', '2020-05-15', '2020-05-15 00:08:13', '2020-05-14 17:08:13'),
+(994, 'http://localhost/psw2/Project3/PA1/berita/kategori/kegiatan', '::1', '2020-05-15', '2020-05-15 00:09:16', '2020-05-14 17:09:16'),
+(995, 'http://localhost/psw2/Project3/PA1/berita/kategori/kegiatan', '::1', '2020-05-15', '2020-05-15 00:10:41', '2020-05-14 17:10:41'),
+(996, 'http://localhost/psw2/Project3/PA1/berita/kategori/kegiatan', '::1', '2020-05-15', '2020-05-15 00:10:51', '2020-05-14 17:10:51'),
+(997, 'http://localhost/psw2/Project3/PA1/berita/profil/profil-cloud-club-del', '::1', '2020-05-15', '2020-05-15 00:11:25', '2020-05-14 17:11:25'),
+(998, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 00:12:09', '2020-05-14 17:12:09'),
+(999, 'http://localhost/psw2/Project3/PA1/berita/layanan/kursus-statistik', '::1', '2020-05-15', '2020-05-15 00:30:52', '2020-05-14 17:30:52'),
+(1000, 'http://localhost/psw2/Project3/PA1/berita/layanan/sharing-session-diskusi-bph', '::1', '2020-05-15', '2020-05-15 00:30:59', '2020-05-14 17:30:59'),
+(1001, 'http://localhost/psw2/Project3/PA1/berita/layanan/kursus-statistik', '::1', '2020-05-15', '2020-05-15 00:31:02', '2020-05-14 17:31:02'),
+(1002, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 00:31:11', '2020-05-14 17:31:11'),
+(1003, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-15', '2020-05-15 00:46:13', '2020-05-14 17:46:13'),
+(1004, 'http://localhost/psw2/Project3/PA1/video', '::1', '2020-05-15', '2020-05-15 00:46:40', '2020-05-14 17:46:40'),
+(1005, 'http://localhost/psw2/Project3/PA1/video', '::1', '2020-05-15', '2020-05-15 00:57:36', '2020-05-14 17:57:36'),
+(1006, 'http://localhost/psw2/Project3/PA1/download', '::1', '2020-05-15', '2020-05-15 00:57:44', '2020-05-14 17:57:44'),
+(1007, 'http://localhost/psw2/Project3/PA1/berita/layanan/rapat-bph', '::1', '2020-05-15', '2020-05-15 00:57:50', '2020-05-14 17:57:50'),
+(1008, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-15', '2020-05-15 01:01:15', '2020-05-14 18:01:15'),
+(1009, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 01:12:06', '2020-05-14 18:12:06'),
+(1010, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-15', '2020-05-15 01:13:37', '2020-05-14 18:13:37'),
+(1011, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 01:15:09', '2020-05-14 18:15:09'),
+(1012, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-15', '2020-05-15 01:30:43', '2020-05-14 18:30:43'),
+(1013, 'http://localhost/psw2/Project3/PA1/berita/layanan/seleksi-team-yang-maju-pada-cloud-computing-itb', '::1', '2020-05-15', '2020-05-15 01:49:28', '2020-05-14 18:49:28'),
+(1014, 'http://localhost/psw2/Project3/PA1/berita/layanan/seleksi-team-yang-maju-pada-cloud-computing-itb', '::1', '2020-05-15', '2020-05-15 01:50:00', '2020-05-14 18:50:00'),
+(1015, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-15', '2020-05-15 01:50:08', '2020-05-14 18:50:08'),
+(1016, 'http://localhost/psw2/Project3/PA1/berita/layanan/seleksi-team', '::1', '2020-05-15', '2020-05-15 01:50:14', '2020-05-14 18:50:14'),
+(1017, 'http://localhost/psw2/Project3/PA1/berita/layanan/rapat-bph', '::1', '2020-05-15', '2020-05-15 01:50:26', '2020-05-14 18:50:26'),
+(1018, 'http://localhost/psw2/Project3/PA1/berita/layanan/sharing-session-diskusi-bph', '::1', '2020-05-15', '2020-05-15 01:50:32', '2020-05-14 18:50:32'),
+(1019, 'http://localhost/psw2/Project3/PA1/berita/layanan/sharing-session-diskusi-bph', '::1', '2020-05-15', '2020-05-15 01:50:45', '2020-05-14 18:50:45'),
+(1020, 'http://localhost/psw2/Project3/PA1/berita/layanan/sharing-session-diskusi-bph', '::1', '2020-05-15', '2020-05-15 02:00:19', '2020-05-14 19:00:19'),
+(1021, 'http://localhost/psw2/Project3/PA1/berita/layanan/sharing-session-diskusi-bph', '::1', '2020-05-15', '2020-05-15 02:00:25', '2020-05-14 19:00:25'),
+(1022, 'http://localhost/psw2/Project3/PA1/berita/layanan/sharing-session-diskusi-bph', '::1', '2020-05-15', '2020-05-15 02:00:37', '2020-05-14 19:00:37'),
+(1023, 'http://localhost/psw2/Project3/PA1/berita/layanan/sharing-session-diskusi-bph', '::1', '2020-05-15', '2020-05-15 02:00:45', '2020-05-14 19:00:45'),
+(1024, 'http://localhost/psw2/Project3/PA1/berita/layanan/sharing-session-diskusi-bph', '::1', '2020-05-15', '2020-05-15 02:00:52', '2020-05-14 19:00:52'),
+(1025, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-15', '2020-05-15 02:01:08', '2020-05-14 19:01:08'),
+(1026, 'http://localhost/psw2/Project3/PA1/video', '::1', '2020-05-15', '2020-05-15 02:01:14', '2020-05-14 19:01:14'),
+(1027, 'http://localhost/psw2/Project3/PA1/video', '::1', '2020-05-15', '2020-05-15 02:35:33', '2020-05-14 19:35:33'),
+(1028, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 02:36:01', '2020-05-14 19:36:01'),
+(1029, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-15', '2020-05-15 02:39:53', '2020-05-14 19:39:53'),
+(1030, 'http://localhost/psw2/Project3/PA1/video', '::1', '2020-05-15', '2020-05-15 02:39:59', '2020-05-14 19:39:59'),
+(1031, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-15', '2020-05-15 02:40:03', '2020-05-14 19:40:03'),
+(1032, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 12:56:23', '2020-05-15 05:56:23'),
+(1033, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 12:56:52', '2020-05-15 05:56:52'),
+(1034, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 12:56:59', '2020-05-15 05:56:59'),
+(1035, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 12:57:03', '2020-05-15 05:57:03'),
+(1036, 'http://localhost/psw2/Project3/PA1/berita/kategori/kegiatan', '::1', '2020-05-15', '2020-05-15 12:57:19', '2020-05-15 05:57:19'),
+(1037, 'http://localhost/psw2/Project3/PA1/berita/kategori/kegiatan', '::1', '2020-05-15', '2020-05-15 12:59:33', '2020-05-15 05:59:33'),
+(1038, 'http://localhost/psw2/Project3/PA1/berita/read/cloud-computing-itb-2020', '::1', '2020-05-15', '2020-05-15 12:59:57', '2020-05-15 05:59:57'),
+(1039, 'http://localhost/psw2/Project3/PA1/download', '::1', '2020-05-15', '2020-05-15 13:00:06', '2020-05-15 06:00:06'),
+(1040, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 13:00:22', '2020-05-15 06:00:22'),
+(1041, 'http://localhost/psw2/Project3/PA1/video', '::1', '2020-05-15', '2020-05-15 13:00:59', '2020-05-15 06:00:59'),
+(1042, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-15', '2020-05-15 13:01:36', '2020-05-15 06:01:36'),
+(1043, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 13:02:56', '2020-05-15 06:02:56'),
+(1044, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 13:04:47', '2020-05-15 06:04:47'),
+(1045, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 13:04:53', '2020-05-15 06:04:53'),
+(1046, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 13:05:04', '2020-05-15 06:05:04'),
+(1047, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 13:50:58', '2020-05-15 06:50:58'),
+(1048, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-15', '2020-05-15 13:51:10', '2020-05-15 06:51:10'),
+(1049, 'http://localhost/psw2/Project3/PA1/video', '::1', '2020-05-15', '2020-05-15 13:51:17', '2020-05-15 06:51:17'),
+(1050, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-15', '2020-05-15 13:51:23', '2020-05-15 06:51:23'),
+(1051, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-15', '2020-05-15 14:11:54', '2020-05-15 07:11:54'),
+(1052, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-15', '2020-05-15 14:36:00', '2020-05-15 07:36:00'),
+(1053, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 14:47:36', '2020-05-15 07:47:36'),
+(1054, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 14:49:07', '2020-05-15 07:49:07'),
+(1055, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 14:49:52', '2020-05-15 07:49:52'),
+(1056, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 14:53:22', '2020-05-15 07:53:22'),
+(1057, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 14:54:50', '2020-05-15 07:54:50'),
+(1058, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 14:56:07', '2020-05-15 07:56:07'),
+(1059, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 14:56:19', '2020-05-15 07:56:19'),
+(1060, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-15', '2020-05-15 14:58:35', '2020-05-15 07:58:35'),
+(1061, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-15', '2020-05-15 14:59:10', '2020-05-15 07:59:10'),
+(1062, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-15', '2020-05-15 14:59:45', '2020-05-15 07:59:45'),
+(1063, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-15', '2020-05-15 15:00:27', '2020-05-15 08:00:27'),
+(1064, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:01:32', '2020-05-15 08:01:32'),
+(1065, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:01:54', '2020-05-15 08:01:54'),
+(1066, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:03:18', '2020-05-15 08:03:18'),
+(1067, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:03:39', '2020-05-15 08:03:39'),
+(1068, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:04:34', '2020-05-15 08:04:34'),
+(1069, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:07:09', '2020-05-15 08:07:09'),
+(1070, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:08:28', '2020-05-15 08:08:28'),
+(1071, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:09:33', '2020-05-15 08:09:33'),
+(1072, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:11:52', '2020-05-15 08:11:52'),
+(1073, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:12:10', '2020-05-15 08:12:10'),
+(1074, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:12:26', '2020-05-15 08:12:26'),
+(1075, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:13:03', '2020-05-15 08:13:03'),
+(1076, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:13:15', '2020-05-15 08:13:15'),
+(1077, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-15', '2020-05-15 15:15:51', '2020-05-15 08:15:51'),
+(1078, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:15:58', '2020-05-15 08:15:58'),
+(1079, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:17:26', '2020-05-15 08:17:26'),
+(1080, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:17:47', '2020-05-15 08:17:47'),
+(1081, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 15:18:04', '2020-05-15 08:18:04'),
+(1082, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 15:19:17', '2020-05-15 08:19:17'),
+(1083, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 15:19:29', '2020-05-15 08:19:29'),
+(1084, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 15:20:08', '2020-05-15 08:20:08'),
+(1085, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 15:20:58', '2020-05-15 08:20:58'),
+(1086, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 15:21:16', '2020-05-15 08:21:16'),
+(1087, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 15:21:27', '2020-05-15 08:21:27'),
+(1088, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:21:55', '2020-05-15 08:21:55'),
+(1089, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:24:20', '2020-05-15 08:24:20'),
+(1090, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:24:46', '2020-05-15 08:24:46'),
+(1091, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:26:25', '2020-05-15 08:26:25'),
+(1092, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:27:08', '2020-05-15 08:27:08'),
+(1093, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 15:30:13', '2020-05-15 08:30:13'),
+(1094, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 15:30:30', '2020-05-15 08:30:30'),
+(1095, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:30:33', '2020-05-15 08:30:33'),
+(1096, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:31:18', '2020-05-15 08:31:18'),
+(1097, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:31:59', '2020-05-15 08:31:59'),
+(1098, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:35:11', '2020-05-15 08:35:11'),
+(1099, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:46:35', '2020-05-15 08:46:35'),
+(1100, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:46:48', '2020-05-15 08:46:48'),
+(1101, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:49:24', '2020-05-15 08:49:24'),
+(1102, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:50:15', '2020-05-15 08:50:15'),
+(1103, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:51:05', '2020-05-15 08:51:05'),
+(1104, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:52:48', '2020-05-15 08:52:48'),
+(1105, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:53:50', '2020-05-15 08:53:50'),
+(1106, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:55:01', '2020-05-15 08:55:01'),
+(1107, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:55:50', '2020-05-15 08:55:50'),
+(1108, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:57:21', '2020-05-15 08:57:21'),
+(1109, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:57:51', '2020-05-15 08:57:51'),
+(1110, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 15:58:36', '2020-05-15 08:58:36'),
+(1111, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 16:01:22', '2020-05-15 09:01:22'),
+(1112, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 16:02:00', '2020-05-15 09:02:00'),
+(1113, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 16:02:35', '2020-05-15 09:02:35'),
+(1114, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 16:03:03', '2020-05-15 09:03:03'),
+(1115, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 16:03:26', '2020-05-15 09:03:26'),
+(1116, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 16:04:17', '2020-05-15 09:04:17'),
+(1117, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 16:05:28', '2020-05-15 09:05:28'),
+(1118, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 16:05:40', '2020-05-15 09:05:40'),
+(1119, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 16:06:20', '2020-05-15 09:06:20'),
+(1120, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 16:07:03', '2020-05-15 09:07:03'),
+(1121, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 16:07:18', '2020-05-15 09:07:18'),
+(1122, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 16:07:51', '2020-05-15 09:07:51'),
+(1123, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 16:08:18', '2020-05-15 09:08:18'),
+(1124, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 16:09:02', '2020-05-15 09:09:02'),
+(1125, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 16:11:16', '2020-05-15 09:11:16'),
+(1126, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 16:11:43', '2020-05-15 09:11:43'),
+(1127, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-15', '2020-05-15 16:12:06', '2020-05-15 09:12:06'),
+(1128, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 16:19:22', '2020-05-15 09:19:22'),
+(1129, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 16:19:52', '2020-05-15 09:19:52'),
+(1130, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 16:24:27', '2020-05-15 09:24:27'),
+(1131, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 16:25:32', '2020-05-15 09:25:32'),
+(1132, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 16:25:52', '2020-05-15 09:25:52'),
+(1133, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 16:26:40', '2020-05-15 09:26:40'),
+(1134, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 16:27:08', '2020-05-15 09:27:08'),
+(1135, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 16:27:53', '2020-05-15 09:27:53'),
+(1136, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 16:28:02', '2020-05-15 09:28:02'),
+(1137, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 16:28:21', '2020-05-15 09:28:21'),
+(1138, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 16:28:34', '2020-05-15 09:28:34'),
+(1139, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 16:28:58', '2020-05-15 09:28:58'),
+(1140, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 16:54:30', '2020-05-15 09:54:30'),
+(1141, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 16:54:38', '2020-05-15 09:54:38'),
+(1142, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 16:54:42', '2020-05-15 09:54:42'),
+(1143, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 16:54:47', '2020-05-15 09:54:47'),
+(1144, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 16:54:54', '2020-05-15 09:54:54'),
+(1145, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 21:36:18', '2020-05-15 14:36:18'),
+(1146, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 21:36:44', '2020-05-15 14:36:44'),
+(1147, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 21:37:04', '2020-05-15 14:37:04'),
+(1148, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-15', '2020-05-15 21:41:06', '2020-05-15 14:41:06'),
+(1149, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 21:51:57', '2020-05-15 14:51:57'),
+(1150, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 21:59:26', '2020-05-15 14:59:26'),
+(1151, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 22:10:44', '2020-05-15 15:10:44'),
+(1152, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 22:13:32', '2020-05-15 15:13:32'),
+(1153, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 22:13:37', '2020-05-15 15:13:37'),
+(1154, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 22:13:43', '2020-05-15 15:13:43'),
+(1155, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 22:19:21', '2020-05-15 15:19:21'),
+(1156, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 22:20:17', '2020-05-15 15:20:17'),
+(1157, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 22:20:24', '2020-05-15 15:20:24'),
+(1158, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 22:20:32', '2020-05-15 15:20:32'),
+(1159, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 22:21:38', '2020-05-15 15:21:38'),
+(1160, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 22:22:44', '2020-05-15 15:22:44'),
+(1161, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 22:22:47', '2020-05-15 15:22:47'),
+(1162, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 22:23:12', '2020-05-15 15:23:12'),
+(1163, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 23:10:48', '2020-05-15 16:10:48'),
+(1164, 'http://localhost/psw2/Project3/PA1/berita/kategori/kegiatan', '::1', '2020-05-15', '2020-05-15 23:10:56', '2020-05-15 16:10:56'),
+(1165, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 23:11:02', '2020-05-15 16:11:02'),
+(1166, 'http://localhost/psw2/Project3/PA1/berita/layanan/rapat-bph', '::1', '2020-05-15', '2020-05-15 23:11:09', '2020-05-15 16:11:09'),
+(1167, 'http://localhost/psw2/Project3/PA1/berita/layanan/rapat-bph', '::1', '2020-05-15', '2020-05-15 23:11:15', '2020-05-15 16:11:15'),
+(1168, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 23:11:19', '2020-05-15 16:11:19'),
+(1169, 'http://localhost/psw2/Project3/PA1/berita/layanan/rapat-bph', '::1', '2020-05-15', '2020-05-15 23:11:24', '2020-05-15 16:11:24'),
+(1170, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 23:11:29', '2020-05-15 16:11:29'),
+(1171, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 23:11:34', '2020-05-15 16:11:34'),
+(1172, 'http://localhost/psw2/Project3/PA1/berita/kategori/kegiatan', '::1', '2020-05-15', '2020-05-15 23:11:55', '2020-05-15 16:11:55'),
+(1173, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-15', '2020-05-15 23:12:00', '2020-05-15 16:12:00'),
+(1174, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-15', '2020-05-15 23:13:43', '2020-05-15 16:13:43'),
+(1175, 'http://localhost/psw2/Project3/PA1/berita/kategori/kegiatan', '::1', '2020-05-15', '2020-05-15 23:14:19', '2020-05-15 16:14:19'),
+(1176, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-15', '2020-05-15 23:14:29', '2020-05-15 16:14:29'),
+(1177, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 23:14:33', '2020-05-15 16:14:33'),
+(1178, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 23:15:14', '2020-05-15 16:15:14'),
+(1179, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 23:15:39', '2020-05-15 16:15:39'),
+(1180, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 23:15:43', '2020-05-15 16:15:43'),
+(1181, 'http://localhost/psw2/Project3/PA1/berita/kategori/kegiatan', '::1', '2020-05-15', '2020-05-15 23:15:54', '2020-05-15 16:15:54'),
+(1182, 'http://localhost/psw2/Project3/PA1/berita/kategori/kegiatan', '::1', '2020-05-15', '2020-05-15 23:16:06', '2020-05-15 16:16:06'),
+(1183, 'http://localhost/psw2/Project3/PA1/berita/read/cloud-computing-itb-2020', '::1', '2020-05-15', '2020-05-15 23:16:12', '2020-05-15 16:16:12'),
+(1184, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 23:16:19', '2020-05-15 16:16:19'),
+(1185, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 23:27:33', '2020-05-15 16:27:33'),
+(1186, 'http://localhost/psw2/Project3/PA1/berita/layanan/rapat-bph', '::1', '2020-05-15', '2020-05-15 23:27:39', '2020-05-15 16:27:39'),
+(1187, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 23:27:43', '2020-05-15 16:27:43'),
+(1188, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 23:28:39', '2020-05-15 16:28:39'),
+(1189, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 23:28:43', '2020-05-15 16:28:43'),
+(1190, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 23:28:56', '2020-05-15 16:28:56'),
+(1191, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 23:29:01', '2020-05-15 16:29:01'),
+(1192, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-15', '2020-05-15 23:29:05', '2020-05-15 16:29:05'),
+(1193, 'http://localhost/psw2/Project3/PA1/berita/layanan/rapat-bph', '::1', '2020-05-15', '2020-05-15 23:29:13', '2020-05-15 16:29:13'),
+(1194, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 23:33:01', '2020-05-15 16:33:01'),
+(1195, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 23:33:15', '2020-05-15 16:33:15'),
+(1196, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 23:33:46', '2020-05-15 16:33:46'),
+(1197, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 23:36:35', '2020-05-15 16:36:35'),
+(1198, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-15', '2020-05-15 23:37:04', '2020-05-15 16:37:04'),
+(1199, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-15', '2020-05-15 23:59:52', '2020-05-15 16:59:52'),
+(1200, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-16', '2020-05-16 00:02:36', '2020-05-15 17:02:36'),
+(1201, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-16', '2020-05-16 00:03:18', '2020-05-15 17:03:18'),
+(1202, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-16', '2020-05-16 00:03:39', '2020-05-15 17:03:39'),
+(1203, 'http://localhost/psw2/Project3/PA1/video', '::1', '2020-05-16', '2020-05-16 00:04:18', '2020-05-15 17:04:18'),
+(1204, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-16', '2020-05-16 00:04:31', '2020-05-15 17:04:31'),
+(1205, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-16', '2020-05-16 00:07:03', '2020-05-15 17:07:03'),
+(1206, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-16', '2020-05-16 00:08:12', '2020-05-15 17:08:12'),
+(1207, 'http://localhost/psw2/Project3/PA1/download', '::1', '2020-05-16', '2020-05-16 00:08:21', '2020-05-15 17:08:21'),
+(1208, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-16', '2020-05-16 00:08:39', '2020-05-15 17:08:39'),
+(1209, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-16', '2020-05-16 00:13:48', '2020-05-15 17:13:48'),
+(1210, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-16', '2020-05-16 00:17:33', '2020-05-15 17:17:33'),
+(1211, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-16', '2020-05-16 00:21:18', '2020-05-15 17:21:18'),
+(1212, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-16', '2020-05-16 00:22:05', '2020-05-15 17:22:05'),
+(1213, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-16', '2020-05-16 00:24:43', '2020-05-15 17:24:43'),
+(1214, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-16', '2020-05-16 00:25:31', '2020-05-15 17:25:31'),
+(1215, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-16', '2020-05-16 00:26:35', '2020-05-15 17:26:35'),
+(1216, 'http://localhost/psw2/Project3/PA1/download', '::1', '2020-05-16', '2020-05-16 00:33:58', '2020-05-15 17:33:58'),
+(1217, 'http://localhost/psw2/Project3/PA1/download', '::1', '2020-05-16', '2020-05-16 00:35:56', '2020-05-15 17:35:56'),
+(1218, 'http://localhost/psw2/Project3/PA1/download', '::1', '2020-05-16', '2020-05-16 00:37:35', '2020-05-15 17:37:35'),
+(1219, 'http://localhost/psw2/Project3/PA1/download', '::1', '2020-05-16', '2020-05-16 00:38:55', '2020-05-15 17:38:55'),
+(1220, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-16', '2020-05-16 00:44:23', '2020-05-15 17:44:23'),
+(1221, 'http://localhost/psw2/Project3/PA1/download', '::1', '2020-05-16', '2020-05-16 00:53:42', '2020-05-15 17:53:42'),
+(1222, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-16', '2020-05-16 00:56:07', '2020-05-15 17:56:07'),
+(1223, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-16', '2020-05-16 00:56:15', '2020-05-15 17:56:15'),
+(1224, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-16', '2020-05-16 00:56:22', '2020-05-15 17:56:22'),
+(1225, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-16', '2020-05-16 00:56:42', '2020-05-15 17:56:42'),
+(1226, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-16', '2020-05-16 00:57:00', '2020-05-15 17:57:00'),
+(1227, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-16', '2020-05-16 01:00:08', '2020-05-15 18:00:08'),
+(1228, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-16', '2020-05-16 12:17:25', '2020-05-16 05:17:25'),
+(1229, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-16', '2020-05-16 12:17:39', '2020-05-16 05:17:39'),
+(1230, 'http://localhost/psw2/Project3/PA1/download', '::1', '2020-05-16', '2020-05-16 12:17:55', '2020-05-16 05:17:55'),
+(1231, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-16', '2020-05-16 12:18:03', '2020-05-16 05:18:03'),
+(1232, 'http://localhost/psw2/Project3/PA1/video', '::1', '2020-05-16', '2020-05-16 12:18:14', '2020-05-16 05:18:14'),
+(1233, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-16', '2020-05-16 12:22:27', '2020-05-16 05:22:27'),
+(1234, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-16', '2020-05-16 12:22:44', '2020-05-16 05:22:44'),
+(1235, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-16', '2020-05-16 12:23:03', '2020-05-16 05:23:03'),
+(1236, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-16', '2020-05-16 12:23:32', '2020-05-16 05:23:32'),
+(1237, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-16', '2020-05-16 12:24:10', '2020-05-16 05:24:10'),
+(1238, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-16', '2020-05-16 12:24:27', '2020-05-16 05:24:27'),
+(1239, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-16', '2020-05-16 12:25:26', '2020-05-16 05:25:26'),
+(1240, 'http://localhost/psw2/Project3/PA1/berita/layanan/seleksi-team', '::1', '2020-05-16', '2020-05-16 12:25:55', '2020-05-16 05:25:55'),
+(1241, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-16', '2020-05-16 12:26:01', '2020-05-16 05:26:01'),
+(1242, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-16', '2020-05-16 12:27:26', '2020-05-16 05:27:26'),
+(1243, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-16', '2020-05-16 12:29:47', '2020-05-16 05:29:47'),
+(1244, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-16', '2020-05-16 12:30:36', '2020-05-16 05:30:36'),
+(1245, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-16', '2020-05-16 15:15:45', '2020-05-16 08:15:45'),
+(1246, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-16', '2020-05-16 15:16:02', '2020-05-16 08:16:02'),
+(1247, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-16', '2020-05-16 15:16:14', '2020-05-16 08:16:14'),
+(1248, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-16', '2020-05-16 15:16:53', '2020-05-16 08:16:53'),
+(1249, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-16', '2020-05-16 15:17:28', '2020-05-16 08:17:28'),
+(1250, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-16', '2020-05-16 15:18:16', '2020-05-16 08:18:16'),
+(1251, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-16', '2020-05-16 15:18:19', '2020-05-16 08:18:19'),
+(1252, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-16', '2020-05-16 15:21:52', '2020-05-16 08:21:52'),
+(1253, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-05-16', '2020-05-16 15:22:03', '2020-05-16 08:22:03'),
+(1254, 'http://localhost/psw2/Project3/PA1/video', '::1', '2020-05-16', '2020-05-16 15:22:09', '2020-05-16 08:22:09'),
+(1255, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-16', '2020-05-16 15:22:20', '2020-05-16 08:22:20'),
+(1256, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-16', '2020-05-16 15:22:28', '2020-05-16 08:22:28'),
+(1257, 'http://localhost/psw2/Project3/PA1/kontak', '::1', '2020-05-16', '2020-05-16 15:22:34', '2020-05-16 08:22:34'),
+(1258, 'http://localhost/psw2/Project3/PA1/index.php', '::1', '2020-05-16', '2020-05-16 15:23:45', '2020-05-16 08:23:45');
 
 -- --------------------------------------------------------
 
@@ -1301,14 +1704,6 @@ CREATE TABLE `staff` (
   `tanggal` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `staff`
---
-
-INSERT INTO `staff` (`id_staff`, `id_user`, `id_kategori_staff`, `urutan`, `nama`, `alamat`, `telepon`, `website`, `email`, `password`, `password_hint`, `isi`, `jabatan`, `keahlian`, `gambar`, `status_staff`, `keywords`, `status_baca`, `status_tutor`, `ip_address`, `tempat_lahir`, `tanggal_lahir`, `tanggal`) VALUES
-(9, 1, NULL, 0, 'Fitra Raudha', '', '0813 8841 0829', '', '', NULL, NULL, NULL, 'Direktur', '', NULL, 'Yes', '', 'Sudah', 'Ya', '', '', '1970-01-01', '2019-07-15 06:31:43'),
-(10, 1, NULL, 0, 'Sigit Yuwono Wachid', '', '085715100485', '', '', NULL, NULL, NULL, '', '', NULL, 'No', '', 'Sudah', 'Ya', '', '', '1970-01-01', '2019-04-14 04:58:29');
-
 -- --------------------------------------------------------
 
 --
@@ -1387,7 +1782,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `id_bagian`, `nama`, `email`, `username`, `password`, `password_hint`, `akses_level`, `kode_rahasia`, `gambar`, `keterangan`, `tanggal_post`, `tanggal`) VALUES
-(1, 0, 'Vicktor Desrony', 'vldreation18@gmail.com', 'vldcreation', 'b8cede8e270ee3dbb44db9671f1f3120c61c4ffe', 'javawebmedia', 'Admin', NULL, 'viktor11.png', '', '2019-10-12 15:50:21', '2020-05-12 11:00:23'),
+(1, 0, 'Vicktor Desrony', 'vldreation18@gmail.com', 'vldcreation', 'b8cede8e270ee3dbb44db9671f1f3120c61c4ffe', 'VlDcreation1', 'Admin', NULL, 'viktor11.png', '', '2019-10-12 15:50:21', '2020-05-15 09:53:40'),
 (2, 0, 'Rayyan', 'andoyoandoyo@gmail.com', 'rayyan', 'acc5d43e0936dbf3f27b906891aaafdf9ede4508', '', 'User', NULL, NULL, '', '2019-04-24 17:21:18', '2019-04-24 03:21:18'),
 (3, 0, 'DITJEN PENYELENGGARAAN HAJI DAN UMRAH KEMENTERIAN ', 'andoyoandoyo@gmail.com', 'diana', '6a90af129eeefc2f6e6a38746a2b33cb04c2c632', '', 'User', NULL, NULL, '<p>adada</p>', '2019-10-12 14:10:05', '2019-10-12 00:10:05'),
 (4, 0, 'Evan Richardo', 'evan05@gmail.com', 'evan', '178b62e73cc3fab9e30bf27b2372c9ff92401915', '', 'User', NULL, NULL, '<p>Divisi Designer</p>', '2020-05-12 18:35:43', '2020-05-12 11:35:43'),
@@ -3410,7 +3805,147 @@ INSERT INTO `user_log` (`id_user_log`, `ip_address`, `id_user`, `username`, `aks
 (0, '::1', 5, 'evan21', '', 'http://localhost/psw2/Project3/PA1/admin/akun', '', '2020-05-12 14:16:21'),
 (0, '::1', 5, 'evan21', '', 'http://localhost/psw2/Project3/PA1/admin/akun', '', '2020-05-12 14:16:22'),
 (0, '::1', 5, 'evan21', '', 'http://localhost/psw2/Project3/PA1/admin/akun', '', '2020-05-12 14:16:23'),
-(0, '::1', 5, 'evan21', '', 'http://localhost/psw2/Project3/PA1/admin/akun', '', '2020-05-12 14:16:25');
+(0, '::1', 5, 'evan21', '', 'http://localhost/psw2/Project3/PA1/admin/akun', '', '2020-05-12 14:16:25'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri', '', '2020-05-13 16:18:40'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/download', '', '2020-05-13 16:19:08'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/video', '', '2020-05-13 16:19:14'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita', '', '2020-05-14 16:34:51'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/4', '', '2020-05-14 16:35:00'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/4', '', '2020-05-14 16:35:44'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/jenis_berita/Profil', '', '2020-05-14 16:35:45'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita', '', '2020-05-14 16:38:42'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/tambah', '', '2020-05-14 16:39:17'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/tambah', '', '2020-05-14 16:41:08'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/tambah', '', '2020-05-14 16:44:22'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/jenis_berita/Berita', '', '2020-05-14 16:44:22'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/8', '', '2020-05-14 16:44:27'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/8', '', '2020-05-14 16:44:39'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/jenis_berita/Berita', '', '2020-05-14 16:44:40'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/8', '', '2020-05-14 16:45:14'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/8', '', '2020-05-14 16:45:18'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/jenis_berita/Berita', '', '2020-05-14 16:45:18'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/7', '', '2020-05-14 16:47:21'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/7', '', '2020-05-14 16:51:38'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/jenis_berita/Berita', '', '2020-05-14 16:51:39'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/1', '', '2020-05-14 16:52:05'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/1', '', '2020-05-14 16:54:24'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/jenis_berita/Berita', '', '2020-05-14 16:54:25'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita', '', '2020-05-14 17:14:23'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/6', '', '2020-05-14 17:14:38'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/6', '', '2020-05-14 17:18:07'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/jenis_berita/Layanan', '', '2020-05-14 17:18:08'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/6', '', '2020-05-14 17:18:22'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/video', '', '2020-05-14 17:47:30'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita', '', '2020-05-14 17:52:53'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/2', '', '2020-05-14 17:53:09'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/2', '', '2020-05-14 17:53:45'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/jenis_berita/Layanan', '', '2020-05-14 17:53:46'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/6', '', '2020-05-14 17:54:07'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/6', '', '2020-05-14 17:55:15'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/jenis_berita/Layanan', '', '2020-05-14 17:55:15'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/3', '', '2020-05-14 17:55:21'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/3', '', '2020-05-14 17:57:24'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/jenis_berita/Layanan', '', '2020-05-14 17:57:24'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/2', '', '2020-05-14 17:57:28'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/2', '', '2020-05-14 17:57:32'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/jenis_berita/Layanan', '', '2020-05-14 17:57:32'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri', '', '2020-05-14 18:11:27'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri/edit/10', '', '2020-05-14 18:11:37'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri', '', '2020-05-14 18:11:48'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri', '', '2020-05-14 18:12:19'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri/edit/5', '', '2020-05-14 18:12:22'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri/edit/5', '', '2020-05-14 18:13:17'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri', '', '2020-05-14 18:13:18'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri/edit/6', '', '2020-05-14 18:13:22'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri/edit/6', '', '2020-05-14 18:13:30'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri', '', '2020-05-14 18:13:31'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri/edit/10', '', '2020-05-14 18:31:13'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri', '', '2020-05-14 18:31:26'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/agenda', '', '2020-05-14 18:47:53'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita', '', '2020-05-14 18:49:07'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/3', '', '2020-05-14 18:49:15'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/3', '', '2020-05-14 18:49:18'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/jenis_berita/Layanan', '', '2020-05-14 18:49:18'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/3', '', '2020-05-14 18:49:47'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/3', '', '2020-05-14 18:49:55'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/jenis_berita/Layanan', '', '2020-05-14 18:49:55'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/video', '', '2020-05-14 19:01:30'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/video/tambah', '', '2020-05-14 19:01:36'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/video', '', '2020-05-14 19:06:38'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/video/edit/4', '', '2020-05-14 19:06:41'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/video/edit/4', '', '2020-05-14 19:07:05'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/video', '', '2020-05-14 19:07:05'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/video/edit/5', '', '2020-05-14 19:34:40'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/video/edit/5', '', '2020-05-14 19:35:28'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/video', '', '2020-05-14 19:35:28'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/akun', '', '2020-05-15 06:02:14'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/akun', '', '2020-05-15 06:03:05'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri', '', '2020-05-15 08:04:04'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri/tambah', '', '2020-05-15 08:04:14'),
+(0, '::1', 0, '-', '', 'http://localhost/psw2/Project3/PA1/admin/galeri/tambah', '', '2020-05-15 09:25:15'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri/tambah', '', '2020-05-15 09:26:55'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri', '', '2020-05-15 16:52:15'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri/edit/10', '', '2020-05-15 16:52:25'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri/edit/10', '', '2020-05-15 16:54:19'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri/edit/10', '', '2020-05-15 16:54:31'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri/edit/10', '', '2020-05-15 16:54:39'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri', '', '2020-05-15 16:54:40'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri/edit/10', '', '2020-05-15 16:55:11'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri/edit/10', '', '2020-05-15 16:56:34'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri', '', '2020-05-15 16:56:34'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri/edit/9', '', '2020-05-15 16:56:40'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri/edit/9', '', '2020-05-15 16:57:36'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri', '', '2020-05-15 16:57:37'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri/edit/8', '', '2020-05-15 16:57:56'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri/edit/8', '', '2020-05-15 16:59:07'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri/edit/8', '', '2020-05-15 16:59:40'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri', '', '2020-05-15 16:59:40'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri/delete/7', '', '2020-05-15 16:59:47'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri', '', '2020-05-15 16:59:48'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri/tambah', '', '2020-05-15 17:00:24'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri/tambah', '', '2020-05-15 17:02:29'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri', '', '2020-05-15 17:02:29'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri/edit/11', '', '2020-05-15 17:03:10'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri/edit/11', '', '2020-05-15 17:03:15'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri', '', '2020-05-15 17:03:15'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri/edit/11', '', '2020-05-15 17:03:30'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri/edit/11', '', '2020-05-15 17:03:35'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri', '', '2020-05-15 17:03:36'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/video', '', '2020-05-15 17:10:11'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/galeri', '', '2020-05-15 17:10:18'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/video', '', '2020-05-15 17:16:08'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/video/tambah', '', '2020-05-15 17:16:13'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/video', '', '2020-05-15 17:16:17'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/video/tambah', '', '2020-05-15 17:16:20'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/video/tambah', '', '2020-05-15 17:17:08'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/video', '', '2020-05-15 17:17:09'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/video', '', '2020-05-15 17:30:52'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/video', '', '2020-05-15 17:31:01'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/video', '', '2020-05-15 17:31:53'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/video', '', '2020-05-15 17:33:00'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/agenda', '', '2020-05-15 17:33:20'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita', '', '2020-05-15 17:33:28'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/download', '', '2020-05-15 17:33:42'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/download/edit/5', '', '2020-05-15 17:34:25'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/download/edit/5', '', '2020-05-15 17:34:51'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/download', '', '2020-05-15 17:34:51'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/download/edit/4', '', '2020-05-15 17:35:07'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/download/edit/4', '', '2020-05-15 17:35:29'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/download', '', '2020-05-15 17:35:30'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/download/edit/3', '', '2020-05-15 17:35:38'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/download/edit/3', '', '2020-05-15 17:35:53'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/download', '', '2020-05-15 17:35:53'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/download', '', '2020-05-15 17:39:00'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/akun', '', '2020-05-16 05:24:50'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/3', '', '2020-05-16 05:25:17'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/3', '', '2020-05-16 05:27:21'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/jenis_berita/Layanan', '', '2020-05-16 05:27:21'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/6', '', '2020-05-16 05:27:40'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/6', '', '2020-05-16 05:28:26'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/jenis_berita/Layanan', '', '2020-05-16 05:28:26'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/2', '', '2020-05-16 05:28:30'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/edit/2', '', '2020-05-16 05:29:43'),
+(0, '::1', 1, 'vldcreation', '', 'http://localhost/psw2/Project3/PA1/admin/berita/jenis_berita/Layanan', '', '2020-05-16 05:29:43');
 
 -- --------------------------------------------------------
 
@@ -3435,8 +3970,9 @@ CREATE TABLE `video` (
 --
 
 INSERT INTO `video` (`id_video`, `judul`, `posisi`, `keterangan`, `video`, `urutan`, `bahasa`, `id_user`, `tanggal`) VALUES
-(4, 'INSTALASI XAMPP DAN SUBLIME TEXT', 'Homepage', 'INSTALASI XAMPP DAN SUBLIME TEXT', 'A66PiaPuTZs', 1, 'Indonesia', 1, '2020-02-13 00:48:03'),
-(5, 'Sesi 2 Konfigurasi, Halaman Login, Belajar Controller dan View', 'Homepage', 'Sesi 2 Konfigurasi, Halaman Login, Belajar Controller dan View', 'kFfAir_JgIU', 2, 'Indonesia', 1, '2020-02-13 00:48:31');
+(4, 'Tutorial Codeigneiter', 'Homepage', 'INSTALASI XAMPP DAN SUBLIME TEXT', 'dMRCZGGAx74', 1, 'Indonesia', 1, '2020-05-14 19:07:05'),
+(5, 'Sesi 2 Tutorial Codeigneiter', 'Homepage', 'Membuat website dengan CI sesi 2', 'g5JT3EW38KM', 2, 'Indonesia', 1, '2020-05-14 19:35:28'),
+(0, 'Learn about Cloud Computing', 'Video', '', 'M1lka-Mkb34', 1, 'Indonesia', 1, '2020-05-15 17:17:08');
 
 --
 -- Indexes for dumped tables
@@ -3461,12 +3997,6 @@ ALTER TABLE `bagian`
 --
 ALTER TABLE `berita`
   ADD PRIMARY KEY (`id_berita`);
-
---
--- Indexes for table `client`
---
-ALTER TABLE `client`
-  ADD PRIMARY KEY (`id_client`);
 
 --
 -- Indexes for table `download`
@@ -3567,13 +4097,7 @@ ALTER TABLE `bagian`
 -- AUTO_INCREMENT for table `berita`
 --
 ALTER TABLE `berita`
-  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `client`
---
-ALTER TABLE `client`
-  MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `download`
@@ -3585,7 +4109,7 @@ ALTER TABLE `download`
 -- AUTO_INCREMENT for table `galeri`
 --
 ALTER TABLE `galeri`
-  MODIFY `id_galeri` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_galeri` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `kategori`
@@ -3621,7 +4145,7 @@ ALTER TABLE `konfigurasi`
 -- AUTO_INCREMENT for table `kunjungan`
 --
 ALTER TABLE `kunjungan`
-  MODIFY `id_kunjungan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=803;
+  MODIFY `id_kunjungan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1259;
 
 --
 -- AUTO_INCREMENT for table `members`

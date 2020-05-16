@@ -6,6 +6,18 @@ class Home extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		// // Tambahkan proteksi halaman
+		// $url_pengalihan = str_replace('index.php/', '', current_url());
+		// $pengalihan 	= $this->session->set_userdata('pengalihan',$url_pengalihan);
+		// // Ambil check login dari simple_login
+		// $this->simple_login->check_login($pengalihan);
+		// $this->load->model('member_model');
+		// $this->load->model('bagian_model');
+		// // Tambahkan proteksi halaman
+		// $url_pengalihan = str_replace('index.php/', '', current_url());
+		// $pengalihan 	= $this->session->set_userdata('pengalihan',$url_pengalihan);
+		// // Ambil check login dari simple_login
+		// $this->simple_login->check_login($pengalihan);
 		$this->load->model('konfigurasi_model');
 		$this->load->model('berita_model');
 		$this->load->model('galeri_model');
