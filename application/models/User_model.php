@@ -33,7 +33,7 @@ class User_model extends CI_Model {
 		return $query->row();
 	}
 
-	// Login
+	// Login Admin
 	public function login($username,$password)
 	{
 		$this->db->select('users.*,
@@ -44,9 +44,25 @@ class User_model extends CI_Model {
 		// End join
 		// where
 		$this->db->where(array(	'username'	=> $username,
-								'password'	=> sha1($password)
+								'password'	=> sha1($password),
+								'akses_level' => 'Admin',
 							));
 		$this->db->order_by('users.id_user', 'desc');
+		$query = $this->db->get();
+		return $query->row();
+	}
+
+	// Login Member
+	public function loginmember($username,$password)
+	{
+		$this->db->select('members.*');
+		$this->db->from('members');
+		// where
+		$this->db->where(array(	'username'	=> $username,
+								'password'	=> sha1($password),
+								'akses_level' => 'User',
+							));
+		$this->db->order_by('members.id_user', 'desc');
 		$query = $this->db->get();
 		return $query->row();
 	}

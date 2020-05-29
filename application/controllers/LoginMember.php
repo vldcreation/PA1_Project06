@@ -24,11 +24,11 @@ class LoginMember extends CI_Controller {
 			$username 	= strip_tags($this->input->post('username'));
 			$password 	= strip_tags($this->input->post('password'));
 			// Proses ke simple login
-			$this->simple_login->login2($username,$password);
+			$this->simple_login->loginmember($username,$password);
 		}
 		// End validasi
 
-		$data = array(	'title'		=> 'Halaman Login');
+		$data = array(	'title'		=> 'Halaman Login Member');
 		$this->load->view('loginmember/list', $data, FALSE);
 	}
 

@@ -34,7 +34,7 @@
   <div class="card">
     <div class="card-body login-card-body">
       <div class="login-logo">
-        <img src="<?php echo $this->website->icon(); ?>" alt="<?php echo $this->website->namaweb(); ?>" class="img img-responsive img-thumbnail" style="max-width: 30%; height: auto;">
+        <a href="<?php echo base_url() ?>"><img src="<?php echo $this->website->icon(); ?>"  alt="<?php echo $this->website->namaweb(); ?>" class="img img-responsive img-thumbnail" style="max-width: 30%; height: auto;"></a>
         <br>
         <h2 style="font-weight: bold; font-size: 18px; margin-top: 20px;"><?php echo $this->website->namaweb() ?></h2>
       </div>
@@ -46,7 +46,7 @@
       echo validation_errors('<p class="alert alert-warning">','</p>');
 
       // Form open 
-      echo form_open(base_url('login'));
+      echo form_open(base_url('loginmember'));
        ?>
 
         <div class="form-group">
@@ -66,6 +66,10 @@
           <!-- /.col -->
           <div class="col-12">
             <button type="submit" class="btn btn-primary btn-block btn-lg">Login</button>
+          </div>
+
+          <div style="margin-top: 10px" class="form-group mx-sm-3 mb-2">
+              <a href="<?php echo base_url('loginadmin'); ?>" class="btn btn-info btn-sm">Login Admin <i class="fa fa-arrow-right"></i> </a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Belum Punya Akun??<a style="margin-left: 10px" href="<?php echo base_url('registrasi'); ?>" class="btn btn-info btn-sm"><i class="fa fa-arrow-user"></i> Daftar Akun</a>
           </div>
           <!-- /.col -->
         </div>

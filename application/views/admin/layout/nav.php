@@ -42,6 +42,16 @@
           </li>
 
           
+            <!-- Administrator Chat -->
+          <li class="nav-item">
+            <a href="https://dashboard.tawk.to/?#/admin/5ec2519d967ae56c521ac87f/overview" class="nav-link">
+              <i class="nav-icon fa fa-envelope"></i>
+              <p>
+                Manage Message
+              </p>
+            </a>
+          </li>
+
           <!-- BERITA DAN INFORMASI -->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -120,26 +130,6 @@
               
             </ul>
           </li>
-
-          
-          <?php if($this->session->userdata('akses_level')=="Admin") { ?>
-          <!-- STAFF -->
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-users"></i>
-              <p>STAFF &amp; TEAM <i class="right fa fa-angle-left"></i></p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item"><a href="<?php echo base_url('admin/staff') ?>" class="nav-link"><i class="fa fa-table nav-icon"></i><p>Data Staff &amp; Team</p></a>
-              </li>
-              <li class="nav-item"><a href="<?php echo base_url('admin/staff/tambah') ?>" class="nav-link"><i class="fa fa-plus nav-icon"></i><p>Tambah Staff &amp; Team</p></a>
-              </li>
-              <li class="nav-item"><a href="<?php echo base_url('admin/bagian') ?>" class="nav-link"><i class="fa fa-tags nav-icon"></i><p>Bagian/Departemen</p></a>
-              </li>
-              
-            </ul>
-          </li> 
-        <?php } ?>
           
           <?php if($this->session->userdata('akses_level')=="Admin") { ?>
           <!-- MENU USER -->
@@ -161,8 +151,6 @@
             <ul class="nav nav-treeview">
               
               <li class="nav-item"><a href="<?php echo base_url('admin/konfigurasi') ?>" class="nav-link"><i class="fa fa-wrench nav-icon"></i><p>Konfigurasi Umum</p></a>
-              </li>
-              <li class="nav-item"><a href="<?php echo base_url('admin/konfigurasi/direktur') ?>" class="nav-link"><i class="fa fa-sitemap nav-icon"></i><p>Update Data Pejabat</p></a>
               </li>
                <li class="nav-item"><a href="<?php echo base_url('admin/konfigurasi/email_setting') ?>" class="nav-link"><i class="fa fa-sitemap nav-icon"></i><p>Email Setting</p></a>
               </li>

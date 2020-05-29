@@ -46,33 +46,44 @@ class Simple_login
 		}else{
 			// Kalau ga ada user yg cocok, suruh login lagi
 			$this->CI->session->set_flashdata('warning', 'Username/password salah');
-			redirect(base_url('login'),'refresh');
+			redirect(base_url('loginadmin'),'refresh');
 		}
 	}
 
 	// Fungsi login
 	//login untuk member user
-	public function login2($username,$password)
+	public function loginmember($username,$password)
 	{
 		// Check user yang login
-		$user_login = $this->CI->user_model->login2($username,$password);
+		$user_login = $this->CI->user_model->loginmember($username,$password);
 		// Kalau ada, maka masuk ke halaman dashboard
 		if($user_login) {
 			$id_user 		= $user_login->id_user;
-			$id_bagian 		= $user_login->id_bagian;
-			$nama_bagian 	= $user_login->nama_bagian;
 			$username 		= $username;
+			$prodi			= $user_login->Prodi;
+			$NIM			= $user_login->NIM;
 			$nama 			= $user_login->nama;
+			$gambar			= $user_login->gambar;
 			$akses_level 	= $user_login->akses_level;
 			// Create session utk login
 			$this->CI->session->set_userdata('id_user',$id_user);
-			$this->CI->session->set_userdata('id_bagian',$id_bagian);
-			$this->CI->session->set_userdata('nama_bagian',$nama_bagian);
+			$this->CI->session->set_userdata('prodi',$prodi);
+			$this->CI->session->set_userdata('nim',$NIM);
 			$this->CI->session->set_userdata('username',$username);
 			$this->CI->session->set_userdata('nama',$nama);
+			$this->CI->session->set_userdata('pp',$gambar);
 			$this->CI->session->set_userdata('akses_level',$akses_level);
 			// Lalu redirect masuk ke halaman dashboard
 			$this->CI->session->set_flashdata('sukses', 'Anda berhasil login');
+			// Periksa user mengakses halaman mana sebelumnya
+			if($this->CI->session->userdata('pengalihan')) {
+				// Jika, ada alihkan
+				$pengalihan = $this->CI->session->userdata('pengalihan');
+				redirect($pengalihan,'refresh');
+			}else{
+				// Jika ga ada, default masuk ke halaman dasbor
+				redirect(base_url(''),'refresh');
+			}
 			// Periksa user mengakses halaman mana sebelumnya
 			
 		}else{
@@ -111,7 +122,7 @@ class Simple_login
 		$this->CI->session->unset_userdata('pengalihan');
 		// Redirect ke halaman login
 		$this->CI->session->set_flashdata('sukses', 'Anda berhasil logout');
-		redirect(base_url('login'),'refresh');
+		redirect(base_url('home'),'refresh');
 	}
 
 	// Fungsi check login: seseorang sudah login atau belum
@@ -122,7 +133,7 @@ class Simple_login
 			$this->CI->session->userdata('akses_level') == "")
 		{
 			$this->CI->session->set_flashdata('warning', 'Anda belum login');
-			redirect(base_url('login'),'refresh');
+			redirect(base_url('loginmember'),'refresh');
 		}
 	}
 
@@ -134,7 +145,7 @@ class Simple_login
 			$this->CI->session->userdata('akses_level') == "")
 		{
 			$this->CI->session->set_flashdata('warning', 'Anda belum login');
-			redirect(base_url('login'),'refresh');
+			redirect(base_url('loginmember'),'refresh');
 		}
 	}
 }

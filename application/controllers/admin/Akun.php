@@ -16,6 +16,12 @@ class Akun extends CI_Controller {
 		$pengalihan 	= $this->session->set_userdata('pengalihan',$url_pengalihan);
 		// Ambil check login dari simple_login
 		$this->simple_login->check_login($pengalihan);
+
+		//Check Hak Akses
+		$akses = $this->session->userdata('akses_level');
+		if($akses != 'Admin'){
+			redirect(base_url('home/oops'));
+		}
 	}
 
 	// Main page akun

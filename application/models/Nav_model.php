@@ -177,6 +177,19 @@ class Nav_model extends CI_Model {
 		return $query->result();
 	}
 
+	//nav diskusi
+	public function nav_diskusi(){
+		$this->db->select('diskusi.*, 
+		users.nama,
+		');
+		$this->db->from('diskusi');
+		$this->db->join('users','users.id_user = diskusi.id_users','LEFT');
+		// End join
+		$this->db->order_by('diskusi.id_diskusi','DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
 	// Listing data
 	public function nav_kategori_statistik() {
 		$this->db->select('kategori_statistik.*, 

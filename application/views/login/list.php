@@ -46,7 +46,7 @@
       echo validation_errors('<p class="alert alert-warning">','</p>');
 
       // Form open 
-      echo form_open(base_url('login'));
+      echo form_open(base_url('loginadmin'));
        ?>
 
         <div class="form-group">
@@ -66,6 +66,9 @@
           <!-- /.col -->
           <div class="col-12">
             <button type="submit" class="btn btn-primary btn-block btn-lg">Login</button>
+          </div>
+          <div style="margin-top: 10px" class="col-4">
+              <a href="<?php echo base_url('loginmember') ?>" class="btn btn-info btn-sm">Login Member <i class="fa fa-arrow-right"></i></a>
           </div>
           <!-- /.col -->
         </div>

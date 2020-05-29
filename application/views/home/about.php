@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="about-greenforest-content">
-                            <h2><?php echo $profil->judul_berita ?></h2>
+                            <h2><?php echo $profil->judul_berita ?> <a href="javascript:void(0)"><i data-toggle="modal" data-target="#exampleModalLong" class="fa fa-bell alert alert-info" aria-hidden="true"></i></a></h2>
                             <?php echo $profil->isi ?>
                         </div>
                         <!-- .about-greenforest-content -->

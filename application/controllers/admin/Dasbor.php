@@ -11,22 +11,22 @@ class Dasbor extends CI_Controller {
 		$pengalihan 	= $this->session->set_userdata('pengalihan',$url_pengalihan);
 		// Ambil check login dari simple_login
 		$this->simple_login->check_login($pengalihan);
-		$this->load->model('client_model');
 		$this->load->model('staff_model');
 		$this->load->model('client_model');
-		$this->load->model('staff_model');
 		$this->load->model('dasbor_model');
+
+		//Check Hak Akses
+		$akses = $this->session->userdata('akses_level');
+		if($akses != 'Admin'){
+			redirect(base_url('home/oops'));
+		}
 	}
 
 	// Halaman dasbor
 	public function index()
 	{
-		$client 				= $this->client_model->listing();
-		$staff 					= $this->staff_model->listing();
 
 		$data = array(	'title'					=> 'Halaman Dasbor',
-						'client'				=> $client,
-						'staff'					=> $staff,
 						'isi'					=> 'admin/dasbor/list'
 					);
 		$this->load->view('admin/layout/wrapper', $data, FALSE);

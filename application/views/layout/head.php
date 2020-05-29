@@ -14,6 +14,8 @@ $site_info = $this->konfigurasi_model->listing();
 <link rel="shortcut icon" href="<?php echo $this->website->icon(); ?>">
 <!--[if IE]> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
 <!-- Plugin css -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/tema/assets/css/font-awesome.min.css" media="all" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/tema/assets/fonts/flaticon.css" media="all" />
@@ -37,6 +39,14 @@ $site_info = $this->konfigurasi_model->listing();
   		margin-bottom: 15px;
   	}
   </style>
+
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- TINYMCE -->
+  <script src="<?php echo base_url() ?>assets/tinymce/js/tinymce/tinymce.min.js"></script>
+  
 </head>
 
 <body>

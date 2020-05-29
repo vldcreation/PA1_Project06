@@ -1,5 +1,4 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Member_model extends CI_Model {
 
@@ -10,15 +9,17 @@ class Member_model extends CI_Model {
 		$this->load->database();
 	}
 
+	// Tambah
+	public function tambah($data)
+	{
+		$this->db->insert('members', $data);
+	}
+
 	// Listing
 	public function listing()
 	{
-		$this->db->select('members.*,
-							bagian.nama_bagian');
+		$this->db->select('members.*');
 		$this->db->from('members');
-		// join
-		$this->db->join('bagian', 'bagian.id_bagian = members.id_bagian', 'left');
-		// End join
 		$this->db->order_by('members.id_user', 'desc');
 		$query = $this->db->get();
 		return $query->result();
@@ -36,15 +37,11 @@ class Member_model extends CI_Model {
 	// Login
 	public function login($username,$password)
 	{
-		$this->db->select('members.*,
-							bagian.nama_bagian');
+		$this->db->select('members.*');
 		$this->db->from('members');
-		// join
-		$this->db->join('bagian', 'bagian.id_bagian = members.id_bagian', 'left');
-		// End join
 		// where
 		$this->db->where(array(	'username'	=> $username,
-								'password'	=> sha1($password)
+								'password'	=> sha1($password),
 							));
 		$this->db->order_by('members.id_user', 'desc');
 		$query = $this->db->get();
@@ -54,12 +51,8 @@ class Member_model extends CI_Model {
 	// Detail
 	public function detail($id_user)
 	{
-		$this->db->select('members.*,
-							bagian.nama_bagian');
+		$this->db->select('members.*');
 		$this->db->from('members');
-		// join
-		$this->db->join('bagian', 'bagian.id_bagian = members.id_bagian', 'left');
-		// End join
 		// where
 		$this->db->where('members.id_user', $id_user);
 		$this->db->order_by('members.id_user', 'desc');
@@ -67,11 +60,7 @@ class Member_model extends CI_Model {
 		return $query->row();
 	}
 
-	// Tambah
-	public function tambah($data)
-	{
-		$this->db->insert('members', $data);
-	}
+	
 
 	// Edit
 	public function edit($data)

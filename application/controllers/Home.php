@@ -18,7 +18,6 @@ class Home extends CI_Controller {
 		// $pengalihan 	= $this->session->set_userdata('pengalihan',$url_pengalihan);
 		// // Ambil check login dari simple_login
 		// $this->simple_login->check_login($pengalihan);
-		$this->load->model('konfigurasi_model');
 		$this->load->model('berita_model');
 		$this->load->model('galeri_model');
 		$this->load->model('video_model');
@@ -95,7 +94,7 @@ class Home extends CI_Controller {
 	}
 
 	// Oops
-	public function oops()
+	public function wkwkwk()
 	{
 		$site 			= $this->konfigurasi_model->listing();
 
@@ -105,7 +104,7 @@ class Home extends CI_Controller {
 						'site'				=> $site,
 						'isi'				=> 'home/oops'
 			);
-		$this->load->view('layout/wrapper', $data);
+		$this->load->view('home/oops');
 	}
 }
 

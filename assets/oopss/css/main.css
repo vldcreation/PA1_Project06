@@ -1,0 +1,216 @@
+/*------------------------------------------------------------------
+[Theme-1 Stylesheet]
+
+Project:	Travel Error Page
+Version:	0.0
+-------------------------------------------------------------------*/
+
+/*
+-> GENERAL CSS 					: css for reset default style and general page style.;
+-> CONTENT 						: css for main content wrappers of page.;
+-> MESSAGE / .message			: css for page message;
+-> NAVIGATION / .nav-wrapper 	: css for navigation of the page;
+-> SOCIAL LINKS / .social-links : css for social link area;
+-> HOVER EFFECTS 				: css for hover effects of the page;
+-> CAR MESSAGE / .msg 			: css for yellow car message;
+*/
+
+/*====================*/
+
+/* GENERAL CSS */
+*{
+	margin: 0px;
+	padding: 0px;
+	-webkit-box-sizing: border-box; 
+     -moz-box-sizing: border-box; 
+          box-sizing: border-box;
+}
+body{
+	color: #fff;
+	font-family: 'Signika', sans-serif;
+}
+
+/* CONTENT */
+.main-wrapper{
+	position: relative;
+	top: 0px;
+	left: 0px;
+}
+.main-wrapper > .container{
+	padding-top: 50px; 
+	/* width: 600px; */
+	margin: auto;
+	text-align: center;
+}
+.outer-wrapper{
+	font-family: 'Leckerli One', cursive;
+	font-weight: normal;
+	margin-bottom: 29px;
+	font-size: 100px;
+	line-height: 1.2;
+	text-align: center;
+	border-radius: 50px;
+	padding: 20px 0 30px 0;
+	background-color: rgba(78, 180, 219, 0.33);
+	box-shadow: 0 10px 0px 0 rgba(78, 180, 219, 0.6);
+	width: 600px;
+	margin: 0 auto 50px auto;
+}
+.outer-wrapper span{
+	font-family: 'Signika', sans-serif;
+	font-size: 30px;
+	display: block;
+	font-weight: 600;
+}
+
+/* MESSAGE */
+.message{
+	text-align: center;
+	margin-bottom: 30px;
+	font-size: 18px;
+	padding: 0 20px;
+}
+
+/* NAVIGATION */
+.nav-wrapper{
+	display: table;
+	margin: 0 auto 30px auto;
+	width: 600px;
+	/* border: 2px solid #fff; */
+	border-radius: 40px;
+	background-color: rgba(78, 180, 219, 0.5);
+	box-shadow: 0 1px 0px 1px rgba(78, 180, 219, 0.6);
+}
+.nav-wrapper a{
+	display: table-cell;
+	font-size: 18px;
+	color: #fff;
+	padding: 11px 0 10px 0;
+	text-decoration: none;
+	text-align: center;
+	border-right: 1px solid rgba(78, 180, 219, 0.8);
+	width: 25%;
+	vertical-align: middle;
+}
+.nav-wrapper a:last-child{
+	border-right: none;
+}
+.nav-wrapper a:first-child{
+	border-radius: 40px 0 0 40px;
+}
+.nav-wrapper a:last-child {
+	border-radius: 0 40px 40px 0;	
+}
+
+.nav-wrapper a:hover{
+	background: #fff;
+	color: #000;
+}
+
+/* SOCIAL LINKS */
+.social-links{
+	width: 100%;
+	text-align: center;
+	margin-bottom: 15px;
+	clear: both;
+}
+.social-links a{
+	width: 40px;
+	height: 40px;
+	background: rgba(78, 180, 219, 0.5);
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	color: #fff;
+	font-size: 19px;
+	margin: 1px;
+	padding: 9px 0 0 0;
+	border-radius: 20px;
+	box-shadow: 0 1px 0px 1px rgba(78, 180, 219, 0.7);
+}
+p.copyrights{
+	font-size: 12px;
+	text-align: center;
+	font-family: arial;
+}
+
+/* HOVER EFFECTS */
+.nav-wrapper a:hover,.search-box .btn:hover,.social-links a:hover{
+	background: #fff;
+	color: rgb(78, 180, 219);
+}
+
+/* CAR MESSAGE */
+.msg b { 
+	font-weight: 600; 
+	color: #7ac8e4; 
+	font-size: 18px;
+	top: 34px;
+	padding: 0 30px;
+}
+.msg b span { 
+	font-weight: 700; 
+	font-size: 30px;
+	line-height: 1.1;
+	text-transform: uppercase;
+}
+
+
+/* MEDIA QUARIES */
+
+/*===========================================*/
+/*	DESKTOP LAYOUT 
+/*===========================================*/
+@media only screen and (min-width: 1200px) {
+
+}
+@media only screen and (min-width: 980px) {
+
+}
+@media only screen and (min-width: 980px) and (max-width: 1199px) {
+
+}
+
+/*===========================================*/
+/*	TABLET LAYOUT 
+/*===========================================*/
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+	.nav-wrapper,.outer-wrapper { width: 50%; }
+}
+
+/*===========================================*/
+/*	MOBILE LAYOUT 
+/*===========================================*/
+@media only screen and (min-width: 200px) and (max-width: 767px) {
+	.nav-wrapper,.outer-wrapper { width: 80%; }
+	.main-wrapper > .container{ padding-top: 20px; padding-bottom: 20px; }
+
+	.outer-wrapper{	font-size: 70px; padding: 18px 0px 20px 0px; border-radius: 20px; }
+	.outer-wrapper span{ font-size: 20px; margin-bottom: 0px;}
+	.nav-wrapper{ display: block; }
+	.nav-wrapper a{ display: block; width: 100%; }
+}
+@media only screen and (min-width: 200px) and (max-width: 419px) {
+	
+	.nav-wrapper a{ padding: 5px; }
+	
+	.nav-wrapper{ border-radius: 10px; }
+	.nav-wrapper a{ border-bottom: 1px solid rgba(78, 180, 219, 0.8); }
+	.nav-wrapper a:first-child{	border-radius: 8px 8px 0 0; }
+	.nav-wrapper a:last-child { border-radius: 0 0 8px 8px; }
+}
+@media only screen and (min-width: 420px) and (max-width: 599px) {
+	/* .nav-wrapper,.main-wrapper { width: 350px; } */
+
+	.nav-wrapper{ display: block; }
+	.nav-wrapper a{ display: block; width: 100%; }
+	.nav-wrapper{ border-radius: 10px; }
+	.nav-wrapper a{ border-bottom: 1px solid rgba(78, 180, 219, 0.8); }
+	.nav-wrapper a:first-child{	border-radius: 8px 8px 0 0; }
+	.nav-wrapper a:last-child { border-radius: 0 0 8px 8px; }
+}
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+	/* .nav-wrapper,.main-wrapper { width: 650px; } */
+	.nav-wrapper{ display: table; }
+	.nav-wrapper a{ display: table-cell; width: 25%; }
+}

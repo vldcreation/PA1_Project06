@@ -18,6 +18,12 @@ class Berita extends CI_Controller {
 		// Ambil check login dari simple_login
 		$this->simple_login->check_login($pengalihan);
 
+		//Check Hak Akses
+		$akses = $this->session->userdata('akses_level');
+		if($akses != 'Admin'){
+			redirect(base_url('home/oops'));
+		}
+
 	}
 
 	// Halaman berita
