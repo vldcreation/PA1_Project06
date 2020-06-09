@@ -46,7 +46,16 @@ h4.judul {
 
 <div class="container">
 <div class="row">
-
+<style>
+h1{
+	font-size: 40px;
+	font-weight:bold;
+	margin: 0;
+	color : black;
+	text-align: left;
+	text-transform: uppercase;
+}
+</style>
 	  <?php foreach($agenda as $agenda) { ?>
 	  <div class="col-md-4 rel text-center">
           <div class="agendaku">

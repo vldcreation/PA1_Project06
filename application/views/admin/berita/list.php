@@ -7,11 +7,11 @@ echo form_open(base_url('admin/berita/proses'));
   <i class="fa fa-plus"></i> Tambah Berita/Profil</a>
 
   <button class="btn btn-warning" type="submit" name="draft" onClick="check();" >
-      <i class="fa fa-times"></i> Jangan Publikasikan
+      <i class="fa fa-times"></i> Simpan Draft
   </button>
 
    <button class="btn btn-primary" type="submit" name="publish" onClick="check();" >
-      <i class="fa fa-check"></i> Publikasikan
+      <i class="fa fa-check"></i> Terbitkan
   </button>
 
   <button class="btn btn-danger" type="submit" name="hapus" onClick="check();" >
@@ -76,6 +76,8 @@ if($this->uri->segment(3) != "") {
         <br>Urutan: <?php echo $berita->urutan ?>
         <br>Icon: <i class="<?php echo $berita->icon ?>"></i> <?php echo $berita->icon ?>
         <br>Tgl posting: <?php echo date('d-m-Y',strtotime($berita->tanggal_publish)) ?>
+        <br>Isi Berita:
+        <br><textarea name="" id="" cols="30" rows="10" readonly disabled><?php echo character_limiter(strip_tags($berita->isi)); ?></textarea>
       </small>
     </td>
     <td>

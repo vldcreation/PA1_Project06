@@ -21,4 +21,11 @@ class Info_model extends CI_Model{
         $this->db->where('id_user',$data['id_user']);
         $this->db->update('members',$data);
     }
+
+    public function get_one($useraktif){
+        $this->db->select('*');
+        $this->db->from('members');
+        $this->db->where(('nama') , $useraktif);
+        return $this->db->get()->result();
+    }
 }

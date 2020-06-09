@@ -6,6 +6,8 @@ $nav_download               = $this->nav_model->nav_download();
 $nav_berita                 = $this->nav_model->nav_berita();
 $nav_agenda                 = $this->nav_model->nav_agenda();
 $nav_layanan                = $this->nav_model->nav_layanan();
+//set
+$status = $this->session;
 ?>
 <!-- Start Menu -->
 <div class="bg-main-menu menu-scroll">
@@ -33,7 +35,7 @@ $nav_layanan                = $this->nav_model->nav_layanan();
             <!-- berita -->
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-newspaper-o"></i> NEWS <span class="caret"></span></a>
+                <i class="fa fa-newspaper-o"></i> Berita <span class="caret"></span></a>
                 <ul class="dropdown-menu sub-menu">
                     <?php foreach($nav_berita as $nav_berita) { ?>
                     <li class="sub-active"><a href="<?php echo base_url('news/kategori/'.$nav_berita->slug_kategori) ?>"><i class="fa fa-angle-double-right" aria-hidden="true"></i> <?php echo $nav_berita->nama_kategori ?></a></li>
@@ -41,17 +43,25 @@ $nav_layanan                = $this->nav_model->nav_layanan();
                     <li class="sub-active"><a href="<?php echo base_url('news') ?>"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Indeks Berita</a></li>                   
                 </ul>
             </li>
+            
+            <?php if($status->userdata('akses_level') != '') {?>
+            
+            <!-- Layout Timeline untuk User -->
+            <li><a href="<?php echo base_url('agenda') ?>"><i class="fa fa-calendar"></i>Agenda</a></li>
+            
+            <?php } else { ?>
 
-            <!-- LAYANAN -->
+            <!-- Layout Timeline untuk guest -->
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-calendar"></i>TIMELINE<span class="caret"></span></a>
+                <i class="fa fa-calendar"></i>Linimasa<span class="caret"></span></a>
                 <ul class="dropdown-menu sub-menu">
                     <?php foreach($nav_layanan as $nav_layanan) { ?>
                     <li class="sub-active"><a href="<?php echo base_url('news/timeline/'.$nav_layanan->slug_berita) ?>"><i class="fa fa-angle-double-right" aria-hidden="true"></i> <?php echo $nav_layanan->judul_berita ?></a></li>
                     <?php } ?> 
                 </ul>
             </li>
+                    <?php } ?>
 
             <!-- PROFIL -->
             <li class="dropdown">
@@ -78,43 +88,28 @@ $nav_layanan                = $this->nav_model->nav_layanan();
             <!-- DOWNLOAD -->
             <li><a href="<?php echo base_url('download') ?>"><i class="fa fa-download"></i>UNDUHAN</a></li>
             
-            <!-- kontak  -->
-            <li><a href="<?php echo base_url('kontak') ?>">KONTAK</a></li>
-            <?php if(!$this->session->userdata("akses_level")== "")  {
+            <!-- User Logged in -->
+            <?php if($this->session->userdata("masuk")== TRUE)  {
                 if($this->session->userdata("akses_level")== "Admin"){
                 ?>
-                <li><a class="nav-link" href="<?php echo base_url('admin/dasbor') ?>">
-                <i class="fa fa-home"></i>Dashboard
+                <li title="Forum Diskusi"><a class="nav-link" href="<?php echo base_url('diskusi') ?>">
+                <i class="fa fa-home"></i>Forum
                 </a></li>
-                <li class="nav-item text-success text-strong">
-                <a class="nav-link" href="<?php echo base_url('admin/akun') ?>">
-                <i class="fa fa-user"></i> <?php echo $this->session->userdata('nama'); ?>
-                </a>
-                </li>
                 <?php } ?>
                 <?php
                 if($this->session->userdata("akses_level")== "User"){
                 ?>
                 <li class="nav-item text-success text-strong">
                 <a class="nav-link" href="<?php echo base_url('diskusi') ?>">
-                <i class="fa fa-home"></i>Diskusi
-                </a>
-                </li>
-                <li class="nav-item text-success text-strong">
-                <a class="nav-link" href="<?php echo base_url('info/member') ?>">
-                <i class="fa fa-user"></i> <?php echo $this->session->userdata('nama'); ?>
+                <i class="fa fa-home"></i>Forum
                 </a>
                 </li>
                 <?php } ?>
                 
-                <li><a class="nav-link" href="<?php echo base_url('loginmember/logout') ?>">
-          <i class="fa fa-sign-out"></i> Keluar
-        </a></>
-            <?php }else { ?>
-            <li><a class="nav-link" href="<?php echo base_url('loginmember') ?>">
-          <i class="fa fa-sign-in"></i> Login
-        </a></li>
+                
             <?php } ?>
+            <!-- kontak  -->
+            <li ><a href="<?php echo base_url('kontak') ?>">KONTAK</a></li>
         </ul>
         <div class="menu-right-option pull-right">
             
@@ -124,8 +119,8 @@ $nav_layanan                = $this->nav_model->nav_layanan();
                 <i class="fa fa-times second_click" aria-hidden="true" style="display: none;"></i>
             </div>
             <div class="search-box-text">
-                <form action="Berita">
-                    <input type="text" name="search" id="all-search" placeholder="Search Here" autocomplete="OFF" autofocus>
+                <form action="<?php echo base_url('news/search'); ?>">
+                    <input type="text" name="s" id="all-search" placeholder="Search Here" autocomplete="OFF" autofocus>
                 </form>
             </div>
         </div>

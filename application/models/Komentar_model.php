@@ -1,10 +1,14 @@
 <?php
-
+defined('BASEPATH') OR exit('No direct script access allowed');
 class Komentar_model extends CI_Model{
 public function __construct(){
      parent::__construct();
      $this->load->database();
  }
+
+ public function tambah($data){
+    $this->db->insert('komentar',$data);
+}
 
  public function total() {
     $this->db->select('komentar.*, users.nama');
@@ -42,7 +46,8 @@ public function komentar($limit,$start) {
     return $query->result();
 }
 
-public function mytopik(){
+//list data berdasarkan nama penulis
+public function mytopik($useraktif_nama){
     $this->db->select('diskusi.*, 
     users.nama,
     ');
@@ -62,7 +67,7 @@ public function listing($id_diskusi){
     // Join dg 2 tabel
     $this->db->join('diskusi','diskusi.id_diskusi = '.$id_diskusi,'LEFT');
     // End join
-    $this->db->order_by('komentar.id_post','DESC');
+    $this->db->order_by('komentar.id_komentar','ASC');
     $query = $this->db->get();
     return $query->result();
 

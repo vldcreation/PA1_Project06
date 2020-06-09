@@ -30,7 +30,7 @@
                 <h3><a href="<?php echo base_url('diskusi/read/' . $diskusi->slug_diskusi); ?>"><?php echo $diskusi->judul_diskusi; ?></a></h3>
                 <ul class="meta-post">
                     <li><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo date('H:i', strtotime($diskusi->tanggal_diskusi)); ?></li>
-                    <li><i class="fa fa-user"></i> <?php echo $diskusi->penulis_diskusi; ?></li>
+                    <li> <a href="<?php if($diskusi->id_users != 1) { echo base_url('info/member/detail_other/'.md5(url_title($diskusi->penulis_diskusi,'dash',TRUE))); } ?> "><i class="fa fa-user"></i> <?php echo $diskusi->penulis_diskusi; ?></a></li>
                     <li><i class="fa fa-comments-o" arial-hidden="true"></i> <?php echo $diskusi->jlh_komentar; ?></li>
                 </ul>
                 </div>

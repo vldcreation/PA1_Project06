@@ -35,11 +35,6 @@ echo form_open(base_url('admin/bagian/edit/'.$bagian->id_bagian));
 		</div>
 
 		<div class="form-group">
-			<label>Wilayah yang dibawahi</label>
-			<textarea name="wilayah" class="form-control" placeholder="Wilayah"><?php echo $bagian->wilayah ?></textarea>
-		</div>
-
-		<div class="form-group">
 			<div class="btn-group">
 				<button class="btn btn-success btn-lg" name="submit" type="submit">
 					<i class="fa fa-save"></i> Simpan

@@ -10,11 +10,22 @@ class Bagian_model extends CI_Model {
 		$this->load->database();
 	}
 
-	// Listing
+	// Listing All
 	public function listing()
 	{
 		$this->db->select('*');
 		$this->db->from('bagian');
+		$this->db->order_by('id_bagian', 'desc');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	// Listing bagian aktif
+	public function listaktif()
+	{
+		$this->db->select('*');
+		$this->db->from('bagian');
+		$this->db->where(('status_bagian'),'aktif');
 		$this->db->order_by('id_bagian', 'desc');
 		$query = $this->db->get();
 		return $query->result();

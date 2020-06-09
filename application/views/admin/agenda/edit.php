@@ -1,4 +1,4 @@
-<script src="http://localhost/bimaui/assets/ckeditor/ckeditor.js"></script>
+
 
 </script>
 	<script>
@@ -44,8 +44,16 @@
           </select></td>
         </tr>
         <tr valign="baseline">
-          <td nowrap align="right">Panitia pelaksana</td>
-          <td><input type="text" class="form-control" name="panitia" value="<?php echo $agenda['panitia'] ?>" size="40"></td>
+          <td align="right" nowrap>Penannggung Jawab (PIC)</td>
+          <td><select required name="panitia" class="form-control">
+            <option value="NULL">--Pilih Penanggung Jawab--</option>
+            <?php foreach($user as $user) { ?>
+            <option value="<?php echo $user->nama ?>" <?php if($agenda['nama'] != "NULL") echo "selected"; ?>>
+              <?php echo $user->nama ?>
+            </option>
+            <?php } ?>
+          </select>
+            </td>
         </tr>
         <tr valign="baseline">
           <td nowrap align="right">Tempat pelaksanaan</td>

@@ -24,17 +24,6 @@ echo form_open(base_url('admin/user/tambah'));
 			<input type="password" name="password" class="form-control form-control-lg" value="<?php echo set_value('password') ?>" placeholder="Password" required>
 		</div>
 	</div>
-	
-	<div class="col-md-3">
-		<div class="form-group">
-			<label>Level Hak Akses <span class="text-danger">*</span></label>
-			<select name="akses_level" class="form-control">
-				<option value="User">User</option>
-				<option value="Admin">Admin</option>
-				<option value="Direktur">Direktur</option>
-			</select>
-		</div>
-	</div>
 
 	<div class="col-md-3">
 		<div class="form-group">
@@ -54,6 +43,16 @@ echo form_open(base_url('admin/user/tambah'));
 		<div class="form-group">
 			<label>Email <span class="text-danger">*</span></label>
 			<input type="email" name="email" class="form-control" value="<?php echo set_value('email') ?>" placeholder="Email" required>
+		</div>
+	</div>
+
+	<div class="col-md-3">
+		<div class="form-group">
+			<label>ALL AKSES <span class="text-danger">*</span></label>
+			<select name="all_akses" class="form-control">
+					<option value="1">TRUE</option>
+					<option value="0" selected>FALSE</option>
+			</select>
 		</div>
 	</div>
 

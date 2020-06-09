@@ -6,9 +6,10 @@
                 <div class="row">
                     <div class="recent-project photo-gallery">
                         <div id="filters" class="button-group ">
+                            <a href="<?php echo base_url('galeri/all'); ?>" class="btn btn-info btn-sm">Show All</a>
                             <button class="button is-checked" data-filter="*">show all</button>
                             <?php if(count($kategori)>1) { foreach($kategori as $kategori) { ?>
-                            <button class="button" data-filter=".<?php echo $kategori->slug_kategori_galeri ?>"><?php echo $kategori->nama_kategori_galeri ?></button>
+                            <button class="button" data-filter=".<?php echo $kategori->slug_kategori ?>"><?php echo $kategori->nama_kategori ?></button>
                             <?php }} ?>
                         </div>
                         <div class="portfolio-items portfolio-items-home3">

@@ -149,10 +149,10 @@ swal({
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.0.0-alpha
+      <b>Version</b> 1.0.0-beta
     </div>
-    <strong>Copyright &copy; 2014-2018 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
-    reserved.
+    <strong>Theme By &copy; 2014-2018 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> <strong> Copy Right By &copy; <?php echo date('Y'); ?> 
+    <a href="http://delcloudclub.epizy.com"> <i class="fa fa-cloud"></i> DelCloudClub</a> All rights reserved.</strong>
   </footer>
 
   <!-- Control Sidebar -->

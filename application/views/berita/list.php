@@ -7,19 +7,19 @@
                                 <?php foreach($berita as $berita) { ?>
                                 <div class="blog-items">
                                     <div class="blog-img" style="width:770px;height:370px;">
-                                        <a href="<?php echo base_url('berita/read/' . $berita->slug_berita); ?>"><img src="<?php echo base_url('assets/upload/image/'.$berita->gambar) ?>" alt="blog-img-10" class="img-responsive" /></a>
+                                        <a href="<?php echo base_url('news/read/' . $berita->slug_berita); ?>"><img src="<?php echo base_url('assets/upload/image/'.$berita->gambar) ?>" alt="blog-img-10" class="img-responsive" /></a>
                                     </div>
                                     <!-- .blog-img -->
                                     <div class="blog-content-box">
                                         <div class="blog-content">
-                                            <h4><a href="<?php echo base_url('berita/read/' . $berita->slug_berita); ?>"><?php echo $berita->judul_berita; ?></a></h4>
+                                            <h4><a href="<?php echo base_url('news/read/' . $berita->slug_berita); ?>"><?php echo $berita->judul_berita; ?></a></h4>
                                             <ul class="meta-post">
                                                 <li><i class="fa fa-calendar" aria-hidden="true"></i> <?php echo date('d M Y', strtotime($berita->tanggal_publish)); ?></li>
                                                 <li><i class="fa fa-user"></i> <?php echo $berita->nama; ?></li>
                                                 <!-- <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i> <?php echo $berita->hits; ?> Viewer</a></li> -->
                                             </ul>
                                             <p class="text-justify"><?php echo character_limiter(strip_tags($berita->isi), 200); ?></p>
-                                            <a href="<?php echo base_url('berita/read/' . $berita->slug_berita); ?>"><i class="fa fa-chevron-right"></i> Selengkapnya</a>
+                                            <a href="<?php echo base_url('news/read/' . $berita->slug_berita); ?>"><i class="fa fa-chevron-right"></i> Selengkapnya</a>
                                         </div>
                                         <!-- .blog-content -->
                                     </div>
@@ -28,7 +28,13 @@
                                 <?php } ?>
                                 <div class="pagination-option">
                                     <nav aria-label="Page navigation">
-                                        <?php if(isset($pagin)) { echo $pagin; }  ?>
+                                        <?php if(isset($pagin)) { echo $pagin; } else {?>
+
+                                            <div class="alert alert-warning">
+                                                Data Tidak Ditemukan
+                                            </div>
+
+                                        <?php } ?>
                                         <!-- <ul class="pagination">
                                             <li>
                                                 <a href="#" aria-label="Previous">
@@ -64,7 +70,7 @@
                                                         </div>
                                                         <!-- .popular-news-img -->
                                                         <div class="popular-news-contant">
-                                                            <h5><a href="<?php echo base_url('berita/read/' . $populer->slug_berita); ?>"><?php echo $populer->judul_berita; ?></a></h5>
+                                                            <h5><a href="<?php echo base_url('news/read/' . $populer->slug_berita); ?>"><?php echo $populer->judul_berita; ?></a></h5>
                                                             <p>
                                                                 <i class="fa fa-calendar"></i> <?php echo date('d M Y', strtotime($populer->tanggal_publish)); ?> <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> <?php echo $populer->hits; ?> Viewer</a>
                                                             </p>

@@ -60,28 +60,28 @@ $site = $this->konfigurasi_model->listing();
 <div class="box-content">
 <ul class="box-pattern-img">
 <li>
-    <a class="pt-1" href="#"><img src="../../../../www.codexcoder.com/images/auror/pt-image/01.png"" alt=""></a>
+    <a class="pt-1" href="#"><img src="../../../../www.codexcoder.com/images/auror/pt-image/01.png" alt=""></a>
 </li>
 <li>
-    <a class="pt-2" href="#"><img src="../../../../www.codexcoder.com/images/auror/pt-image/02.png"" alt=""></a>
+    <a class="pt-2" href="#"><img src="../../../../www.codexcoder.com/images/auror/pt-image/02.png" alt=""></a>
 </li>
 <li>
-    <a class="pt-3" href="#"><img src="../../../../www.codexcoder.com/images/auror/pt-image/03.png"" alt=""></a>
+    <a class="pt-3" href="#"><img src="../../../../www.codexcoder.com/images/auror/pt-image/03.png" alt=""></a>
 </li>
 <li>
-    <a class="pt-4" href="#"><img src="../../../../www.codexcoder.com/images/auror/pt-image/04.png"" alt=""></a>
+    <a class="pt-4" href="#"><img src="../../../../www.codexcoder.com/images/auror/pt-image/04.png" alt=""></a>
 </li>
 <li>
-    <a class="pt-5" href="#"><img src="../../../../www.codexcoder.com/images/auror/pt-image/05.png"" alt=""></a>
+    <a class="pt-5" href="#"><img src="../../../../www.codexcoder.com/images/auror/pt-image/05.png" alt=""></a>
 </li>
 <li>
-    <a class="pt-6" href="#"><img src="../../../../www.codexcoder.com/images/auror/pt-image/06.png"" alt=""></a>
+    <a class="pt-6" href="#"><img src="../../../../www.codexcoder.com/images/auror/pt-image/06.png" alt=""></a>
 </li>
 <li>
-    <a class="pt-7" href="#"><img src="../../../../www.codexcoder.com/images/auror/pt-image/07.png"" alt=""></a>
+    <a class="pt-7" href="#"><img src="../../../../www.codexcoder.com/images/auror/pt-image/07.png" alt=""></a>
 </li>
 <li>
-    <a class="pt-8" href="#"><img src="../../../../www.codexcoder.com/images/auror/pt-image/08.png"" alt=""></a>
+    <a class="pt-8" href="#"><img src="../../../../www.codexcoder.com/images/auror/pt-image/08.png" alt=""></a>
 </li>
 </ul>
 </div>
@@ -104,12 +104,12 @@ $site = $this->konfigurasi_model->listing();
 </div>
 <div class="box-layout"> -->
 <!-- Pre Loader 2 -->
-<div id="loader-wrapper">
+<!-- <div id="loader-wrapper">
 <h2 class="loadertext">Loading...</h2>
 <div id="loader"></div>
 <div class="loader-section section-left"></div>
 <div class="loader-section section-right"></div>
-</div>
+</div> -->
 
 <!-- End Pre-Loader -->
 
@@ -119,10 +119,47 @@ $site = $this->konfigurasi_model->listing();
 <div class="row">
 <div class="header-top">
     <ul class="h-contact">
-        <li><i class="fa fa-map"></i> <?php echo $site->namaweb ?></li>
+        <li><i class="fa fa-cloud"></i> <?php echo $site->namaweb ?></li>
     </ul>
+
+    
+
+    <!-- User Logged in -->
+    <?php if(!$this->session->userdata("akses_level")== "")  { ?>
+        <!--  If logged in -->
+        <div class="donate-option"><a class="nav-link" href="<?php echo base_url('loginmember/logout') ?>">
+    <i class="fa fa-sign-out"></i> Keluar
+    </a></div>
+                <?php
+                if($this->session->userdata("akses_level")== "Admin"){
+                ?>
+                
+                <div class="donate-option">
+                <a class="nav-link" href="<?php echo base_url('admin/akun') ?>">
+                <i class="fa fa-user"></i> <?php echo $this->session->userdata('nama'); ?>
+                </a>
+                </div>
+                <?php } ?>
+                <?php
+                if($this->session->userdata("akses_level")== "User"){
+                ?>
+                <div class="donate-option">
+                <a class="nav-link" href="<?php echo base_url('info/member') ?>">
+                <i class="fa fa-user"></i> <?php echo $this->session->userdata('nama'); ?>
+                </a>
+                </div>
+                <?php } ?>
+                
+            <?php }else { ?>
+            <div class="donate-option"><a class="nav-link" href="<?php echo base_url('loginmember') ?>">
+          <i class="fa fa-sign-in"></i> Masuk
+        </a></div>
+            <?php } ?>
     <div class="donate-option">
             <a href="<?php echo base_url('kontak') ?>"><i class="fa fa-envelope" aria-hidden="true"></i> Kontak</a>
+    </div>
+    <div class="donate-option">
+            <a href="https://wa.me/<?= $site->hp ?>"><i class="fa fa-phone" aria-hidden="true"></i> <?= $site->hp; ?></a>
     </div>
     <!-- .donate-option -->
 </div>

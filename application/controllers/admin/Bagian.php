@@ -65,7 +65,6 @@ class Bagian extends CI_Controller {
 							'nama_bagian'		=> $inp->post('nama_bagian'),
 							'status_bagian'	=> $inp->post('status_bagian'),
 							'keterangan'	=> $inp->post('keterangan'),
-							'wilayah'		=> $inp->post('wilayah'),
 							'tanggal_post'	=> date('Y-m-d H:i:s')
 						);
 			$this->bagian_model->tambah($data);
@@ -108,7 +107,6 @@ class Bagian extends CI_Controller {
 							'nama_bagian'		=> $inp->post('nama_bagian'),
 							'status_bagian'	=> $inp->post('status_bagian'),
 							'keterangan'	=> $inp->post('keterangan'),
-							'wilayah'		=> $inp->post('wilayah'),
 						);
 			$this->bagian_model->edit($data);
 			$this->session->set_flashdata('sukses', 'Data telah diupdate');

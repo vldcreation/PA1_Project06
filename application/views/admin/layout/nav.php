@@ -21,7 +21,11 @@
           echo $this->website->icon(); }else{ echo base_url('assets/upload/user/thumbs/'.$user_aktif->gambar); } ?>" class="img-circle elevation-2" alt="<?php echo $this->session->userdata('nama'); ?>">
         </div>
         <div class="info">
-          <a href="<?php echo base_url('admin/akun') ?>" class="d-block"><?php echo $this->session->userdata('nama'); ?> (<?php echo $this->session->userdata('akses_level'); ?>)
+          <a href="<?php echo base_url('admin/akun') ?>" class="d-block"><?php echo $this->session->userdata('nama'); ?> 
+          (<?php if($this->session->userdata('all_akses')==1) echo 'Super Admin'; 
+          else
+           echo $this->session->userdata('akses_level');
+          ?>)
           </a>
         </div>
       </div>
@@ -36,7 +40,7 @@
             <a href="<?php echo base_url('admin/dasbor') ?>" class="nav-link">
               <i class="nav-icon fa fa-dashboard"></i>
               <p>
-                DASHBOARD
+                Dasbor
               </p>
             </a>
           </li>
@@ -47,7 +51,7 @@
             <a href="https://dashboard.tawk.to/?#/admin/5ec2519d967ae56c521ac87f/overview" class="nav-link">
               <i class="nav-icon fa fa-envelope"></i>
               <p>
-                Manage Message
+                Kelola Pesan
               </p>
             </a>
           </li>
@@ -56,7 +60,7 @@
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-newspaper-o"></i>
-              <p>NEWS, PROFIL &amp; LAYANAN <i class="right fa fa-angle-left"></i></p>
+              <p>Berita &amp;  Profil <i class="right fa fa-angle-left"></i></p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item"><a href="<?php echo base_url('admin/berita') ?>" class="nav-link"><i class="fa fa-table nav-icon"></i><p>Data Berita &amp; Profil</p></a>
@@ -73,7 +77,7 @@
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-image"></i>
-              <p>GALERI &amp; BANNER <i class="right fa fa-angle-left"></i></p>
+              <p>Galeri &amp; Banner <i class="right fa fa-angle-left"></i></p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item"><a href="<?php echo base_url('admin/galeri') ?>" class="nav-link"><i class="fa fa-table nav-icon"></i><p>Data Galeri &amp; Banner</p></a>
@@ -90,7 +94,7 @@
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-download"></i>
-              <p>FILE DOWNLOAD <i class="right fa fa-angle-left"></i></p>
+              <p>File Unduhan <i class="right fa fa-angle-left"></i></p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item"><a href="<?php echo base_url('admin/download') ?>" class="nav-link"><i class="fa fa-table nav-icon"></i><p>Data Download</p></a>
@@ -106,7 +110,7 @@
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-youtube"></i>
-              <p>VIDEO YOUTUBE <i class="right fa fa-angle-left"></i></p>
+              <p>Video Youtube <i class="right fa fa-angle-left"></i></p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item"><a href="<?php echo base_url('admin/video') ?>" class="nav-link"><i class="fa fa-table nav-icon"></i><p>Data Video Youtube</p></a>
@@ -120,12 +124,42 @@
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-calendar"></i>
-              <p>TIMELINE <i class="right fa fa-angle-left"></i></p>
+              <p>Linimasa <i class="right fa fa-angle-left"></i></p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item"><a href="<?php echo base_url('admin/agenda') ?>" class="nav-link"><i class="fa fa-sitemap nav-icon"></i><p>Data Agenda/Event</p></a>
+              <li class="nav-item"><a href="<?php echo base_url('admin/agenda') ?>" class="nav-link"><i class="fa fa-sitemap nav-icon"></i><p>Data Linimasa/Event</p></a>
               </li>
-              <li class="nav-item"><a href="<?php echo base_url('admin/agenda/tambah') ?>" class="nav-link"><i class="fa fa-plus nav-icon"></i><p>Tambah Agenda/Event</p></a>
+              <li class="nav-item"><a href="<?php echo base_url('admin/agenda/tambah') ?>" class="nav-link"><i class="fa fa-plus nav-icon"></i><p>Tambah Linimasa/Event</p></a>
+              </li>
+              
+            </ul>
+          </li>
+
+          <!-- Daftar Set Bagian Divisi -->
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-calendar"></i>
+              <p>Divisi Bagian (PIC) <i class="right fa fa-angle-left"></i></p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item"><a href="<?php echo base_url('admin/bagian') ?>" class="nav-link"><i class="fa fa-sitemap nav-icon"></i><p>Data List Bagian(PIC)</p></a>
+              </li>
+              <li class="nav-item"><a href="<?php echo base_url('admin/bagian/tambah') ?>" class="nav-link"><i class="fa fa-plus nav-icon"></i><p>Tambah List PIC</p></a>
+              </li>
+              
+            </ul>
+          </li>
+
+          <!-- Daftar Kutipan / Quotes -->
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-quote-left" aria-hidden="true"></i>
+              <p>Kutipan <i class="right fa fa-angle-left"></i></p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item"><a href="<?php echo base_url('admin/quotes') ?>" class="nav-link"><i class="fa fa-quote-left nav-icon"></i><p>Data List Kutipan</p></a>
+              </li>
+              <li class="nav-item"><a href="<?php echo base_url('admin/quotes/tambah') ?>" class="nav-link"><i class="fa fa-plus nav-icon"></i><p>Tambah List Kutipan</p></a>
               </li>
               
             </ul>
@@ -137,7 +171,17 @@
             <a href="<?php echo base_url('admin/user') ?>" class="nav-link">
               <i class="nav-icon fa fa-lock"></i>
               <p>
-                PENGGUNA SISTEM
+                Kelola Data Team
+              </p>
+            </a>
+          </li>
+
+          <!-- MENU MEMBER -->
+          <li class="nav-item">
+            <a href="<?php echo base_url('admin/member') ?>" class="nav-link">
+              <i class="nav-icon fa fa-lock"></i>
+              <p>
+                Kelola Data Anggota
               </p>
             </a>
           </li>

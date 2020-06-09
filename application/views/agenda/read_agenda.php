@@ -19,6 +19,14 @@
 td, th {
 	text-align: left !important;
 }
+h1{
+	font-size: 40px;
+	font-weight:bold;
+	margin: 0;
+	color : black;
+	text-align: left;
+	text-transform: uppercase;
+}
 th {
 	background-color: #F5F5F5;
 }

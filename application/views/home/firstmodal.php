@@ -172,9 +172,14 @@
                                             <a class="dear">Dear you</a><a class="user"> <?php if(($this->session->userdata('nama'))!== NULL) echo $this->session->userdata('nama'); else echo "@Guest"; ?></a>
                                             </div>
                                             <div class="comments comments-content">
-                                                <p>“Winning doesn’t always mean being first. Winning means you’re doing better than you’ve
-done before.”</p>
-                                                <h6 class="dt">~ Tanah Jawa,<a href="javascript:void(0)"><?php echo date("F j, Y");  ; ?></a></h6>
+                                                <?php $jlh = 1; foreach($quotes as $quotes) : if($jlh == 1) { ?>
+                                                    <p>“<?= $quotes->body_quotes; ?>.”</p>
+                                                <h6 class="dt"><a href="javascript:void(0)"><?php echo $quotes->footer_quotes;?></a></h6>
+                                            
+                                                <?php } $jlh++; endforeach; ?>
+                                            </div>
+                                            <div style="float:right; margin-top : 14px;">
+                                                    <?php echo $quotes->author_quotes; ?>
                                             </div>
                                             </div>
                             </div>

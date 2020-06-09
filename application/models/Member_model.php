@@ -34,6 +34,47 @@ class Member_model extends CI_Model {
 		return $query->row();
 	}
 
+	//Token activity
+	//check_verify if user untuk verify
+	public function is_Useravailable($email){
+		$this->db->select('*');
+		$this->db->from('members');
+		$this->db->where(('members.email'),$email);
+		$query = $this->db->get()->row();
+		return $query;
+	}
+
+	//check_verify if user untuk reset
+	public function is_Useravailable_reset($email){
+		$this->db->select('*');
+		$this->db->from('members');
+		$this->db->where(array(
+			'email' => $email,
+			'is_active' => 'Y',
+		));
+		$query = $this->db->get()->row();
+		return $query;
+	}
+
+	//check token untuk reset
+	public function is_Token($token){
+		$this->db->select('*');
+		$this->db->from('members');
+		$this->db->where(('members.token'),$token);
+		$query = $this->db->get()->row();
+		return $query;
+	}
+
+	//check token untuk aktivasi
+	public function is_Token_verify($token){
+		$this->db->select('*');
+		$this->db->from('members');
+		$this->db->where(('members.token'),$token);
+		$query = $this->db->get()->row();
+		return $query;
+	}
+
+
 	// Login
 	public function login($username,$password)
 	{
@@ -49,8 +90,18 @@ class Member_model extends CI_Model {
 	}
 
 	// Detail
-	public function detail($id_user)
+	public function detail_other($slug_member)
 	{
+		$this->db->select('*');
+		$this->db->from('members');
+		// where
+		$this->db->where(('members.slug_member'), $slug_member);
+		$this->db->order_by('members.id_user', 'desc');
+		$query = $this->db->get();
+		return $query->row();
+	}
+
+	public function detail($id_user){
 		$this->db->select('members.*');
 		$this->db->from('members');
 		// where

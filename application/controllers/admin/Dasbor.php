@@ -11,8 +11,6 @@ class Dasbor extends CI_Controller {
 		$pengalihan 	= $this->session->set_userdata('pengalihan',$url_pengalihan);
 		// Ambil check login dari simple_login
 		$this->simple_login->check_login($pengalihan);
-		$this->load->model('staff_model');
-		$this->load->model('client_model');
 		$this->load->model('dasbor_model');
 
 		//Check Hak Akses

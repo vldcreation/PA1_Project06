@@ -24,7 +24,7 @@
                             <h2><?php echo $slider->judul_galeri ?></h2>
                             <p><?php echo strip_tags($slider->isi) ?></p>
                             <div class="slider-btn">
-                                <a style="padding:15px 70px 15px 70px" href="<?php echo base_url('registrasi')?>" class="btn btn-default">Join US</a>
+                                <a style="padding:15px 70px 15px 70px" href="<?php echo base_url('registrasi')?>" class="btn btn-default">Bergabung dengan kami...!</i></a>
                             </div>
                             <!-- .slider-btn -->
                         </div>

@@ -4,6 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class User extends CI_Controller {
 
 	// Load model
+	protected $akses;
+	protected $all_akses;
 	public function __construct()
 	{
 		parent::__construct();
@@ -21,8 +23,9 @@ class User extends CI_Controller {
 		$this->simple_login->check_login($pengalihan);
 
 		//Check Hak Akses
-		$akses = $this->session->userdata('akses_level');
-		if($akses != 'Admin'){
+		$this->akses = $this->session->userdata('akses_level');
+		$this->all_akses = $this->session->userdata('all_akses');
+		if($this->akses != 'Admin'){
 			redirect(base_url('home/oops'));
 		}
 	}
@@ -34,7 +37,7 @@ class User extends CI_Controller {
 		$user 	= $this->user_model->listing();
 		$total 	= $this->user_model->total();
 
-		$data = array(	'title'		=> 'User dan Wilayah ('.$total->total.' data)',
+		$data = array(	'title'		=> 'Kelola Data Team ('.$total->total.' data)',
 						'user'		=> $user,
 						'isi'		=> 'admin/user/list'
 					);
@@ -44,8 +47,14 @@ class User extends CI_Controller {
 	// Tambah
 	public function tambah()
 	{
+		//only Super admin can
+		if($this->all_akses != 1){
+			$this->session->set_flashdata('warning', 'Anda tidak dapat melakukannya :)');
+			redirect(base_url('admin/user'),'refresh');
+
+		}
 		// Load data bagian
-		$bagian 		= $this->bagian_model->listing();
+		$bagian 		= $this->bagian_model->listaktif();
 		// Validasi
 		$validasi 	= $this->form_validation;
 
@@ -62,7 +71,7 @@ class User extends CI_Controller {
 		if($validasi->run()===FALSE) {
 		// End validasi
 
-		$data = array(	'title'		=> 'Tambah User Baru',
+		$data = array(	'title'		=> 'Tambah Data PIC Baru',
 						'bagian'		=> $bagian,
 						'isi'		=> 'admin/user/tambah'
 					);
@@ -76,7 +85,8 @@ class User extends CI_Controller {
 							'email'			=> $inp->post('email'),
 							'username'		=> $inp->post('username'),
 							'password'		=> sha1($inp->post('password')),
-							'akses_level'	=> $inp->post('akses_level'),
+							'akses_level'	=> 'Admin',
+							'all_akses'		=> $inp->post('all_akses'),
 							'keterangan'	=> $inp->post('keterangan'),
 							'tanggal_post'	=> date('Y-m-d H:i:s')
 						);
@@ -90,6 +100,12 @@ class User extends CI_Controller {
 	// Edit
 	public function edit($id_user)
 	{
+		//only Super admin can
+		if($this->all_akses != 1){
+			$this->session->set_flashdata('warning', 'Anda tidak dapat melakukannya :)');
+			redirect(base_url('admin/user'),'refresh');
+
+		}
 		// Load data bagian
 		$bagian 		= $this->bagian_model->listing();
 		// Ambil data user yg akan diedit
@@ -126,7 +142,8 @@ class User extends CI_Controller {
 							'email'			=> $inp->post('email'),
 							'username'		=> $inp->post('username'),
 							'password'		=> sha1($inp->post('password')),
-							'akses_level'	=> $inp->post('akses_level'),
+							'akses_level'	=> 'Admin',
+							'all_akses'		=> $inp->post('all_akses'),
 							'keterangan'	=> $inp->post('keterangan'),
 							'tanggal_post'	=> date('Y-m-d H:i:s')
 						);
@@ -151,6 +168,13 @@ class User extends CI_Controller {
 
 		// Proses hapus jika klik tombol "hapus", jika ga ada yg kosong
 		if(isset($_POST['hapus'])) {
+				//only Super admin can
+				if($this->all_akses != 1){
+					$this->session->set_flashdata('warning', 'Anda tidak dapat melakukannya :)');
+					redirect(base_url('admin/user'),'refresh');
+	
+				}
+				else{
 			// Proses hapus diloop
 			for($i=0;$i<sizeof($id_usernya);$i++)
 			{
@@ -158,15 +182,25 @@ class User extends CI_Controller {
 				$data = array(	'id_user'		=> $id_user);
 				$this->user_model->delete($data);
 			}
+			
 			// End proses hapus
 			$this->session->set_flashdata('sukses', 'Data telah dihapus');
 			redirect($pengalihan,'refresh');
+			}
 		}
 	}
 
 	// Delete
 	public function delete($id_user)
 	{
+
+		//only Super admin can
+		if($this->all_akses != 1){
+			$this->session->set_flashdata('warning', 'Anda tidak dapat melakukannya :)');
+			redirect(base_url('admin/user'),'refresh');
+
+		}
+
 		$data = array(	'id_user'		=> $id_user);
 		$this->user_model->delete($data);
 		$this->session->set_flashdata('sukses', 'Data telah dihapus');

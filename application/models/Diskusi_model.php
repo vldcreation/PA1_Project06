@@ -71,7 +71,6 @@ public function read($slug_diskusi) {
                 users.nama
                 ');
     $this->db->from('diskusi');
-    // Join dg 2 tabel
     $this->db->join('users','users.id_user = diskusi.id_users','LEFT');
     $this->db->where('slug_diskusi',$slug_diskusi);
     $this->db->order_by('id_diskusi','DESC');
@@ -126,10 +125,6 @@ public function listing_read(){
 public function update_jlh_komentar($hit) {
     $this->db->where('id_diskusi',$hit['id_diskusi']);
     $this->db->update('diskusi',$hit);
-}
-
-public function comment($data){
-    $this->db->insert('komentar',$data);
 }
 
 // Detail

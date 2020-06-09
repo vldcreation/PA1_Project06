@@ -24,14 +24,19 @@ class Simple_login
 			$nama_bagian 	= $user_login->nama_bagian;
 			$username 		= $username;
 			$nama 			= $user_login->nama;
+			$gambar			= $user_login->gambar;
 			$akses_level 	= $user_login->akses_level;
+			$all_akses		= $user_login->all_akses;
 			// Create session utk login
 			$this->CI->session->set_userdata('id_user',$id_user);
 			$this->CI->session->set_userdata('id_bagian',$id_bagian);
 			$this->CI->session->set_userdata('nama_bagian',$nama_bagian);
 			$this->CI->session->set_userdata('username',$username);
 			$this->CI->session->set_userdata('nama',$nama);
+			$this->CI->session->set_userdata('pp',$gambar);
 			$this->CI->session->set_userdata('akses_level',$akses_level);
+			$this->CI->session->set_userdata('all_akses',$all_akses);
+			$this->CI->session->set_userdata('masuk',TRUE);
 			// Lalu redirect masuk ke halaman dashboard
 			$this->CI->session->set_flashdata('sukses', 'Anda berhasil login');
 			// Periksa user mengakses halaman mana sebelumnya
@@ -56,6 +61,7 @@ class Simple_login
 	{
 		// Check user yang login
 		$user_login = $this->CI->user_model->loginmember($username,$password);
+
 		// Kalau ada, maka masuk ke halaman dashboard
 		if($user_login) {
 			$id_user 		= $user_login->id_user;
@@ -65,14 +71,25 @@ class Simple_login
 			$nama 			= $user_login->nama;
 			$gambar			= $user_login->gambar;
 			$akses_level 	= $user_login->akses_level;
+			$email			= $user_login->email;
+			$motivasi		= $user_login->Motivasi;
+			$is_active		= $user_login->is_active;
+			if($is_active != 'Y'){
+				// Kalau Akun member belum aktive
+			$this->CI->session->set_flashdata('warning', 'Maaf akun anda belum aktif :( Silahkan check email anda untuk aktivasi akun => '.$email);
+			redirect(base_url('loginmember'),'refresh');
+
+			}else{
 			// Create session utk login
 			$this->CI->session->set_userdata('id_user',$id_user);
 			$this->CI->session->set_userdata('prodi',$prodi);
 			$this->CI->session->set_userdata('nim',$NIM);
 			$this->CI->session->set_userdata('username',$username);
 			$this->CI->session->set_userdata('nama',$nama);
+			$this->CI->session->set_userdata('quotes',$motivasi);
 			$this->CI->session->set_userdata('pp',$gambar);
 			$this->CI->session->set_userdata('akses_level',$akses_level);
+			$this->CI->session->set_userdata('masuk',TRUE);
 			// Lalu redirect masuk ke halaman dashboard
 			$this->CI->session->set_flashdata('sukses', 'Anda berhasil login');
 			// Periksa user mengakses halaman mana sebelumnya
@@ -84,6 +101,7 @@ class Simple_login
 				// Jika ga ada, default masuk ke halaman dasbor
 				redirect(base_url(''),'refresh');
 			}
+		}
 			// Periksa user mengakses halaman mana sebelumnya
 			
 		}else{

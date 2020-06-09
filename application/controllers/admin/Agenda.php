@@ -6,6 +6,7 @@ class Agenda extends CI_Controller {
 	public function __construct() 	{
 		parent::__construct();
 		$this->load->model('agenda_model');
+		$this->load->model('user_model');
 		$this->log_user->add_log();
 		// Tambahkan proteksi halaman
 		$url_pengalihan = str_replace('index.php/', '', current_url());
@@ -22,10 +23,13 @@ class Agenda extends CI_Controller {
 	
 	// For homepage
 	public function index() {
+		//detail PIC
+		$user 	= $this->user_model->listing();
 		// $data['news'] = $this->news_model->get_news();
 		$data	= array(
 						'title'	=> 'Manajemen Agenda',
 						'agenda'	=> $this->agenda_model->listing_agenda(),
+						'user'		=> $user,
 						'isi'	=> 'admin/agenda/list'
 		);
 		$this->load->view('admin/layout/wrapper',$data);
@@ -34,6 +38,8 @@ class Agenda extends CI_Controller {
 	// Proses
 	public function proses()
 	{
+		//detail PIC
+		$user 	= $this->user_model->listing();
 		$site = $this->konfigurasi_model->listing();
 		// PROSES HAPUS MULTIPLE
 		if(isset($_POST['hapus'])) {
@@ -57,6 +63,8 @@ class Agenda extends CI_Controller {
 	
 	// For add agenda
 	public function tambah() {
+		//detail PIC
+		$user 	= $this->user_model->listing();
 		// Nambah agenda, check validasi
 		$this->form_validation->set_rules('nama', 'Nama', 'required');
 		$this->form_validation->set_rules('jenis_agenda', 'Jenis agenda', 'required');
@@ -69,7 +77,8 @@ class Agenda extends CI_Controller {
 		if($this->form_validation->run() === FALSE) {
 		$data	= array(
 						'title'		=> 'Tambah agenda baru',
-						'isi'		=> 'admin/agenda/tambah'
+						'isi'		=> 'admin/agenda/tambah',
+						'user'		=> $user
 						);
 		$this->load->view('admin/layout/wrapper',$data);
 		}else{
@@ -91,6 +100,9 @@ class Agenda extends CI_Controller {
 	// Edit agenda
 	public function edit($id_agenda) {
 		$agenda = $this->agenda_model->listing_agenda($id_agenda);
+
+		//detail PIC
+		$user 	= $this->user_model->listing();
 		// Nambah agenda, check validasi
 		$this->form_validation->set_rules('nama', 'Nama', 'required');
 		$this->form_validation->set_rules('jenis_agenda', 'Jenis agenda', 'required');
@@ -104,7 +116,8 @@ class Agenda extends CI_Controller {
 		$data	= array(
 						'title'		=> 'Edit data agenda',
 						'agenda'		=> $agenda,
-						'isi'		=> 'admin/agenda/edit'
+						'isi'		=> 'admin/agenda/edit',
+						'user'		=> $user
 						);
 		$this->load->view('admin/layout/wrapper',$data);
 		}else{

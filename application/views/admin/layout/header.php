@@ -21,7 +21,7 @@
         </a>
       </li>
       <li class="nav-item text-danger text-strong">
-        <a class="nav-link" href="<?php echo base_url('login/logout') ?>">
+        <a class="nav-link" href="<?php echo base_url('loginmember/logout') ?>">
           <i class="fa fa-sign-out"></i> Keluar
         </a>
       </li>

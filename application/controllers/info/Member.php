@@ -12,11 +12,11 @@ class Member extends CI_Controller{
 		// Ambil check login dari simple_login
         $this->simple_login->check_login($pengalihan);
         
-        //Check Hak Akses
-		$akses = $this->session->userdata('akses_level');
-		if($akses != 'User'){
-			redirect(base_url('home/oops'));
-		}
+        // //Check Hak Akses
+		// $akses = $this->session->userdata('akses_level');
+		// if($akses != 'User'){
+		// 	redirect(base_url('home/oops'));
+		// }
     }
 
     public function index(){
@@ -114,7 +114,24 @@ class Member extends CI_Controller{
 						'isi'		=> 'info/akun/list',
 					);
 		$this->load->view('layout/wrapper', $data, FALSE);
-    }
+	}
+	
+	public function detail_other($slug_member){
+		$member = $this->member_model->detail_other($slug_member);
+		if($member){
+        $data = array(
+            'title' => 'Detail Info - '.$member->nama,
+            'isi'   => 'info/akun/detail_other',
+            'member' => $member,
+		);
+		$this->load->view('layout/wrapper',$data);
+	}
+	else{
+		echo "<script>
+		window.location=history.go(-1);
+		</script>";
+	}
+	}
 
     // Main page akun
 	public function password()

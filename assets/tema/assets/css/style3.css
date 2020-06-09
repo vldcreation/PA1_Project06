@@ -18,7 +18,7 @@
    text-align: center;
    color: blue;
    z-index: 1001;
-   animation: mymove 1.5s infinite alternate;
+   animation: mymove 1s infinite alternate;
    }
 
    @keyframes mymove{

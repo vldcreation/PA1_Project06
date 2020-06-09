@@ -87,26 +87,31 @@ $nav_profil     = $this->nav_model->nav_profil();
 <div class="row">
     <div class="footer-top">
         <div class="row">
-            <div class="col-md-6 col-sm-6">
+            <div class="col-md-4 col-sm-4">
                 <div class="footer-widgets">
                     <div class="widgets-title">
-                        <h4 style="color:white;"><?php echo $site->namaweb ?></h4>
+                        <h3 class="footer-heading" style="color:white;"> <span> <?php echo $site->namaweb ?> </span></h3>
                     </div>
                 
                     <!-- .widgets-content -->
                     <div class="address-box">
                         <ul class="address">
-                            <li>
+                            <li class="address-li">
                                 <i class="fa fa-home" aria-hidden="true"></i>
                                 <span><?php echo nl2br($site->alamat) ?></span>
                             </li>
-                            <li>
+                            <li class="address-li">
                                 <i class="fa fa-phone" aria-hidden="true"></i>
                                 <span><?php echo $site->telepon ?></span>
                             </li>
-                            <li>
+                            <li class="address-li">
                                 <i class="fa fa-envelope-o" aria-hidden="true"></i>
                                 <span><?php echo $site->email ?></span>
+
+                            </li>
+                            <li class="address-li">
+                                <i class="fa fa-cloud" aria-hidden="true"></i>
+                                <span><a href="<?php echo $site->website; ?>"><?php echo  $site->namaweb ?></a></span>
 
                             </li>
                         </ul>
@@ -116,10 +121,10 @@ $nav_profil     = $this->nav_model->nav_profil();
                 <!-- .footer-widgets -->
             </div>
             <!-- .col-md-4 -->
-            <div class="col-md-6 col-sm-6">
+            <div class="col-md-4 col-sm-4">
                 <div class="footer-widgets">
                     <div class="widgets-title">
-                        <h3>Latest News</h3>
+                    <h3 class="footer-heading"><span>Lates News</span></h3>
                     </div>
                     <!-- .widgets-title -->
                     <ul class="latest-news">
@@ -142,6 +147,29 @@ $nav_profil     = $this->nav_model->nav_profil();
                 </div>
                 <!-- .footer-widgets -->
             </div>
+
+
+             <!-- .col-md-4 Member Area -->
+             <div class="col-md-4 col-sm-4">
+                <div class="footer-widgets">
+                    <div class="widgets-title">
+                        <h3 class="footer-heading"><span>Member Area</span></h3>
+                    </div>
+                    <!-- .widgets-title -->
+                    <ul >
+                    <li>
+                        <a class="list-li" href="<?php echo base_url() ?>registrasi"> <i class="fa fa-arrow-right"></i>  Daftar </a>
+                    </li>
+                    <li>
+                    <a class="list-li" href="<?php echo base_url() ?>loginmember"> <i class="fa fa-arrow-right"></i> Masuk </span></a>
+                    </li>
+                    <li>
+                    <a class="list-li" href="<?php echo base_url() ?>diskusi"> <i class="fa fa-users"></i> Forum Diskusi </span></a>
+                    </li>
+                    </ul>
+                <!-- .footer-widgets -->
+            </div>
+            </div>
             
             
         </div>
@@ -160,7 +188,7 @@ $nav_profil     = $this->nav_model->nav_profil();
 <div class="row">
     <div class="footer-bottom">
         <div class="copyright-txt">
-            <p>&copy; <?php echo date('Y') ?>. Designer By <a href="http://DCC_ITDel.com" title="Java Web Media">PA1_006_D3TI</a></p>
+            <p>&copy; <?php echo date('Y') ?>. Designer By <a href="<?php echo $site->website ?>" >PA1_006_D3TI</a></p>
         </div>
         <!-- .copyright-txt -->
         <div class="social-box">
@@ -245,3 +273,39 @@ $nav_profil     = $this->nav_model->nav_profil();
   })
 </script>
 </html>
+
+<style>
+.list-li{
+  color : #fff;
+  font-size : 15px;
+  style : none;
+}
+.list-li span{
+  border-bottom : 3px solid #fff;
+}
+.address-li{
+  font-size : 15px;
+}
+.address-li span{
+  color : #fff;
+  style : none;
+}
+.footer {
+  padding: 4rem 0;
+  background: #183661;
+  font-size: 14px;
+  color: #fff; }
+  .footer .footer-heading {
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px; }
+    .footer-heading span {
+      border-bottom: 3px solid #fff; }
+  .footer a:hover {
+    color: #fff;
+    text-decoration: underline; }
+  .footer .copyright {
+    color: #fff;
+    padding-top: 7rem;
+    text-align: center; }
+</style>

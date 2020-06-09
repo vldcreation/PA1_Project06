@@ -88,7 +88,7 @@ class News extends CI_Controller {
 		$populer	= $this->berita_model->populer();
 
 		if($keywords=="") {
-			redirect(base_url('berita'),'refresh');
+			redirect(base_url('news'),'refresh');
 		}
 
 		$site 		= $this->konfigurasi_model->listing();
@@ -96,7 +96,7 @@ class News extends CI_Controller {
 		// Berita dan paginasi
 		// Berita dan paginasi
 		$this->load->library('pagination');
-		$config['base_url'] 		= base_url().'berita/search?s='.$keywords.'/index/';
+		$config['base_url'] 		= base_url().'news/search?s='.$keywords.'/index/';
 		$config['total_rows'] 		= count(array($this->berita_model->total_search($keywords)));
 		$config['use_page_numbers'] = TRUE;
 		$config['num_links'] 		= 5;
@@ -125,12 +125,12 @@ class News extends CI_Controller {
         $config['num_tag_open'] 	= '<li class="page">';
         $config['num_tag_close'] 	= '</li>';
 		$config['per_page'] 		= 10;
-		$config['first_url'] 		= base_url().'berita/search?s='.$keywords;
+		$config['first_url'] 		= base_url().'news/search?s='.$keywords;
 		$this->pagination->initialize($config); 
 		$page 		= ($this->uri->segment(3)) ? ($this->uri->segment(3) - 1) * $config['per_page'] : 0;
 		$berita 	= $this->berita_model->search($keywords,$config['per_page'], $page);
 
-		$data = array(	'title'		=> 'Hasil pencarian: '.$keywords,
+		$data = array(	'title'		=> 'Hasil pencarian: '.$keywords.' ('. count($this->berita_model->total_search($keyword)) .')',
 						'deskripsi'	=> 'Berita - '.$site->namaweb,
 						'keywords'	=> 'Berita - '.$site->namaweb,
 						'pagin' 	=> $this->pagination->create_links(),

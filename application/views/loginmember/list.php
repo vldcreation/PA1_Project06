@@ -70,6 +70,7 @@
 
           <div style="margin-top: 10px" class="form-group mx-sm-3 mb-2">
               <a href="<?php echo base_url('loginadmin'); ?>" class="btn btn-info btn-sm">Login Admin <i class="fa fa-arrow-right"></i> </a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Belum Punya Akun??<a style="margin-left: 10px" href="<?php echo base_url('registrasi'); ?>" class="btn btn-info btn-sm"><i class="fa fa-arrow-user"></i> Daftar Akun</a>
+              &nbsp&nbsp&nbsp <a href="<?php echo base_url('registrasi/reset_password'); ?>"> Lupa Password ? </a>
           </div>
           <!-- /.col -->
         </div>

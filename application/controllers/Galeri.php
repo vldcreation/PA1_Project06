@@ -23,7 +23,7 @@ class Galeri extends CI_Controller {
 		$config['use_page_numbers'] = TRUE;
 		$config['num_links'] 		= 5;
 		$config['uri_segment'] 		= 3;
-		$config['per_page'] 		= 12;
+		$config['per_page'] 		= 4;
 		$config['first_url'] 		= base_url().'galeri/';
 		$this->pagination->initialize($config); 
 		$page 		= ($this->uri->segment(3)) ? ($this->uri->segment(3) - 1) * $config['per_page'] : 0;
@@ -37,6 +37,35 @@ class Galeri extends CI_Controller {
 						'galeri'	=> $galeri,
 						'kategori'	=> $kategori,
 						'isi'		=> 'galeri/list');
+		$this->load->view('layout/wrapper', $data, FALSE);
+	}
+
+	// Main page galeri
+	public function all()	{
+		$site 		= $this->konfigurasi_model->listing();
+		$kategori 	= $this->galeri_model->kategori();
+
+		// Galeri dan paginasi
+		$this->load->library('pagination');
+		$config['base_url'] 		= base_url().'galeri/index/';
+		$config['total_rows'] 		= count($this->galeri_model->total_galeri());
+		$config['use_page_numbers'] = TRUE;
+		$config['num_links'] 		= 5;
+		$config['uri_segment'] 		= 3;
+		$config['per_page'] 		= count($this->galeri_model->total_galeri());
+		$config['first_url'] 		= base_url().'galeri/';
+		$this->pagination->initialize($config); 
+		$page 		= ($this->uri->segment(3)) ? ($this->uri->segment(3) - 1) * $config['per_page'] : 0;
+		$galeri 	= $this->galeri_model->galeri($config['per_page'], $page);
+		// End paginasi
+
+		$data = array(	'title'		=> 'Galeri / ALL - '.$site->namaweb,
+						'deskripsi'	=> 'Galeri - '.$site->namaweb,
+						'keywords'	=> 'Galeri - '.$site->namaweb,
+						'pagin' 	=> $this->pagination->create_links(),
+						'galeri'	=> $galeri,
+						'kategori'	=> $kategori,
+						'isi'		=> 'galeri/all');
 		$this->load->view('layout/wrapper', $data, FALSE);
 	}
 

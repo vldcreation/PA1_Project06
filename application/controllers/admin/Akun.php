@@ -10,7 +10,6 @@ class Akun extends CI_Controller {
 		parent::__construct();
 		$this->log_user->add_log();
 		$this->load->model('user_model');
-		$this->load->model('staff_model');
 		// Tambahkan proteksi halaman
 		$url_pengalihan = str_replace('index.php/', '', current_url());
 		$pengalihan 	= $this->session->set_userdata('pengalihan',$url_pengalihan);

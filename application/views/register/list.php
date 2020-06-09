@@ -34,7 +34,7 @@
   <div class="card">
     <div class="card-body login-card-body">
       <div class="login-logo">
-        <img src="<?php echo $this->website->icon(); ?>" alt="<?php echo $this->website->namaweb(); ?>" class="img img-responsive img-thumbnail" style="max-width: 30%; height: auto;">
+        <a href="<?php echo base_url() ?>"><img src="<?php echo $this->website->icon(); ?>" alt="<?php echo $this->website->namaweb(); ?>" class="img img-responsive img-thumbnail" style="max-width: 30%; height: auto;"></a>
         <br>
         <h2 style="font-weight: bold; font-size: 18px; margin-top: 20px;"><?php echo $this->website->namaweb() ?></h2>
       </div>
@@ -50,55 +50,58 @@
        ?>
 
       <div class="row">
-        <div class="col-md-6">
+        <div class="form-control col-md-6">
           <label>Tanggal Daftar</label>
-          <input title="Di set secara otomatis" type="text" name="tanggal_publish" class="form-control tanggal" placeholder="Tanggal publikasi" value="<?php if(isset($_POST['tanggal_publish'])) { echo set_value('tanggal_publish'); }else{ echo date('d-m-Y'); } ?>" data-date-format="dd-mm-yyyy">
+          <input title="Di set secara otomatis" readonly disabled="disabled" type="text" name="tanggal_publish" class="form-control tanggal" placeholder="Tanggal publikasi" value="<?php if(isset($_POST['tanggal_publish'])) { echo set_value('tanggal_publish'); }else{ echo date('d-m-Y'); } ?>" data-date-format="dd-mm-yyyy">
         </div>
-        <div class="col-md-6">
+        <div class="form-control col-md-6">
         <label>Jam Daftar</label>
-        <input title="Di set secara otomatis" type="text" name="jam_publish" class="form-control time-picker" placeholder="Jam publikasi" value="<?php if(isset($_POST['jam_publish'])) { echo set_value('jam_publish'); }else{ echo date('H:i:s'); } ?>">
+        <input title="Di set secara otomatis" readonly disabled="disabled" type="text" name="jam_publish" class="form-control time-picker" placeholder="Jam publikasi" value="<?php if(isset($_POST['jam_publish'])) { echo set_value('jam_publish'); }else{ echo date('H:i:s'); } ?>">
         </div>
       </div> <br>
         <div class="form-group">
-          <input type="text" name="nama" class="form-control" placeholder="Nama Lengkap">
+          <input type="text" title="Nama Lengkap Anda" name="nama" class="form-control" placeholder="Nama Lengkap">
         </div>
         <div class="form-group">
-          <input type="text" name="email" class="form-control" placeholder="Email">
+          <input title="Email Anda" type="text" name="email" class="form-control" placeholder="Email">
         </div>
         <div class="form-group">
-          <input type="text" name="NIM" class="form-control" placeholder="NIM">
+          <input type="text" title="Nim anda" name="NIM" class="form-control" placeholder="NIM">
         </div>
         <div class="form-group">
-          <select name="Prodi" class="form-control" required>
+          <select title="Prodi Anda" selected name="Prodi" class="form-control" required>
             <option value="NULL" selected>--Select Prodi--</option>
-            <option value="IF">Informatika</option>
-            <option value="TE">Teknik Elektro</option>
-            <option value="SI">Sistem Informasi</option>
-            <option value="BP">Bioteknologi</option>
-            <option value="MR">Manajemen Rekayasa</option>
-            <option value="TI">Teknologi Informasi</option>
-            <option value="TRPL">Teknologi Rekayasa Perangkat Lunak</option>
-            <option value="NM">Teknlogi Komputer</option>
+            <option value="S1 Informatika">S1 Informatika</option>
+            <option value="S1 Teknik Elektro">S1 Teknik Elektro</option>
+            <option value="S1 Sistem Informasi">S1 Sistem Informasi</option>
+            <option value="S1 Bioteknologi">S1 Bioteknologi</option>
+            <option value="S1 Manajemen Rekayasa">S1 Manajemen Rekayasa</option>
+            <option value="D3 Teknologi Informasi">D3 Teknologi Informasi</option>
+            <option value="D4 Teknologi Rekayasa Perangkat Lunak">D4 Teknologi Rekayasa Perangkat Lunak</option>
+            <option value="D3 Teknologi Komputer">D3 Teknologi Komputer</option>
           </select>
         </div>
         <div class="form-group">
-        <textarea class="form-control text-area" name="Motivasi" rows="3" placeholder="Motivasi Anda..."></textarea>
+        <textarea title="Motivasi anda" class="form-control text-area" name="Motivasi" rows="3" placeholder="Motivasi Anda..."></textarea>
           </textarea>
         </div>
         <div class="form-group">
-          <input type="username" name="username" class="form-control" placeholder="Username">
+          <input title="Username untuk akun" type="username" name="username" class="form-control" placeholder="Username">
         </div>
         <div class="form-group">
-          <input type="password" name="password" class="form-control" placeholder="Password">
+          <input title="Password untuk akun" type="password" name="password" class="form-control" placeholder="Password">
         </div>
         <div class="form-group">
-          <input type="text" name="pasword_hint" class="form-control" placeholder="Password Hint anda">
+          <input title="Confirm Password" type="password" name="confirm_pass" class="form-control" placeholder="Konfirmasi Password">
+        </div>
+        <div class="form-group">
+          <input title="Bantuan untuk ingat password" type="text" name="pasword_hint" class="form-control" placeholder="Password Hint anda">
         </div>
         <div class="row">
           <div class="col-12">
             <div class="checkbox icheck">
               <label>
-                <input type="checkbox"> Ingat Saya
+                <input title="Set session" type="checkbox"> Ingat Saya
               </label>
             </div>
           </div>

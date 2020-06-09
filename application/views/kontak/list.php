@@ -1,3 +1,21 @@
+
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+  <!-- iCheck -->
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/plugins/iCheck/square/blue.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- SWEETALERT -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <style type="text/css" media="screen">
+    .login-box {
+      min-width: 40% !important;
+    }
+  </style>
 <!-- Start Contact us Section -->
 <section class="bg-contact-us">
     <div class="container">
@@ -6,18 +24,33 @@
                 <div class="row">
                     <div class="col-md-8">
                         <h3 class="contact-title">HUBUNGI KAMI</h3>
-                        <form action="#" method="POST" class="contact-form">
+
+                        <?php 
+
+                        // Notifikasi sukses 
+                        if($this->session->flashdata('sukses')) { 
+                            echo '<div class="alert alert-success  alert-dismissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
+                            echo $this->session->flashdata('sukses');
+                            echo '</div>';
+                        } 
+                        // Notifikasi error
+                        echo validation_errors('<p class="alert alert-warning">','</p>');
+
+                        // Form open 
+                        echo form_open(base_url('kontak/send'));
+                        ?>
+                        <div class="contact-form">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="nameId" name="name" placeholder="Full Name">
+                                    <div class="form-group ">
+                                        <input type="text" class="form-control" id="nameId" name="name" placeholder="Nama Lengkap">
                                     </div>
                                     <!-- .form-group -->
                                 </div>
                                 <!-- .col-md-6 -->
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" id="emailId" name="email" placeholder="Email Address">
+                                        <input type="email" class="form-control" id="emailId" name="email" placeholder="Email">
                                     </div>
                                 </div>
                                 <!-- .col-md-6 -->
@@ -26,9 +59,14 @@
                             <div class="form-group">
                                 <input type="text" class="form-control" id="subjectId" name="subject" placeholder="Subject">
                             </div>
-                            <textarea class="form-control text-area" rows="3" placeholder="Message"></textarea>
+                            <div class="form-group">
+                            <textarea title="Motivasi anda" class="form-control text-area" id="messageId" name="body" rows="3" placeholder="Isi Pesan..."></textarea>
+                            </textarea>
+                            </div>
                             <button type="submit" class="btn btn-default">Send Email</button>
-                        </form>
+                        </div>
+                        <?php echo form_close(); ?>
+
                     </div>
                     <!-- .col-md-8 -->
                     <div class="col-md-4">
@@ -75,6 +113,7 @@
                         <!-- project manager-->
                             <div class="item kegiatan" data-category="Kegiatan">
                                 <div class="item-inner">
+                                <h4>Vicktor Desrony</h4>
                                     <div class="portfolio-img">
                                         <div class="overlay-project"></div>
                                         <!-- .overlay-project -->
@@ -83,7 +122,7 @@
                                             <a href="<?php echo base_url('assets/upload/image/viktor.jpg') ?>" data-rel="lightcase:myCollection"><i class="fa fa-plus" aria-hidden="true"></i></a>
                                         </div>
                                         <div class="recent-project-content">
-                                            <p><a href="https://github.com/vldcreation">Project Manager & PIC Programmer</a></p>
+                                            <p><a href="https://github.com/vldcreation">Project Manager & PIC Programmer<br></a></p>
                                         </div>
                                         <!-- .latest-port-content -->
                                     </div>
@@ -97,6 +136,7 @@
                         <!--PIC ANALYS-->
                             <div class="item kegiatan" data-category="Kegiatan">
                                 <div class="item-inner">
+                                <h4>Ester Hutabarat</h4>
                                     <div class="portfolio-img">
                                     <!-- Project Manager -->
                                         <div class="overlay-project"></div>
@@ -120,6 +160,7 @@
                         <!--PIC Programmer -->
                             <div class="item kegiatan" data-category="Kegiatan">
                                 <div class="item-inner">
+                                <h4>Vicktor Desrony</h4>
                                     <div class="portfolio-img">
                                     <!-- Project Manager -->
                                         <div class="overlay-project"></div>
@@ -161,6 +202,34 @@
 </section>
 <!-- End Contact us Section -->
 
+
+<!-- SWEETALERT -->
+<?php if($this->session->flashdata('sukses')) { ?>
+<script>
+  swal("Berhasil", "<?php echo $this->session->flashdata('sukses'); ?>","success")
+</script>
+<?php } ?>
+
+<?php if($this->session->flashdata('warning')) { ?>
+<script>
+  swal("Oops...", "<?php echo $this->session->flashdata('warning'); ?>","warning")
+</script>
+<?php } ?>
+<!-- jQuery -->
+<script src="<?php echo base_url() ?>assets/admin/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="<?php echo base_url() ?>assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- iCheck -->
+<script src="<?php echo base_url() ?>assets/admin/plugins/iCheck/icheck.min.js"></script>
+<script>
+  $(function () {
+    $('input').iCheck({
+      checkboxClass: 'icheckbox_square-blue',
+      radioClass   : 'iradio_square-blue',
+      increaseArea : '20%' // optional
+    })
+  })
+</script>
 
 <!-- STart Maps Section -->
 <style type="text/css" media="screen">

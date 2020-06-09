@@ -6,22 +6,11 @@ class Home extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		// // Tambahkan proteksi halaman
-		// $url_pengalihan = str_replace('index.php/', '', current_url());
-		// $pengalihan 	= $this->session->set_userdata('pengalihan',$url_pengalihan);
-		// // Ambil check login dari simple_login
-		// $this->simple_login->check_login($pengalihan);
-		// $this->load->model('member_model');
-		// $this->load->model('bagian_model');
-		// // Tambahkan proteksi halaman
-		// $url_pengalihan = str_replace('index.php/', '', current_url());
-		// $pengalihan 	= $this->session->set_userdata('pengalihan',$url_pengalihan);
-		// // Ambil check login dari simple_login
-		// $this->simple_login->check_login($pengalihan);
 		$this->load->model('berita_model');
 		$this->load->model('galeri_model');
 		$this->load->model('video_model');
 		$this->load->model('agenda_model');
+		$this->load->model('quotes_model');
 	}
 
 	public function index()
@@ -36,6 +25,7 @@ class Home extends CI_Controller {
 		$agenda 		= $this->agenda_model->home();
 		$layanan 		= $this->nav_model->nav_layanan();
 		$profil 		= $this->nav_model->nav_profil();
+		$quotes			= $this->quotes_model->listing();
 
 		// Berita dan paginasi
 		$this->load->library('pagination');
@@ -88,6 +78,7 @@ class Home extends CI_Controller {
 						'agenda'			=> $agenda,
 						'layanan'			=> $layanan,
 						'profil'			=> $profil,
+						'quotes'			=> $quotes,
 						'isi'				=> 'home/list'
 			);
 		$this->load->view('layout/wrapper', $data);

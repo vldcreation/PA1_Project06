@@ -6,7 +6,9 @@ class Diskusi extends CI_Controller{
         $this->load->model('diskusi_model');
         $this->load->model('kategori_model');
         $this->load->model('user_model');
+        $this->load->model('info_model');
         $this->load->model('komentar_model');
+        $this->load->model('quotes_model');
         //check login
         // // Tambahkan proteksi halaman
 		 $url_pengalihan = str_replace('index.php/', '', current_url());
@@ -157,7 +159,9 @@ class Diskusi extends CI_Controller{
 		$site 		= $this->konfigurasi_model->listing();
 		$diskusi 	= $this->diskusi_model->read($slug_diskusi);
         $listing 	= $this->diskusi_model->listing_read();
-        $komentar = $this->komentar_model->listing($diskusi->id_diskusi);
+        $komentar   = $this->komentar_model->listing($diskusi->id_diskusi);
+        $user       = $this->info_model->get_one($this->session->userdata('nama'));
+        $quotes     = $this->quotes_model->listing();
 
 		if(count(array($diskusi)) < 1) {
 			redirect(base_url('oops'),'refresh');
@@ -185,7 +189,9 @@ class Diskusi extends CI_Controller{
 						'diskusi'	=> $diskusi,
 						'listing'	=> $listing,
                         'site'		=> $site,
+                        'user'      => $user,
                         'komentar'  => $komentar,
+                        'quotes'    =>  $quotes,
 						'isi'		=> 'diskusi/read');
 		$this->load->view('layout/wrapper', $data, FALSE);
 	}
@@ -210,11 +216,10 @@ class Diskusi extends CI_Controller{
             if(! $this->upload->do_upload('gambar')) {
                 // End validasi
         
-                $data = array(	'title'				=> 'Tambah Galeri',
-                                'kategori_galeri'	=> $kategori_galeri,
+                $data = array(	'title'				=> 'Tambah Diskusi',
                                 'error'    			=> $this->upload->display_errors(),
-                                'isi'				=> 'admin/galeri/tambah');
-                $this->load->view('admin/layout/wrapper', $data, FALSE);
+                                'isi'				=> 'diskusi/tambah');
+                $this->load->view('layout/wrapper', $data, FALSE);
                 // Masuk database
                 }else{
       		
@@ -274,11 +279,10 @@ class Diskusi extends CI_Controller{
                         'penulis_post'      => $i->post('penulis_post'),
     );
     
-    
+    //load ke model
+    $this->komentar_model->tambah($data);
 
     $url_refresh = $i->post('slug_diskusi');
-    //load ke model
-    $this->diskusi_model->comment($data);
     $this->session->set_flashdata('sukses', 'Data telah ditambah');
 	redirect(base_url('diskusi/read/'.$url_refresh),'refresh');
 

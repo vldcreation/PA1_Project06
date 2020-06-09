@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Konfigurasiss extends CI_Controller {
+class Konfigurasi extends CI_Controller {
 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('konfigurasi_model');
+		$this->load->model('user_model');
 		// Tambahkan proteksi halaman
 		$url_pengalihan = str_replace('index.php/', '', current_url());
 		$pengalihan 	= $this->session->set_userdata('pengalihan',$url_pengalihan);
@@ -169,62 +169,6 @@ class Konfigurasiss extends CI_Controller {
 						'isi'	=> 'admin/konfigurasi/logo');
 		$this->load->view('admin/layout/wrapper',$data);
 	}
-
-	// New logo
-	public function direktur() {
-		$site = $this->konfigurasi_model->listing();
-		
-		$v = $this->form_validation;
-		$v->set_rules('id_konfigurasi','ID Konfigurasi','required');
-		
-		if($v->run()) {
-			
-			$config['upload_path'] 		= './assets/upload/image/';
-			$config['allowed_types'] 	= 'gif|jpg|png';
-			$config['max_size']			= '12000'; // KB	
-			$this->load->library('upload', $config);
-			if(! $this->upload->do_upload('stempel_tanda_tangan')) {
-				
-		$data = array(	'title'	=> 'Update Data Pejabat',
-						'site'	=> $site,
-						'error'	=> $this->upload->display_errors(),
-						'isi'	=> 'admin/konfigurasi/direktur');
-		$this->load->view('admin/layout/wrapper',$data);
-		}else{
-				$upload_data				= array('uploads' =>$this->upload->data());
-				// Image Editor
-				$config['image_library']	= 'gd2';
-				$config['source_image'] 	= './assets/upload/image/'.$upload_data['uploads']['file_name']; 
-				$config['new_image'] 		= './assets/upload/image/thumbs/';
-				$config['create_thumb'] 	= TRUE;
-				$config['maintain_ratio'] 	= TRUE;
-				$config['width'] 			= 150; // Pixel
-				$config['height'] 			= 150; // Pixel
-				$config['thumb_marker'] 	= '';
-				$this->load->library('image_lib', $config);
-				$this->image_lib->resize();
-				// Hapus gambar lama
-				unlink('./assets/upload/image/'.$site->stempel_tanda_tangan);
-				unlink('./assets/upload/image/thumbs/'.$site->stempel_tanda_tangan);
-				// End hapus gambar lama
-				// Masuk ke database
-				$i = $this->input;
-				$data = array(	'id_konfigurasi'		=> $i->post('id_konfigurasi'),
-								'nama_direktur'			=> $i->post('nama_direktur'),
-								'jabatan'				=> $i->post('jabatan'),
-								'stempel_tanda_tangan'	=> $upload_data['uploads']['file_name'],
-								'id_user'				=> $this->session->userdata('id'));
-				$this->konfigurasi_model->edit($data);
-				$this->session->set_flashdata('sukses','Data pejabat telah diupdate');
-				redirect(base_url('admin/konfigurasi/direktur'));
-		}}
-		// Default page
-		$data = array(	'title'	=> 'Update Pejabat',
-						'site'	=> $site,
-						'isi'	=> 'admin/konfigurasi/direktur');
-		$this->load->view('admin/layout/wrapper',$data);
-	}
-	
 	// Konfigurasi Icon
 	public function icon() {
 		$site = $this->konfigurasi_model->listing();
@@ -385,111 +329,6 @@ $this->load->library('upload', $config);
 		$this->load->view('admin/layout/wrapper',$data);
 	}
 	
-	// Quote
-	public function quote() {
-		$site = $this->konfigurasi_model->listing();
-		
-		// Validasi 
-		$this->form_validation->set_rules('judul_1','Judul Quote 1','required');
-		$this->form_validation->set_rules('pesan_1','Pesan Quote 1','required');
-		$this->form_validation->set_rules('judul_2','Judul Quote 2','required');
-		$this->form_validation->set_rules('pesan_2','Pesan Quote 2','required');
-		$this->form_validation->set_rules('judul_3','Judul Quote 3','required');
-		$this->form_validation->set_rules('pesan_3','Pesan Quote 3','required');
-		$this->form_validation->set_rules('judul_4','Judul Quote 4','required');
-		$this->form_validation->set_rules('pesan_4','Pesan Quote 4','required');
-		
-		if($this->form_validation->run() === FALSE) {
-			
-		$data = array(	'title'	=> 'General Configuration - Quote Front End',
-						'site'	=> $site,
-						'isi'	=> 'admin/konfigurasi/quote');
-		$this->load->view('admin/layout/wrapper',$data);
-		}else{
-			$i = $this->input;
-			$data = array(	'id_konfigurasi'	=> $i->post('id_konfigurasi'),
-							'judul_1'			=> $i->post('judul_1'),
-							'pesan_1'			=> $i->post('pesan_1'),
-							'judul_2'			=> $i->post('judul_2'),
-							'pesan_2'			=> $i->post('pesan_2'),
-							'judul_3'			=> $i->post('judul_3'),
-							'pesan_3'			=> $i->post('pesan_3'),
-							'judul_4'			=> $i->post('judul_4'),
-							'pesan_4'			=> $i->post('pesan_4'),
-							'judul_5'			=> $i->post('judul_5'),
-							'pesan_5'			=> $i->post('pesan_5'),
-							'judul_6'			=> $i->post('judul_6'),
-							'pesan_6'			=> $i->post('pesan_6'),
-							'id_user'			=> $this->session->userdata('id'));
-			$this->konfigurasi_model->edit($data);
-			$this->session->set_flashdata('sukses','Site configuration updated successfully');
-			redirect(base_url('admin/konfigurasi/quote'));
-		}
-	}
-	
-	// New javawebmedia
-	public function javawebmedia() {
-		$site = $this->konfigurasi_model->listing();
-		
-		$v = $this->form_validation;
-		$v->set_rules('id_konfigurasi','ID Konfigurasi','required');
-		
-		if($v->run()) {
-			if(!empty($_FILES['gambar']['name'])) {
-			$config['upload_path'] 		= './assets/upload/image/';
-			$config['allowed_types'] 	= 'gif|jpg|png';
-			$config['max_size']			= '12000'; // KB	
-$this->load->library('upload', $config);
-			if(! $this->upload->do_upload('gambar')) {
-				
-		$data = array(	'title'	=> $site['namaweb'].' Information',
-						'site'	=> $site,
-						'error'	=> $this->upload->display_errors(),
-						'isi'	=> 'admin/konfigurasi/javawebmedia');
-		$this->load->view('admin/layout/wrapper',$data);
-		}else{
-				$upload_data				= array('uploads' =>$this->upload->data());
-				// Image Editor
-				$config['image_library']	= 'gd2';
-				$config['source_image'] 	= './assets/upload/image/'.$upload_data['uploads']['file_name']; 
-				$config['new_image'] 		= './assets/upload/image/thumbs/';
-				$config['create_thumb'] 	= TRUE;
-				$config['maintain_ratio'] 	= TRUE;
-				$config['width'] 			= 150; // Pixel
-				$config['height'] 			= 150; // Pixel
-				$config['thumb_marker'] 	= '';
-				$this->load->library('image_lib', $config);
-				$this->image_lib->resize();
-				// Hapus gambar lama
-				unlink('./assets/upload/image/'.$site['gambar']);
-				unlink('./assets/upload/image/thumbs/'.$site['gambar']);
-				// End hapus gambar lama
-				// Masuk ke database
-				$i = $this->input;
-				$data = array(	'id_konfigurasi'=> $i->post('id_konfigurasi'),
-								'gambar'		=> $upload_data['uploads']['file_name'],
-								'video'			=> $i->post('video'),
-								'javawebmedia'			=> $i->post('javawebmedia'),
-								'id_user'		=> $this->session->userdata('id'));
-				$this->konfigurasi_model->edit($data);
-				$this->session->set_flashdata('sukses',$site['namaweb'].' information changed');
-				redirect(base_url('admin/konfigurasi/javawebmedia'));
-		}}else{
-				$i = $this->input;
-				$data = array(	'id_konfigurasi'=> $i->post('id_konfigurasi'),
-								'video'			=> $i->post('video'),
-								'javawebmedia'			=> $i->post('javawebmedia'),
-								'id_user'		=> $this->session->userdata('id'));
-				$this->konfigurasi_model->edit($data);
-				$this->session->set_flashdata('sukses',$site['namaweb'].' information changed');
-				redirect(base_url('admin/konfigurasi/javawebmedia'));
-		}}
-		// Default page
-		$data = array(	'title'	=> $site['namaweb'].' Information',
-						'site'	=> $site,
-						'isi'	=> 'admin/konfigurasi/javawebmedia');
-		$this->load->view('admin/layout/wrapper',$data);
-	}
 
 }
 

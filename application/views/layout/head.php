@@ -40,10 +40,15 @@ $site_info = $this->konfigurasi_model->listing();
   	}
   </style>
 
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link href="<?php echo base_url() ?>assets/font/googleapis.css" rel="stylesheet">
+<link rel="stylesheet" href="<?php echo base_url() ?>assets/font/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/font/ionicons.min.css">
+  <!-- TINYMCE -->
+<!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"> -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
+  <!-- Ionicons -->
+  <!-- <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
   <!-- TINYMCE -->
   <script src="<?php echo base_url() ?>assets/tinymce/js/tinymce/tinymce.min.js"></script>
   

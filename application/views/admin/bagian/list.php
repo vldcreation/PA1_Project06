@@ -33,7 +33,7 @@ echo form_open(base_url('admin/bagian/proses'));
     </th>
     <th>KODE</th>
     <th>NAMA</th>
-    <th>WILAYAH</th>
+    <th>KETERANGAN</th>
     <th>STATUS</th>
     <th>ACTION</th>
   </tr>
@@ -52,7 +52,7 @@ echo form_open(base_url('admin/bagian/proses'));
     </td>
     <td><?php echo $bagian->kode_bagian ?></td>
     <td><?php echo $bagian->nama_bagian ?></td>
-    <td><?php echo $bagian->wilayah ?></td>
+    <td><?php echo $bagian->keterangan ?></td>
     <td><?php echo $bagian->status_bagian ?></td>
     <td>
       <div class="btn-group">

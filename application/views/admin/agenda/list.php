@@ -29,7 +29,7 @@ echo form_open(base_url('admin/agenda/proses'));
     <th >Mulai</th>
     <th >Selesai</th>
     <th >Tempat</th>
-    <th >Panitia</th>
+    <th >PIC</th>
     <th width="10%">&nbsp;</th>
   </tr>
 </thead>

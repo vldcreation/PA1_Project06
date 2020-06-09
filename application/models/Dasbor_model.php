@@ -27,14 +27,7 @@ class Dasbor_model extends CI_Model {
 		return $query->row();
 	}
 
-	// Total client
-	public function client()
-	{
-		$this->db->select('COUNT(*) AS total');
-		$this->db->from('client');
-		$query = $this->db->get();
-		return $query->row();
-	}
+	
 
 	// Total agenda
 	public function agenda()
@@ -68,6 +61,24 @@ class Dasbor_model extends CI_Model {
 	{
 		$this->db->select('COUNT(*) AS total');
 		$this->db->from('users');
+		$query = $this->db->get();
+		return $query->row();
+	}
+	
+	// Total Quotes
+	public function quotes()
+	{
+		$this->db->select('COUNT(*) AS total');
+		$this->db->from('quotes');
+		$query = $this->db->get();
+		return $query->row();
+	}
+
+	// Total user
+	public function member()
+	{
+		$this->db->select('COUNT(*) AS total');
+		$this->db->from('members');
 		$query = $this->db->get();
 		return $query->row();
 	}
