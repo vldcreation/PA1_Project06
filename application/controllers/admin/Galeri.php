@@ -26,7 +26,7 @@ class Galeri extends CI_Controller {
 	// Halaman galeri
 	public function index()	{
 		$galeri = $this->galeri_model->listing();
-		$data = array(	'title'			=> 'Galeri',
+		$data = array(	'title'			=> 'Galeri ('.count($this->galeri_model->total()).') Data',
 						'galeri'		=> $galeri,
 						'isi'			=> 'admin/galeri/list');
 		$this->load->view('admin/layout/wrapper', $data, FALSE);		
@@ -36,16 +36,23 @@ class Galeri extends CI_Controller {
 	public function proses()
 	{
 		$site = $this->konfigurasi_model->listing();
+		$pengalihan = $this->input->post('pengalihan');
 		// PROSES HAPUS MULTIPLE
 		if(isset($_POST['hapus'])) {
 			$inp 				= $this->input;
 			$id_galerinya		= $inp->post('id_galeri');
 
+			// Check id_bagian kosong atau tidak
+			if($id_galerinya == "") {
+			$this->session->set_flashdata('warning', 'Anda belum memilih data');
+			redirect($pengalihan,'refresh');
+		}
+
    			for($i=0; $i < sizeof($id_galerinya);$i++) {
    				$galeri 	= $this->galeri_model->detail($id_galerinya[$i]);
    				if($galeri->gambar !='') {
-					unlink('./assets/upload/galeri/'.$galeri->gambar);
-					unlink('./assets/upload/galeri/thumbs/'.$galeri->gambar);
+					unlink('./assets/upload/image/'.$galeri->gambar);
+					unlink('./assets/upload/image/thumbs/'.$galeri->gambar);
 				}
 				$data = array(	'id_galeri'	=> $id_galerinya[$i]);
    				$this->galeri_model->delete($data);

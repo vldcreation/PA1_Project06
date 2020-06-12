@@ -9,7 +9,7 @@ echo form_open(base_url('admin/quotes/tambah/'));
 	<div class="col-md-12">
 		<div class="form-group">
 			<label>Author </label>
-			<input type="text" disabled="disabled" name="author_quotes" class="form-control form-control-lg" value="<?php if(isset($quotes->author_quotes)) { echo $quotes->author_quotes ;} else { echo $this->session->userdata('nama'); }  ?>" placeholder="Nama Author" required>
+			<input type="text" readonly name="author_quotes" class="form-control form-control-lg" value="<?php if(isset($quotes->author_quotes)) { echo $quotes->author_quotes ;} else { echo $this->session->userdata('nama'); }  ?>" placeholder="Nama Author" required>
 		</div>
 	</div>
 	<div class="col-md-12">

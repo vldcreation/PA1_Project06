@@ -7,6 +7,7 @@
 $this->load->database(); 
 $this->load->model('diskusi_model');
 ?>
+<?php include "header.php" ?>
 <section class="bg-upcoming-events">
 <div class="container">
 <div class="row">
@@ -16,6 +17,9 @@ $this->load->model('diskusi_model');
 </div>
 <!-- .section-header -->
 <div class="row">
+<?php if(isset($total)) { if($total < 1) { ?>
+        <div class="alert alert-info"> Belum ada data saat ini   <a href="<?php echo base_url('diskusi/tambah'); ?>" class="btn btn-primary btn-sm" style="float:right" >Buat Topik</a>  </div>
+    <?php } } ?>
     <?php foreach($diskusi as $diskusi) {    
     ?>
     <?php if(isset($useraktif)){ ?>
@@ -40,6 +44,8 @@ $this->load->model('diskusi_model');
                     <li><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo date('H:i', strtotime($diskusi->tanggal_diskusi)); ?></li>
                     <li><i class="fa fa-user"></i> <?php echo $diskusi->penulis_diskusi; ?></li>
                     <li><i class="fa fa-comments-o" arial-hidden="true"></i> <?php echo $diskusi->jlh_komentar; ?></li>
+                    <li><a href="<?php echo base_url('diskusi/delete/'.$diskusi->id_diskusi); ?>" onclick="confirmation(event)"><i class="fa fa-trash" ></i>Hapus</a></li>
+                    <li><a href="<?php echo base_url('diskusi/edit/'.$diskusi->id_diskusi); ?>"><sub><i class="fa fa-pencil"></i></sub> Edit</a></li>
                 </ul>
                 </div>
                 <p class="text-justify"><?php echo character_limiter(strip_tags($diskusi->isi_diskusi), 200); ?></p>
@@ -76,6 +82,7 @@ $this->load->model('diskusi_model');
 </div>
 <!-- .container -->
 </section>
+<?php include "footer.php" ?>
 
 
 <!-- End Upcoming Events Section -->

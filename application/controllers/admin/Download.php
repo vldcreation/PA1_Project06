@@ -26,7 +26,7 @@ class Download extends CI_Controller {
 	// Halaman download
 	public function index()	{
 		$download = $this->download_model->listing();
-		$data = array(	'title'			=> 'Download',
+		$data = array(	'title'			=> 'Download ('.count($this->download_model->total()).') Data',
 						'download'		=> $download,
 						'isi'			=> 'admin/download/list');
 		$this->load->view('admin/layout/wrapper', $data, FALSE);		
@@ -40,6 +40,12 @@ class Download extends CI_Controller {
 		if(isset($_POST['hapus'])) {
 			$inp 				= $this->input;
 			$id_downloadnya		= $inp->post('id_download');
+			$pengalihan = $inp->post('pengalihan');
+
+			if($id_downloadnya == ""){
+				$this->session->set_flashdata('warning', 'Anda belum memilih data');
+				redirect($pengalihan,'refresh');
+			}
 
    			for($i=0; $i < sizeof($id_downloadnya);$i++) {
    				$download 	= $this->download_model->detail($id_downloadnya[$i]);

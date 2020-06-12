@@ -138,12 +138,36 @@ $nav_profil     = $this->nav_model->nav_profil();
                             <?php } ?>
                         </span>
                             <div class="thumbnail-content">
-                                <h5><a href="<?php echo base_url('berita/profil/'.$nav_profil->slug_berita) ?>"><?php echo $nav_profil->judul_berita ?></a></h5>
+                                <h5><a href="<?php echo base_url('berita/profil/'.$nav_profil->slug_berita) ?>"> <?php echo $nav_profil->judul_berita ?></a></h5>
                             </div>
                             <!-- .thumbnail-content -->
                         </li>
                         <?php } ?>
                     </ul>
+                </div>
+                <div class="footer-widgets">
+                <div class="margin-md widgets-title">
+                    <h4 class="footer-heading"><span>Developer </span></h4>
+                    </div>
+                     <!-- .widgets-title -->
+                     <ul >
+                    <li>
+                        <a class="list-li" href="https://github.com/vldcreation"> <i class="fa fa-user"></i>  Vicktor L Desrony </a>
+                    </li>
+                    <li>
+                        <a class="list-li" href="javascript:void(0)"> <i class="fa fa-user"></i>  Ester Hutabarat </a>
+                    </li>
+                    <li>
+                        <a class="list-li" href="javascript:void(0)"> <i class="fa fa-user"></i>  Evan Richardo </a>
+                    </li>
+                    <li>
+                        <a class="list-li" href="javascript:void(0)"> <i class="fa fa-user"></i>  Mia Gultom </a>
+                    </li>
+                    <li>
+                        <a class="list-li" href="javascript:void(0)"> <i class="fa fa-user"></i>  Tesa Sibarani </a>
+                    </li>
+                    </ul>
+                <!-- .footer-widgets -->
                 </div>
                 <!-- .footer-widgets -->
             </div>
@@ -188,7 +212,12 @@ $nav_profil     = $this->nav_model->nav_profil();
 <div class="row">
     <div class="footer-bottom">
         <div class="copyright-txt">
-            <p>&copy; <?php echo date('Y') ?>. Designer By <a href="<?php echo $site->website ?>" >PA1_006_D3TI</a></p>
+            <p>&copy; <?php echo date('Y') ?>. Copyright By &copy; <a href="<?php echo $site->website ?>" ><?php echo $site->namaweb ?></a> All Right Reserved </p>
+            
+        </div>
+
+        <div class="footer-versi">
+        <p>Version 1.0 </p>
         </div>
         <!-- .copyright-txt -->
         <div class="social-box">
@@ -275,6 +304,10 @@ $nav_profil     = $this->nav_model->nav_profil();
 </html>
 
 <style>
+.footer-versi{
+    color: #fff;
+    text-align: right; 
+}
 .list-li{
   color : #fff;
   font-size : 15px;
@@ -298,7 +331,16 @@ $nav_profil     = $this->nav_model->nav_profil();
   .footer .footer-heading {
     font-size: 16px;
     color: #fff;
-    margin-bottom: 30px; }
+    margin-bottom: 30px; 
+  }
+  .margin-md{
+    margin-top : 25px;
+  }
+  h4{
+    margin-top : 10px;
+    font-size : 25px;
+    color : #fff;
+  }
     .footer-heading span {
       border-bottom: 3px solid #fff; }
   .footer a:hover {

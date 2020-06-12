@@ -72,7 +72,6 @@ class Simple_login
 			$gambar			= $user_login->gambar;
 			$akses_level 	= $user_login->akses_level;
 			$email			= $user_login->email;
-			$motivasi		= $user_login->Motivasi;
 			$is_active		= $user_login->is_active;
 			if($is_active != 'Y'){
 				// Kalau Akun member belum aktive
@@ -86,7 +85,6 @@ class Simple_login
 			$this->CI->session->set_userdata('nim',$NIM);
 			$this->CI->session->set_userdata('username',$username);
 			$this->CI->session->set_userdata('nama',$nama);
-			$this->CI->session->set_userdata('quotes',$motivasi);
 			$this->CI->session->set_userdata('pp',$gambar);
 			$this->CI->session->set_userdata('akses_level',$akses_level);
 			$this->CI->session->set_userdata('masuk',TRUE);
@@ -152,6 +150,26 @@ class Simple_login
 		{
 			$this->CI->session->set_flashdata('warning', 'Anda belum login');
 			redirect(base_url('loginmember'),'refresh');
+		}
+	}
+
+	//check status bagian
+	public function check_bagian_kompetisi($bagian,$pengalihan){
+		if($this->CI->session->userdata('id_bagian') != $bagian ){
+			$this->CI->session->set_flashdata('warning', 'Anda Tidak dapat melakukannya');
+			echo "<script>
+ 					window.location=history.go(-1);
+ 					</script>";
+		}
+	}
+
+	//check status bagian
+	public function check_bagian_SA($bagian,$pengalihan){
+		if($this->CI->session->userdata('id_bagian') != $bagian ){
+			$this->CI->session->set_flashdata('warning', 'Anda Tidak dapat melakukannya');
+			echo "<script>
+ 					window.location=history.go(-1);
+ 					</script>";
 		}
 	}
 

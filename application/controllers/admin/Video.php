@@ -25,7 +25,7 @@ class Video extends CI_Controller {
 	public function index() {
 		$video	= $this->video_model->listing();
 		
-		$data = array(	'title'	=> 'Video',
+		$data = array(	'title'	=> 'Video ('.$this->video_model->total()->total.') data',
 						'video'	=> $video,
 						'isi'	=> 'admin/video/list');
 		$this->load->view('admin/layout/wrapper',$data);
@@ -39,12 +39,15 @@ class Video extends CI_Controller {
 		if(isset($_POST['hapus'])) {
 			$inp 				= $this->input;
 			$id_videonya		= $inp->post('id_video');
+			$pengalihan = $inp->post('pengalihan');
+
+			//check data yang di centang
+			if($id_videonya == ""){
+				$this->session->set_flashdata('warning', 'Anda belum memilih data');
+				redirect($pengalihan,'refresh');
+			}
 
    			for($i=0; $i < sizeof($id_videonya);$i++) {
-   				$video 	= $this->video_model->detail($id_videonya[$i]);
-   				if($video->gambar !='') {
-					unlink('./assets/upload/file/'.$video->gambar);
-				}
 				$data = array(	'id_video'	=> $id_videonya[$i]);
    				$this->video_model->delete($data);
    			}

@@ -1,3 +1,8 @@
+<script>
+    $(document).ready(function(){
+        $("#exampleModalLong").modal('show');
+    });
+</script>
 <!-- Start About Greenforest Section -->
 <section class="bg-about-greenforest">
     <div class="container">

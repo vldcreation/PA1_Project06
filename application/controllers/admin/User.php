@@ -21,6 +21,7 @@ class User extends CI_Controller {
 		$pengalihan 	= $this->session->set_userdata('pengalihan',$url_pengalihan);
 		// Ambil check login dari simple_login
 		$this->simple_login->check_login($pengalihan);
+		$this->simple_login->check_bagian_kompetisi(0,$pengalihan);
 
 		//Check Hak Akses
 		$this->akses = $this->session->userdata('akses_level');

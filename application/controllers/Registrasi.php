@@ -185,7 +185,7 @@ class Registrasi extends CI_Controller {
 		$user = $this->member_model->is_Useravailable($email);
 		if($user){
 			$user_token1 = $this->member_model->is_Token_verify($token);
-			if(!$user_token1){
+			if($user_token1){
 			if((time() - $user->token_created) < (60 * 60 * 24)){
 				$data = array(
 					'id_user' => $user->id_user,

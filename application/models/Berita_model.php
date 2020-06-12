@@ -226,8 +226,7 @@ class Berita_model extends CI_Model {
 		$this->db->join('kategori','kategori.id_kategori = berita.id_kategori','LEFT');
 		$this->db->join('users','users.id_user = berita.id_user','LEFT');
 		// End join
-		$this->db->where(array(	'berita.status_berita'	=> 'Publish',
-								'berita.jenis_berita'	=> 'Berita'));
+		$this->db->where(array(	'berita.status_berita'	=> 'Publish'));
 		$this->db->like('berita.judul_berita',$keywords,'both');
 		$this->db->or_like('berita.isi',$keywords,'both');
 		$this->db->group_by('id_berita');
@@ -245,8 +244,7 @@ class Berita_model extends CI_Model {
 		
 		$this->db->join('users','users.id_user = berita.id_user','LEFT');
 		// End join
-		$this->db->where(array(	'berita.status_berita'	=> 'Publish',
-								'berita.jenis_berita'	=> 'Berita'));
+		$this->db->where(array(	'berita.status_berita'	=> 'Publish'));
 		$this->db->like('berita.judul_berita',$keywords);
 		$this->db->or_like('berita.isi',$keywords);
 		$this->db->group_by('id_berita');

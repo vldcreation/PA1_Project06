@@ -32,6 +32,11 @@ $status = $this->session;
             <!-- home -->
             <li><a href="<?php echo base_url() ?>" class="active">BERANDA</a></li>
 
+              <!-- PROFIL -->
+              <li>
+                <a href="<?php echo base_url('news/profil/profil-cloud-club-del') ?>"> <i class="fa fa-cloud"></i> PROFIL</a>
+            </li>
+
             <!-- berita -->
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -62,16 +67,6 @@ $status = $this->session;
                 </ul>
             </li>
                     <?php } ?>
-
-            <!-- PROFIL -->
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PROFIL<span class="caret"></span></a>
-                <ul class="dropdown-menu sub-menu">
-                    <?php foreach($nav_profil as $nav_profil) { ?>
-                    <li class="sub-active"><a href="<?php echo base_url('news/profil/'.$nav_profil->slug_berita) ?>"><i class="fa fa-angle-double-right" aria-hidden="true"></i> <?php echo $nav_profil->judul_berita ?></a></li>
-                    <?php } ?> 
-                </ul>
-            </li>
 
             <!-- galeri -->
             <li class="dropdown">

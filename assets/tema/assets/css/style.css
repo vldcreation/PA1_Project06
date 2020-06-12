@@ -2971,7 +2971,7 @@ div#filters {
 ==========================================*/
 
 .bg-compaian-video{
-	background: url(../images/home02/bg-video-section.jpg) no-repeat fixed;
+	background: url(../images/learn/learnabout.jpg) no-repeat fixed;
     background-size: cover;
     background-position: 48% 100%;
 }
@@ -3361,6 +3361,7 @@ div#filters {
 	font-size: 40px;
 }
 .working-content{}
+
 .working-content h4 a{
 	display: inline-block;
 	padding: 30px 0 6px 0;
@@ -4884,7 +4885,7 @@ div#filters {
 	padding: 12px 0;
 }
 .bg-homebox-video {
-    background: url(../images/home01/bg-home-box-video-img.jpg) no-repeat fixed;
+    background: url(../images/learn/learnabout.jpg) no-repeat fixed;
     background-size: cover;
     background-position: 48% 100%;
 }

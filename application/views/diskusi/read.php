@@ -1,6 +1,9 @@
 <!-- Mockup Tampilan Komentar -->
 <style type='text/css'>
 /* CSS Comments myabdurrahim.com */
+.side-tittle2 span{
+    color : black;
+}
 .comments h4 {
     font-size: 16px;
 }
@@ -127,6 +130,13 @@
     text-decoration: none;
     background: #277971;
 }
+
+h3 a{
+    color : black;
+}
+h3 a span{
+    border-bottom: 3px solid #3C9EFA;
+}
 </style>
 
 <!-- Algoritma Button in foreach case -->
@@ -150,6 +160,14 @@
 
 <section class="bg-single-blog">
     <div class="container">
+            <!-- Search form -->
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4" style="padding-bottom:10px;">
+            <form action="<?php echo base_url('diskusi/search'); ?>">
+                    <input name="s" class="form-control" id="all-serach" type="text" autofocus autocomplete="ON" placeholder="Cari Topik DIskusi" aria-label="Search">
+            </form>
+        </div>
         <div class="row">
             <div class="single-blog">
                 <div class="row">
@@ -180,7 +198,7 @@
                                 </div>
                                 <!-- .meta-box -->
                                 <div class="blog-content">
-                                    <h4><?php echo $diskusi->judul_diskusi; ?></h4>
+                                <h3><a href="<?php echo base_url('diskusi/read/' . $diskusi->slug_diskusi); ?>"> <span> <?php echo $diskusi->judul_diskusi; ?> </span> </a></h3>
 
                                     <p class="text-justify"><?php echo $diskusi->isi_diskusi; ?></p>
                                 </div>
@@ -215,7 +233,7 @@
                                             </div>
                                             <div class="comment-actions">
                                             <a  href="javascript:void(0)"><i data-toggle="modal" data-target="#exampleModalLong" class="fa fa-reply hehe" aria-hidden="true"> Balas</i></a>
-                                                <?php if($diskusi->id_users == $komentar->id_penulis){ ?>
+                                                <?php if($this->session->userdata('nama') == $komentar->penulis_komentar){ ?>
                                                 <a href="<?php echo base_url('komentar/delete/'.$komentar->id_komentar).'/'.$diskusi->slug_diskusi ?>" onclick="confirmation(event)"><i class="fa fa-trash-o hehe">Hapus</i></a>
                                                 <?php } ?>
                                             </div>
@@ -250,8 +268,8 @@
 ?>
                             <form action="<?php echo base_url('diskusi/comment') ?>" method="post" id="inputelements">
                             <div class="form-group" >
-                            <input type="hidden" name="tanggal_publish" class="form-control tanggal" placeholder="Tanggal publikasi" value="<?php if(isset($_POST['tanggal_publish'])) { echo set_value('tanggal_publish'); }else{ echo date('d-m-Y'); } ?>" data-date-format="dd-mm-yyyy" readonly>
-                            <input type="hidden" name="jam_publish" class="form-control time-picker" placeholder="Jam publikasi" value="<?php if(isset($_POST['jam_publish'])) { echo set_value('jam_publish'); }else{ echo date('H:i:s'); } ?>" readonly>
+                            <input type="hidden" name="tanggal_publish" class="form-control tanggal" placeholder="Tanggal publikasi" value="<?php if(isset($_POST['tanggal_publish'])) { echo set_value('tanggal_publish'); }else{ echo date('d-m-Y'); } ?>" data-date-format="dd-mm-yyyy" >
+                            <input type="hidden" name="jam_publish" class="form-control time-picker" placeholder="Jam publikasi" value="<?php if(isset($_POST['jam_publish'])) { echo set_value('jam_publish'); }else{ echo date('H:i:s'); } ?>" >
                             <input type="hidden" name="id_post" value="<?= $diskusi->id_diskusi ?>">
                             <input type="hidden" name="penulis_post" value="<?= $diskusi->penulis_diskusi ?>">
                             <input type="hidden" name="slug_diskusi" value="<?= $diskusi->slug_diskusi ?>">   
@@ -270,7 +288,7 @@
                     <div class="col-md-4">
                         <div class="sidebar">
                             <div class="widget">
-                                <h4 class="sidebar-widget-title">diskusi Lainnya</h4>
+                            <h2 style="font-size : 25px;" class="sidebar-widget-title"><span>Diskusi Terpopuler</span></h2>
                                 <div class="widget-content">
                                     <ul class="popular-news-option">
                                         <?php foreach($listing as $listing) { ?>
@@ -309,6 +327,7 @@
 <!--  -->
 
 <!-- Helper Show Hide Form elements -->
+<?php include "footer.php" ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
@@ -317,144 +336,6 @@ $(document).ready(function(){
   });
 });
 </script>
-
-<!-- Modal -->
-<!-- CSS Quotes Komentar -->
-<style type='text/css'>
-.comments h4 {
-    font-size: 16px;
-}
-.comments h6 {
-    font-size: 10px;
-}
-.comments .avatar-image-container {
-    max-height: 50px;
-    width: 50px;
-}
-.comments .avatar-image-container img {
-    border-radius: 50px;
-    border:3px solid #dadada;
-    width: 40px;
-    height: 40px;
-    margin-right: 100px;
-    max-width: 50px;
-}
-.comments .comment-block{
-    border: 1px solid #dadada;
-    background: #fdfdfd;
-    padding: 10px;
-    font-size: 14px;
-    border-radius: 10px 0px 10px 0px;
-    margin-left: 60px;
-}
-.comments .comment-block::after {
-    content: ' ';
-    position: absolute;
-    width: 0;
-    height: 0;
-    left: -14px;
-    top: 16px;
-    border: 7px solid;
-    border-color: transparent #fdfdfd transparent transparent;
-}
-.comments .comment-block::before {
-    content: ' ';
-    position: absolute;
-    width: 0;
-    height: 0;
-    top: 15px;
-    left: -16px;
-    border: 8px solid;
-    border-color: transparent #dadada transparent transparent;
-}
-.comments .comment-header,
-.comments .comments-content .comment-thread,
-.comments .continue a {
-    font-size: 14px;
-}
-.comments .comment-header {
-    background: #5BC0DE;
-    padding: 5px;
-    border-radius: 10px 0px 0px 0px;
-}
-.comments .comment-content {
-    font-size: 14px;
-}
-.comments .comments-content .comment-content {
-    margin-bottom: 10px;
-}
-.comments .comments-content .datetime{
-    font-size: 12px;
-    float:right;
-    margin-right: 10px;
-    padding-top: 5px;
-}
-
-.dt{
-    font-size: 12px;
-    float:right;
-    margin-right: 10px;
-    padding-top: 5px;
-    color : #fff;
-}
-
-.dear{
-    font-size: 16px;
-    color : #fff;
-    font-weight: bold;
-    padding-right : 10px;
-}
-
-.comments .comments-content .user {
-    font-style:normal;
-    font-weight:bold;
-    font-size: 16px;
-}
-
-.user{
-    font-style: normal;
-    font-weight: bold ;
-    font-size: 16px;
-    color: black;
-}
-
-.comments .comments-content .user a,
-.comments .comments-content .datetime a {
-    color: #fff;
-}
-.comments .comment .comment-actions a {
-    margin-top: 30px;
-    background: #37988e;
-    color: #fff;
-    padding: 5px;
-    margin: 3px;
-}
-
-.hehe{
-    margin-top: 30px;
-    background: #5BC0DE;
-    color: #fff;
-    padding: 5px;
-    margin: 3px;
-}
-
-.comments .continue a {
-    display:inline;
-    background: #37988e;
-    color: #fff;
-    padding: 5px;
-    text-align: center;
-    font-weight: normal;
-}
-.comments .continue a:hover {
-    text-decoration: none;
-    background: #277971;
-}
-.comments .comment .comment-actions a:hover{
-    text-decoration: none;
-    background: #277971;
-}
-</style>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">

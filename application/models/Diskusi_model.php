@@ -13,6 +13,12 @@ public function tambah($data) {
     $this->db->insert('diskusi',$data);
 }
 
+//edit
+public function edit($data){
+    $this->db->where(('id_diskusi'),$data['id_diskusi']);
+    $this->db->update('diskusi',$data);
+}
+
 // Listing total
 public function total() {
     $this->db->select('diskusi.*, users.nama');
@@ -21,6 +27,18 @@ public function total() {
     
     $this->db->join('users','users.id_user = diskusi.id_users','LEFT');
     // End join
+    $this->db->order_by('diskusi.id_diskusi','DESC');
+    $query = $this->db->get();
+    return $query->result();
+}
+
+// Listing total
+public function total_topik($user) {
+    $this->db->select('diskusi.*, users.nama');
+    $this->db->from('diskusi');
+    $this->db->join('users','users.id_user = diskusi.id_users','LEFT');
+    // End join
+    $this->db->where('penulis_diskusi', $user);
     $this->db->order_by('diskusi.id_diskusi','DESC');
     $query = $this->db->get();
     return $query->result();
@@ -141,5 +159,49 @@ public function detail($id_diskusi) {
 public function delete($data){
     $this->db->where('id_diskusi',$data['id_diskusi']);
     $this->db->delete('diskusi',$data);
+}
+
+// Kunjungan diskusi teramai
+public function populer()
+{
+    $this->db->select('*');
+    $this->db->from('diskusi');
+    $this->db->order_by('hits','DESC');
+    $this->db->limit(8);
+    $query = $this->db->get();
+    return $query->result();
+}
+
+	// Listing hasil search diskusi
+	public function search($keywords,$limit,$start) {
+		$this->db->select('diskusi.*');
+		$this->db->from('diskusi');
+		$this->db->join('users','users.id_user = diskusi.id_diskusi','LEFT');
+		// End join
+		$this->db->like('diskusi.judul_diskusi',$keywords,'both');
+		$this->db->or_like('diskusi.isi_diskusi',$keywords,'both');
+		$this->db->or_like('diskusi.penulis_diskusi',$keywords,'both');
+		$this->db->group_by('id_diskusi');
+		$this->db->order_by('id_diskusi','DESC');
+		$this->db->limit($limit,$start);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+// Listing total search
+public function total_search($keywords) {
+    $this->db->select('diskusi.*, users.nama');
+    $this->db->from('diskusi');
+    // Join dg 2 tabel
+    
+    $this->db->join('users','users.id_user = diskusi.id_users','LEFT');
+    // End join
+    $this->db->like('diskusi.judul_diskusi',$keywords,'both');
+    $this->db->or_like('diskusi.isi_diskusi',$keywords,'both');
+    $this->db->or_like('diskusi.penulis_diskusi',$keywords,'both');
+    $this->db->group_by('id_diskusi');
+    $this->db->order_by('id_diskusi','DESC');
+    $query = $this->db->get();
+    return $query->result();
 }
 }

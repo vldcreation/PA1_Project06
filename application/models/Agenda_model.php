@@ -99,11 +99,29 @@ class Agenda_model extends CI_Model {
 	public function data_agenda($jenis) {
 		$this->db->select('*');
 		$this->db->from('agenda');
-		$this->db->order_by('id_agenda','DESC LIMIT 15');
+		$this->db->order_by('id_agenda','DESC LIMIT 5');
 		$this->db->where(array('jenis_agenda'=>$jenis));
 		$query = $this->db->get();
 		return $query->result_array();
 	}
-		
+
+	// Daftar agenda 
+	public function data_agenda2($jenis) {
+		$this->db->select('*');
+		$this->db->from('agenda');
+		$this->db->order_by('id_agenda','DESC LIMIT 5');
+		$this->db->where(array('jenis_agenda'=>$jenis));
+		$query = $this->db->get();
+		return $query->result();
+	}
+	
+	//detail agenda by id
+	public function detail($id_agenda){
+		$this->db->select('*');
+		$this->db->from('agenda');
+		$this->db->where(('id_agenda'),$id_agenda);
+		$this->db->order_by('id_agenda','DESC');
+		return $this->db->get()->result();
+	}
 	
 }

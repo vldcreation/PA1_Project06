@@ -44,6 +44,7 @@ echo form_open(base_url('admin/galeri/proses'));
 
 <tr class="odd gradeX">
     <td>
+    <input type="hidden" name="pengalihan" value="<?php echo str_replace('index.php/', '', current_url()) ?>">
       <div class="mailbox-star text-center"><div class="text-center">
         <input type="checkbox" class="icheckbox_flat-blue " name="id_galeri[]" value="<?php echo $galeri->id_galeri ?>">
         <span class="checkmark"></span>

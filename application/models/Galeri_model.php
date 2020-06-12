@@ -99,6 +99,19 @@ class Galeri_model extends CI_Model {
 		return $query->result();
 	}
 
+	//list total all data
+	public function total(){
+			$this->db->select('*');
+			$this->db->from('galeri');
+			// Join dg 2 tabel
+			$this->db->join('kategori_galeri','kategori_galeri.id_kategori_galeri = galeri.id_kategori_galeri','LEFT');
+			$this->db->join('users','users.id_user = galeri.id_user','LEFT');
+			// End join
+			$this->db->where('jenis_galeri','Galeri');
+			$this->db->or_where('jenis_galeri','Homepage');
+			$this->db->order_by('id_galeri','DESC');
+			return $this->db->get()->result();
+	}
 	// Listing data slider
 	public function total_galeri() {
 		$this->db->select('galeri.*, kategori_galeri.nama_kategori_galeri, users.nama');

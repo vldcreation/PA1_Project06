@@ -9,6 +9,8 @@ class News extends CI_Controller {
 		parent::__construct();
 		$this->load->model('berita_model');
 		$this->load->model('kategori_model');
+		$this->load->model('agenda_model');
+		$this->load->model('quotes_model');
 	}
 
 	// Main page
@@ -17,10 +19,9 @@ class News extends CI_Controller {
 		$populer	= $this->berita_model->populer();
 		
 		// Berita dan paginasi
-		// Berita dan paginasi
 		$this->load->library('pagination');
-		$config['base_url'] 		= base_url().'berita/index/';
-		$config['total_rows'] 		= count(array($this->berita_model->total()));
+		$config['base_url'] 		= base_url().'news/index/';
+		$config['total_rows'] 		= count($this->berita_model->total());
 		$config['use_page_numbers'] = TRUE;
 		$config['num_links'] 		= 5;
 		$config['uri_segment'] 		= 3;
@@ -47,8 +48,8 @@ class News extends CI_Controller {
 
         $config['num_tag_open'] 	= '<li class="page">';
         $config['num_tag_close'] 	= '</li>';
-		$config['per_page'] 		= 10;
-		$config['first_url'] 		= base_url().'berita/';
+		$config['per_page'] 		= 2;
+		$config['first_url'] 		= base_url().'news/';
 		$this->pagination->initialize($config); 
 		$page 		= ($this->uri->segment(3)) ? ($this->uri->segment(3) - 1) * $config['per_page'] : 0;
 		$berita 	= $this->berita_model->berita($config['per_page'], $page);
@@ -60,23 +61,8 @@ class News extends CI_Controller {
 						'berita'	=> $berita,
 						'site'		=> $site,
 						'populer'	=> $populer,
-						'isi'		=> 'berita/list');
+						'isi'		=> 'berita/list',);
 		$this->load->view('layout/wrapper', $data, FALSE);
-	}
-
-	// Search
-	public function cari()
-	{
-		$this->load->helper('security');
-		$s 			= $this->input->post('s');
-		$keyword 	= xss_clean($s);
-		$keywords	= encode_php_tags($keyword);
-
-		if($keywords!="") {
-			redirect(base_url('berita/search?s='.$keywords),'refresh');
-		}else{
-			redirect(base_url('berita'),'refresh');
-		}
 	}
 
 	// Search
@@ -124,7 +110,7 @@ class News extends CI_Controller {
 
         $config['num_tag_open'] 	= '<li class="page">';
         $config['num_tag_close'] 	= '</li>';
-		$config['per_page'] 		= 10;
+		$config['per_page'] 		= 2;
 		$config['first_url'] 		= base_url().'news/search?s='.$keywords;
 		$this->pagination->initialize($config); 
 		$page 		= ($this->uri->segment(3)) ? ($this->uri->segment(3) - 1) * $config['per_page'] : 0;
@@ -136,6 +122,8 @@ class News extends CI_Controller {
 						'pagin' 	=> $this->pagination->create_links(),
 						'berita'	=> $berita,
 						'site'		=> $site,
+						'keyword'	=> $keyword,
+						'total'		=> count($this->berita_model->total_search($keyword)),
 						'populer'	=> $populer,
 						'isi'		=> 'berita/list');
 		$this->load->view('layout/wrapper', $data, FALSE);
@@ -237,6 +225,9 @@ class News extends CI_Controller {
 		$site 		= $this->konfigurasi_model->listing();
 		$berita 	= $this->berita_model->read($slug_berita);
 		$profil 	= $this->nav_model->nav_profil();
+		$agenda 	= $this->agenda_model->data_agenda2('Internal');
+		$nav_layanan = $this->nav_model->nav_layanan();
+		$quotes		= $this->quotes_model->listing();
 
 		if(count(array($berita)) < 1) {
 			redirect(base_url('oops'),'refresh');
@@ -259,7 +250,10 @@ class News extends CI_Controller {
 						'berita'	=> $berita,
 						'site'		=> $site,
 						'listing'	=> $profil,
-						'isi'		=> 'berita/profil');
+						'agenda'	=> $agenda,
+						'nav_layanan'	=> $nav_layanan,
+						'isi'		=> 'berita/profil',
+						'quotes'	=> $quotes,);
 		$this->load->view('layout/wrapper', $data, FALSE);
 	}
 

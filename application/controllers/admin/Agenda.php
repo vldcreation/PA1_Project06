@@ -13,6 +13,7 @@ class Agenda extends CI_Controller {
 		$pengalihan 	= $this->session->set_userdata('pengalihan',$url_pengalihan);
 		// Ambil check login dari simple_login
 		$this->simple_login->check_login($pengalihan);
+		$this->simple_login->check_bagian_kompetisi(0,$pengalihan);
 
 		//Check Hak Akses
 		$akses = $this->session->userdata('akses_level');
@@ -45,12 +46,15 @@ class Agenda extends CI_Controller {
 		if(isset($_POST['hapus'])) {
 			$inp 				= $this->input;
 			$id_agendanya		= $inp->post('id_agenda');
+			$pengalihan = $inp->post('pengalihan');
 
+				// Check id_bagian kosong atau tidak
+				if($id_agendanya == "") {
+					$this->session->set_flashdata('warning', 'Anda belum memilih data');
+					redirect($pengalihan,'refresh');
+				}
    			for($i=0; $i < sizeof($id_agendanya);$i++) {
    				$agenda 	= $this->agenda_model->detail($id_agendanya[$i]);
-   				if($agenda->gambar !='') {
-					unlink('./assets/upload/file/'.$agenda->gambar);
-				}
 				$data = array(	'id_agenda'	=> $id_agendanya[$i]);
    				$this->agenda_model->delete($data);
    			}

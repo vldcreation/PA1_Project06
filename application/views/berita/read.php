@@ -1,8 +1,29 @@
+<style>
+
+h3 a{
+    color : black;
+}
+h3 a span{
+    border-bottom: 3px solid #3C9EFA;
+}
+</style>
 <section class="bg-single-blog">
     <div class="container">
         <div class="row">
             <div class="single-blog">
+            <div class="upcoming-events">
+                        <div class="section-header">
+                            <h2>Berita Terbaru</h2>
+                        </div>
                 <div class="row">
+                <!-- Search form -->
+                <div class="col-md-4"></div>
+                                <div class="col-md-4"></div>
+                            <div class="col-md-4" style="padding-bottom:10px;">
+                                <form action="<?php echo base_url('news/search'); ?>">
+                                        <input name="s" class="form-control" id="all-serach" type="text" autofocus autocomplete="ON" placeholder="<?php if(isset($keyword)) echo $keyword ; else echo "Cari Topik Berita"; ?>" aria-label="Search" >
+                                </form>
+                            </div>
                     <div class="col-md-8">
 
                         <div class="blog-items">
@@ -28,7 +49,7 @@
                                 </div>
                                 <!-- .meta-box -->
                                 <div class="blog-content">
-                                    <h4><?php echo $berita->judul_berita; ?></h4>
+                                    <h3><a href="javascript:void(0)"><span><?php echo $berita->judul_berita; ?></span></a></h3>
 
                                     <p class="text-justify"><?php echo $berita->isi; ?></p>
                                 </div>
@@ -42,7 +63,7 @@
                     <div class="col-md-4">
                         <div class="sidebar">
                             <div class="widget">
-                                <h4 class="sidebar-widget-title">Berita Lainnya</h4>
+                            <h2 style="font-size : 25px;" class="sidebar-widget-title"><span>Berita Terpopuler</span></h2>
                                 <div class="widget-content">
                                     <ul class="popular-news-option">
                                         <?php foreach($listing as $listing) { ?>
@@ -69,6 +90,8 @@
                     <!-- .col-md-4 -->
                 </div>
                 <!-- .row -->
+                </div>
+                <!-- Upcoming events -->
             </div>
             <!-- .single-blog -->
         </div>

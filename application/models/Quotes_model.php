@@ -20,7 +20,7 @@ class Quotes_model extends CI_Model {
 		return $query->result();
 	}
 
-	// Listing bagian aktif
+	//coming soon
 	public function listaktif()
 	{
 		$this->db->select('*');

@@ -34,9 +34,10 @@ echo form_open(base_url('admin/agenda/proses'));
   </tr>
 </thead>
 <tbody>
-  <?php foreach($agenda as $row) { ?>
+  <?php $i=1; foreach($agenda as $row) { ?>
   <tr>
  <td>
+ <input type="hidden" name="pengalihan" value="<?php echo str_replace('index.php/', '', current_url()) ?>">
       <div class="mailbox-star text-center"><div class="text-center">
         <input type="checkbox" class="icheckbox_flat-blue " name="id_agenda[]" value="<?php echo $row['id_agenda'] ?>">
         <span class="checkmark"></span>
@@ -56,7 +57,7 @@ echo form_open(base_url('admin/agenda/proses'));
        </div> 
     </td>
   </tr>
-  <?php } ?>
+  <?php $i++; } ?>
 </tbody>
 </table>
 </div>

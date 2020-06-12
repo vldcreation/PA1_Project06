@@ -43,7 +43,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group ">
-                                        <input type="text" class="form-control" id="nameId" name="name" placeholder="Nama Lengkap">
+                                        <input autofocus type="text" class="form-control" id="nameId" name="name" placeholder="Nama Lengkap">
                                     </div>
                                     <!-- .form-group -->
                                 </div>

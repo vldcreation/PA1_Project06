@@ -69,17 +69,19 @@ echo form_open_multipart(base_url('diskusi/tambah'));
 <div class="form-group">
 <button type="submit" name="submit" class="btn btn-success btn-lg" value="Simpan Data">Simpan Data</button>
 <button type="reset" name="reset" class="btn btn-danger btn-lg" value="Reset">Reset</button>
+<a href="<?php echo base_url('diskusi/mytopik') ?>" class="btn btn-info btn-lg">Kembali</a>
 </div>
 
 </div>
 </div>
 </div>
+<?php include "footer.php" ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script type="text/javascript">
 
-//Tinymce Script for label textarea
+<!-- Tinymce Script for label textarea -->
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script>tinymce.init({selector:'textarea'});</script>
+<script type="text/javascript">
 var timestamp = '<?=time();?>';
 function updateTime(){
   $('#time').html(Date(timestamp));

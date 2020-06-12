@@ -34,6 +34,7 @@ echo form_open(base_url('admin/video/proses'));
 	<?php $i=1; foreach($video as $video) { ?>
     <tr class="odd gradeX">
         <td>
+        <input type="hidden" name="pengalihan" value="<?php echo str_replace('index.php/', '', current_url()); ?>">
           <div class="mailbox-star text-center"><div class="text-center">
             <input type="checkbox" class="icheckbox_flat-blue " name="id_video[]" value="<?php echo $video->id_video ?>">
             <span class="checkmark"></span>

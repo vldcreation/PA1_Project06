@@ -2,8 +2,25 @@
             <div class="container">
                 <div class="row">
                     <div class="blog-style-2">
+                    <div class="upcoming-events">
+                        <div class="section-header">
+                            <h2>Berita Terbaru</h2>
+                        </div>
                         <div class="row">
+                         <!-- Search form -->
+                            <div class="col-md-4"></div>
+                                <div class="col-md-4"></div>
+                            <div class="col-md-4" style="padding-bottom:10px;">
+                                <form action="<?php echo base_url('news/search'); ?>">
+                                        <input name="s" class="form-control" id="all-serach" type="text" autofocus autocomplete="ON" placeholder="<?php if(isset($keyword)) echo $keyword ; else echo "Cari Topik Berita"; ?>" aria-label="Search" >
+                                </form>
+                            </div>
                             <div class="col-md-8">
+                            <?php if(isset($total)) { if($total < 1) { ?>
+                                    <div class="alert alert-info"> Tidak ada data untuk pencarian : <span style="font-weight : bold;"> <?php echo $keyword; ?> </span> </div>
+                                <?php } else {  ?>
+                                    <div class="alert-info"> Total Pencarian untuk <span style="font-weight : bold;"><?= $keyword; ?></span> : ( <?= $total ?> ) </div>
+                                <?php } } ?>
                                 <?php foreach($berita as $berita) { ?>
                                 <div class="blog-items">
                                     <div class="blog-img" style="width:770px;height:370px;">
@@ -25,42 +42,18 @@
                                     </div>
                                     <!-- .blog-content-box -->
                                 </div>
-                                <?php } ?>
-                                <div class="pagination-option">
-                                    <nav aria-label="Page navigation">
-                                        <?php if(isset($pagin)) { echo $pagin; } else {?>
-
-                                            <div class="alert alert-warning">
-                                                Data Tidak Ditemukan
-                                            </div>
-
-                                        <?php } ?>
-                                        <!-- <ul class="pagination">
-                                            <li>
-                                                <a href="#" aria-label="Previous">
-                                                    <i class="fa fa-angle-double-left" aria-hidden="true"></i>
-                                                </a>
-                                            </li>
-                                            <li><a href="#">1</a></li>
-                                            <li class="active"><a href="#">2</a></li>
-                                            <li><a href="#">3</a></li>
-                                            <li><a href="#">...</a></li>
-                                            <li><a href="#">5</a></li>
-                                            <li>
-                                                <a href="#" aria-label="Next">
-                                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                                                </a>
-                                            </li>
-                                        </ul> -->
-                                    </nav>
-                                </div>
-                                <!-- .pagination_option -->
+                                <?php }  ?>
+                                <!-- Pagin -->
+                                    <div class="load-more-option">
+                                                            <?php if(isset($pagin)) { echo $pagin; }  ?>
+                                    </div>
+                                                                <!-- .pagination_option -->
                             </div>
                             <!-- .col-md-8 -->
                             <div class="col-md-4">
                                 <div class="sidebar">
                                     <div class="widget">
-                                        <h4 class="sidebar-widget-title">Berita Terpopuler</h4>
+                                    <h2 style="font-size : 25px;" class="sidebar-widget-title"><span>Berita Terpopuler</span></h2>
                                         <div class="widget-content">
                                             <ul class="popular-news-option">
                                                 <?php foreach($populer as $populer) { ?>
@@ -89,6 +82,8 @@
                             <!-- .col-md-4 -->
                         </div>
                         <!-- .row -->
+                        </div>
+                        <!-- Upcoming event -->
                     </div>
                     <!-- .blog-style-2 -->
                 </div>
