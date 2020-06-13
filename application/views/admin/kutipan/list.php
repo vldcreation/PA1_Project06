@@ -25,6 +25,7 @@ echo form_open(base_url('admin/quotes/proses'));
     </th>
     <th>Judul</th>
     <th>ISI</th>
+    <th>POSISI</th>
     <th>FOOTER</th>
     <th>AUTHOR</th>
     <th>ACTION</th>
@@ -44,6 +45,7 @@ echo form_open(base_url('admin/quotes/proses'));
     </td>
     <td><?php echo $quotes->title_quotes ?></td>
     <td><?php echo $quotes->body_quotes ?></td>
+    <td><?php echo $quotes->position ?></td>
     <td><?php echo $quotes->footer_quotes ?></td>
     <td><?php echo $quotes->author_quotes ?></td>
     <td>

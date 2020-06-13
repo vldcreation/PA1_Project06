@@ -65,7 +65,8 @@ class Quotes extends CI_Controller {
 							'body_quotes'		=> $inp->post('body_quotes'),
 							'footer_quotes'		=> $inp->post('footer_quotes'),
 							'author_quotes'		=> $inp->post('author_quotes'),
-							'tanggal_post'		=> date('Y-m-d H:i:s')
+							'tanggal_post'		=> date('Y-m-d'),
+							'position'			=> $inp->post('position'),
 						);
 			$this->quotes_model->tambah($data);
 			$this->session->set_flashdata('sukses', 'Data telah ditambahkan');
@@ -107,7 +108,8 @@ class Quotes extends CI_Controller {
 							'body_quotes'		=> $inp->post('body_quotes'),
 							'footer_quotes'		=> $inp->post('footer_quotes'),
 							'author_quotes'		=> $inp->post('author_quotes'),
-							'tanggal_post'		=> date('Y-m-d H:i:s')
+							'tanggal_post'		=> date('Y-m-d'),
+							'position'			=> $inp->post('position'),
 						);
 			$this->quotes_model->edit($data);
 			$this->session->set_flashdata('sukses', 'Data telah diupdate');

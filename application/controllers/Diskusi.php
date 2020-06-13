@@ -30,19 +30,19 @@ class Diskusi extends CI_Controller{
 		$config['uri_segment'] 		= 3;
 		$config['full_tag_open'] 	= '<ul class="pagination">';
         $config['full_tag_close'] 	= '</ul>';
-        $config['first_link'] 		= '&laquo; Awal';
+        $config['first_link'] 		= '&laquo; First';
         $config['first_tag_open'] 	= '<li class="prev page">';
         $config['first_tag_close'] 	= '</li>';
 
-        $config['last_link'] 		= 'Akhir &raquo;';
+        $config['last_link'] 		= 'Last &raquo;';
         $config['last_tag_open'] 	= '<li class="next page">';
         $config['last_tag_close'] 	= '</li>';
 
-        $config['next_link'] 		= 'Selanjutnya &rarr;';
+        $config['next_link'] 		= 'Next &rarr;';
         $config['next_tag_open'] 	= '<li class="next page">';
         $config['next_tag_close'] 	= '</li>';
 
-        $config['prev_link'] 		= '&larr; Sebelumnya';
+        $config['prev_link'] 		= '&larr; Preivious';
         $config['prev_tag_open'] 	= '<li class="prev page">';
         $config['prev_tag_close'] 	= '</li>';
 
@@ -193,19 +193,19 @@ class Diskusi extends CI_Controller{
 		$config['uri_segment'] 		= 3;
 		$config['full_tag_open'] 	= '<ul class="pagination">';
         $config['full_tag_close'] 	= '</ul>';
-        $config['first_link'] 		= '&laquo; Awal';
+        $config['first_link'] 		= '&laquo; First';
         $config['first_tag_open'] 	= '<li class="prev page">';
         $config['first_tag_close'] 	= '</li>';
 
-        $config['last_link'] 		= 'Akhir &raquo;';
+        $config['last_link'] 		= 'Last &raquo;';
         $config['last_tag_open'] 	= '<li class="next page">';
         $config['last_tag_close'] 	= '</li>';
 
-        $config['next_link'] 		= 'Selanjutnya &rarr;';
+        $config['next_link'] 		= 'Next &rarr;';
         $config['next_tag_open'] 	= '<li class="next page">';
         $config['next_tag_close'] 	= '</li>';
 
-        $config['prev_link'] 		= '&larr; Sebelumnya';
+        $config['prev_link'] 		= '&larr; Previous';
         $config['prev_tag_open'] 	= '<li class="prev page">';
         $config['prev_tag_close'] 	= '</li>';
 
@@ -214,8 +214,8 @@ class Diskusi extends CI_Controller{
 
         $config['num_tag_open'] 	= '<li class="page">';
         $config['num_tag_close'] 	= '</li>';
-		$config['per_page'] 		= 5;
-		$config['first_url'] 		= base_url().'diskusi/search?s='.$keywords.'%.2f';
+		$config['per_page'] 		= count($this->diskusi_model->total_search($keywords));
+		$config['first_url'] 		= base_url().'diskusi/search?s='.$keywords;
 		$this->pagination->initialize($config); 
 		$page 		= ($this->uri->segment(3)) ? ($this->uri->segment(3) - 1) * $config['per_page'] : 0;
 		$diskusi 	= $this->diskusi_model->search($keywords,$config['per_page'], $page);
@@ -236,7 +236,7 @@ class Diskusi extends CI_Controller{
     public function read($slug_diskusi)	{
 		$site 		= $this->konfigurasi_model->listing();
 		$diskusi 	= $this->diskusi_model->read($slug_diskusi);
-        $listing 	= $this->diskusi_model->listing_read();
+        $listing 	= $this->diskusi_model->populer();
         $komentar   = $this->komentar_model->listing($diskusi->id_diskusi);
         $user       = $this->info_model->get_one($this->session->userdata('nama'));
         $quotes     = $this->quotes_model->listing();
@@ -265,7 +265,7 @@ class Diskusi extends CI_Controller{
 		$data = array(	'title'		=> $diskusi->judul_diskusi.' post by -'.$diskusi->penulis_diskusi,
 						'deskripsi'	=> $diskusi->judul_diskusi,
 						'diskusi'	=> $diskusi,
-						'listing'	=> $listing,
+						'populer'	=> $listing,
                         'site'		=> $site,
                         'user'      => $user,
                         'komentar'  => $komentar,
@@ -422,7 +422,7 @@ class Diskusi extends CI_Controller{
                         'isi_komentar'      => $i->post('isi_komentar'),
                         'tanggal_komentar'  => date('Y-m-d',strtotime($i->post('tanggal_publish'))).' '.$i->post('jam_publish'),
                         'id_post'           => $i->post('id_post'),
-                        'pp_penulis'        => $user->gambar,                
+                        'pp_penulis'        => $this->session->userdata('pp'),
                         'penulis_post'      => $i->post('penulis_post'),
     );
     

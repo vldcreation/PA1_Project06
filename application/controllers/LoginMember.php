@@ -14,7 +14,7 @@ class LoginMember extends CI_Controller {
 	public function index()
 	{
 		// Validasi input
-		$this->form_validation->set_rules('username','Username','required',
+		$this->form_validation->set_rules('username','Username atau Email','required',
 			array(	'required'	=> '%s harus diisi'));
 
 		$this->form_validation->set_rules('password','Password','required',

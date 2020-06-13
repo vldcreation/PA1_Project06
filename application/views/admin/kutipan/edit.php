@@ -18,6 +18,18 @@ echo form_open(base_url('admin/quotes/edit/'.$quotes->id_quotes));
 			<input type="text" name="title_quotes" class="form-control form-control-lg" value="<?php echo $quotes->title_quotes ?>" placeholder="Judul Kutipan" required>
 		</div>
 	</div>
+
+	<div class="col-md-12">
+		<div class="form-group">
+			<label>Posisi <span class="text-danger">*</span></label>
+			<select name="position" required="required" class="form-control form-control-lg" >
+				<option value="NULL" selected>--Position--</option>
+				<option value="Homepage" <?php if(isset($quotes->position) && $quotes->position == "Homepage") echo "selected"; ?>>Homepage</option>
+				<option value="Banner" <?php if(isset($quotes->position) && $quotes->position == "Banner") echo "selected"; ?>>Banner</option>
+			</select>
+		</div>
+	</div>
+
 	<div class="col-md-12">
 		<div class="form-group">
 			<label>Deskripsi Kutipan</label>

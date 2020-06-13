@@ -48,10 +48,6 @@ $site = $this->konfigurasi_model->listing();
 
   }
 </style>
-<div class="kontakwa">
-  <a href="https://wa.me/<?php echo str_replace('+','',$site->hp) ?>" class=""><i class="fa fa-whatsapp"></i>
-        </a>
-</div>
 <!-- END WA -->
 
 <!--Start of Tawk.to Script-->
@@ -134,11 +130,11 @@ $nav_profil     = $this->nav_model->nav_profil();
                             <?php if($nav_profil->gambar !="") { ?>
                                 <img src="<?php echo base_url('assets/upload/image/'.$nav_profil->gambar) ?>" alt="<?php echo $nav_profil->judul_berita ?>" class="img-responsive" />
                             <?php }else{ ?>
-                                <img src="<?php echo base_url('assets/upload/image/'.$site->icon) ?>" alt="<?php echo $nav_profil->judul_berita ?>" class="img-responsive" />
+                                <img src="<?php echo base_url('assets/upload/image/'.$site->footer) ?>" alt="<?php echo $nav_profil->judul_berita ?>" class="img-responsive" />
                             <?php } ?>
                         </span>
                             <div class="thumbnail-content">
-                                <h5><a href="<?php echo base_url('berita/profil/'.$nav_profil->slug_berita) ?>"> <?php echo $nav_profil->judul_berita ?></a></h5>
+                                <h5><a href="<?php echo base_url('news/profil/'.$nav_profil->slug_berita) ?>"> <?php echo $nav_profil->judul_berita ?></a></h5>
                             </div>
                             <!-- .thumbnail-content -->
                         </li>

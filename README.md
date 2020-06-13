@@ -27,4 +27,4 @@ Del Cloud Club
 
 👤 <a href="https://github.com/Tesalonikasibarani"> **Tesalonika Sibarani**</a>
 
-Lihat Panduan Instalasi di <a href="https://github.com/Tesalonikasibarani"> Sini </a>
+Lihat Panduan Instalasi di <a href="https://github.com/vldcreation/PA1_Project06/blob/master/Panduan-Instalasi/DelCloudClub.txt"> Di Sini </a>

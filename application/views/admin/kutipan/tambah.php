@@ -20,6 +20,16 @@ echo form_open(base_url('admin/quotes/tambah/'));
 	</div>
 	<div class="col-md-12">
 		<div class="form-group">
+			<label>Posisi <span class="text-danger">*</span></label>
+			<select name="position" required="required" class="form-control form-control-lg" >
+				<option value="NULL" selected>--Position--</option>
+				<option value="Homepage">Homepage</option>
+				<option value="Banner">Banner</option>
+			</select>
+		</div>
+	</div>
+	<div class="col-md-12">
+		<div class="form-group">
 			<label>Deskripsi Kutipan</label>
 			<textarea name="body_quotes" class="form-control textarea" placeholder="Isi Kutipan"><?php echo set_value('body_quotes') ?></textarea>
 	</div>

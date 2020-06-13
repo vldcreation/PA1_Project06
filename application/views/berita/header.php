@@ -1,3 +1,12 @@
+<!-- 
+
+  1.CSS AGENDA
+  2.CSS QUOTES
+  3.CSS BAGAN
+
+ -->
+
+<!-- AGENDA -->
 <style>
 td, th {
 	text-align: left !important;
@@ -293,5 +302,4 @@ $bg: #fff;
   .tittle span{
     border-bottom: 3px solid #3C9EFA;
   }
-
 </style>

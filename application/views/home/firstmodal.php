@@ -169,14 +169,14 @@
                                             </div>
                                             <div class="comments comment-block">
                                             <div class="comments comment-header">
-                                            <a class="dear">Dear you</a><a class="user"> <?php if(($this->session->userdata('nama'))!== NULL) echo $this->session->userdata('nama'); else echo "@Guest"; ?></a>
+                                            <a class="dear">Dear you</a><a class="user"> <?php if(($this->session->userdata('nama'))!= "") echo $this->session->userdata('nama'); else echo "@Guest"; ?></a>
                                             </div>
                                             <div class="comments comments-content">
-                                                <?php $jlh = 1; foreach($quotes as $quotes) : if($jlh == 1) { ?>
+                                                <?php foreach($quotes as $quotes) : { if($quotes->position == "Homepage") {   ?>
                                                     <p>“<?= $quotes->body_quotes; ?>.”</p>
                                                 <h6 class="dt"><a href="javascript:void(0)"><?php echo $quotes->footer_quotes;?></a></h6>
                                             
-                                                <?php } $jlh++; endforeach; ?>
+                                                <?php } } endforeach; ?>
                                             </div>
                                             <div style="float:right; margin-top : 14px;">
                                                     <?php echo $quotes->author_quotes; ?>

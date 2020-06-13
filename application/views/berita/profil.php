@@ -26,6 +26,10 @@ $nav_layanan = $this->nav_model->nav_layanan();
             </div>
             <!-- .single-event-item -->
 
+            <!-- Bagan Organisasi -->
+          <!-- End Bagan -->
+
+                <!-- Quotes -->
             <div class="tittle margin-20"><span>Quotes For You </span></div>
             <div class="single-event-content margin-20" style="text-align:center">
             <?php foreach($quotes as $quotes) : ?>
@@ -39,7 +43,7 @@ $nav_layanan = $this->nav_model->nav_layanan();
                 </div>
             <?php endforeach; ?>
             </div>
-
+              <!-- end Quotes -->
 
           </div>
           <!-- .col-md-8 -->

@@ -30,7 +30,7 @@ echo form_open_multipart(base_url('admin/download/tambah'));
 <label>Jenis/Posisi Download</label>
 <select name="jenis_download" class="form-control">
 	<option value="Download">Download Biasa</option>
-	<option value="Panduan">Panduan Penelitian</option>}
+	<option value="Panduan">Panduan Seleksi</option>}
 </select>
 
 </div>

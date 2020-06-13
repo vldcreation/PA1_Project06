@@ -286,32 +286,34 @@ h3 a span{
                     </div>
                     <!-- .col-md-8 -->
                     <div class="col-md-4">
-                        <div class="sidebar">
-                            <div class="widget">
-                            <h2 style="font-size : 25px;" class="sidebar-widget-title"><span>Diskusi Terpopuler</span></h2>
-                                <div class="widget-content">
-                                    <ul class="popular-news-option">
-                                        <?php foreach($listing as $listing) { ?>
-                                            <li>
-                                                <div class="popular-news-img" style="width: 80px; height: 80px;">
-                                                    <a href="#"><img src="<?php if($listing->gambar_diskusi=="") { echo base_url('assets/upload/image/thumbs/'.$site->icon); }else{ echo base_url('assets/upload/image/diskusi/'.$listing->gambar_diskusi); } ?>" alt="popular-news-img-1" /></a>
-                                                </div>
-                                                <!-- .popular-news-img -->
-                                                <div class="popular-news-contant">
-                                                    <h5><a href="<?php echo base_url('diskusi/read/' . $listing->slug_diskusi); ?>"><?php echo $listing->judul_diskusi; ?></a></h5>
-                                                    <p><?php echo date('d M Y', strtotime($listing->tanggal_diskusi)); ?></p>
-                                                </div>
-                                                <!-- .popular-news-img -->
-                                            </li>
-                                        <?php } ?>
-                                    </ul>
+                                <div class="sidebar">
+                                    <div class="widget">
+                                        <h2 style="font-size : 25px;" class="sidebar-widget-title"><span>Diskusi Terpopuler</span></h2>
+                                        <div class="widget-content">
+                                            <ul class="popular-news-option">
+                                                <?php foreach($populer as $populer) { ?>
+                                                    <li>
+                                                        <div class="popular-news-img" style="width: 80px; height: 80px;">
+                                                            <a href="#"><img src="<?php if($populer->gambar_diskusi=="") { echo base_url('assets/upload/image/thumbs/'.$site->icon); }else{ echo base_url('assets/upload/image/diskusi/'.$populer->gambar_diskusi); } ?>" alt="popular-news-img-1" /></a>
+                                                        </div>
+                                                        <!-- .popular-news-img -->
+                                                        <div class="popular-news-contant">
+                                                            <h5><a href="<?php echo base_url('diskusi/read/' . $populer->slug_diskusi); ?>"><?php echo $populer->judul_diskusi; ?></a></h5>
+                                                            <p>
+                                                                <i class="fa fa-calendar"></i> <?php echo date('d M Y', strtotime($populer->tanggal_diskusi)); ?> <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> <?php echo $populer->hits; ?> Viewer</a>
+                                                            </p>
+                                                        </div>
+                                                        <!-- .popular-news-img -->
+                                                    </li>
+                                                <?php } ?>
+                                            </ul>
 
+                                        </div>
+                                        <!-- .widget-content -->
+                                    </div>
                                 </div>
-                                <!-- .widget-content -->
+                                <!-- .sidebar -->
                             </div>
-                        </div>
-                        <!-- .sidebar -->
-                    </div>
                     <!-- .col-md-4 -->
                 </div>
                 <!-- .row -->
