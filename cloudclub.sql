@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2020 at 05:01 AM
+-- Generation Time: Jun 13, 2020 at 05:27 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -109,7 +109,7 @@ INSERT INTO `berita` (`id_berita`, `id_user`, `id_kategori`, `updater`, `slug_be
 (1, 1, 5, '', 'binus-cloud-computing', 'Binus Cloud Computing', '<h3><strong><em>Dirjen Pembelajaran dan Kemahasiswaan (Belmawa) Kemenristekdikti bekerja sama dengan <a href=\"https://sis.binus.ac.id/2019/07/04/cloud-computing-5/\">CLOUD_BINUS </a>&nbsp;, Universitas Indonesia (UI) , DelCloudClub dan ITDel</em></strong><br /><br /></h3>', 'Publish', 'Berita', '', 'Binus.png', 'fa fa-check', 14, 0, '2019-05-13 15:51:51', '2020-05-15 15:51:36', '2020-06-10 07:14:55'),
 (2, 1, 5, '', 'rapat-bph', 'Rapat BPH', '<p>Rapat BPH pemilihan PIC setiap Divisi Club</p>', 'Publish', 'Layanan', 'Untuk melakukan revisi mengenai kebijakan kebijakan pada Del Cloud Club,BPH akan mengadakan rapat dengan Kordinator pembina,demi menyelaraskan pesan dan kesan member untuk kemajuan Club', 'iconDCC13.png', 'fa fa-check', 49, 0, '2019-05-17 04:15:33', '2019-05-17 04:06:15', '2020-05-30 15:39:04'),
 (3, 1, 5, '', 'seleksi-team', 'Seleksi Team', '<h2>Rules</h2>\r\n<p>&nbsp;Setiap akan melakukan seleksi denga seluruh anggota,team yang masuk 5besar akan maju untuk kompetisi</p>', 'Publish', 'Layanan', 'Cloud Computing ITB,Untuk membantu para IT Generation memahami lebih dalam tentang Cloud Computing.Seleksi Team Del Cloud Club ', 'iconDCC12.png', 'fa fa-globe', 14, 2, '2019-05-17 04:37:00', '2020-05-15 04:36:19', '2020-06-12 11:16:39'),
-(4, 1, 5, '', 'profil-cloud-club-del', 'Profil Cloud CLub Del', '<p>Cloud Club Del merupakan salah satu UKM IT Del,yang bergerak dibidang Cloud Computing.UKM ini berfokus pada Cloud Computing dan membahas seputar Kompetisi dan Sistem dari Cloud sendiri.</p>', 'Publish', 'Profil', '', 'iconDCC1.png', '', 222, 1, '2019-07-26 10:38:15', '2019-07-26 10:36:47', '2020-06-12 16:06:04'),
+(4, 1, 5, '', 'profil-cloud-club-del', 'Profil Cloud CLub Del', '<p>Cloud Club Del merupakan salah satu UKM IT Del,yang bergerak dibidang Cloud Computing.UKM ini berfokus pada Cloud Computing dan membahas seputar Kompetisi dan Sistem dari Cloud sendiri.</p>', 'Publish', 'Profil', '', 'iconDCC1.png', '', 226, 1, '2019-07-26 10:38:15', '2019-07-26 10:36:47', '2020-06-13 03:20:51'),
 (6, 1, 5, '', 'sharing-session-diskusi-bph', 'Sharing Session Diskusi BPH', '<p>Dalam Rangka Cloud Computing yang akan Diadakan di Del Institut Of Technologie,Maka DCC akan bekerja sama denga Bem IT Del.Maka dari itu,BPH akan mengadakan Rapat untuk memperbincang beberapa topik dan skema Alur kerja Persiapan yang dilakukan.</p>', 'Publish', 'Layanan', 'BPH Del Cloud Club akan mengadakan Sharing Session dengan member,yang di pimpin langsung oleh kordinator pembina Del Cloud Club.', 'iconDCC11.png', 'fa fa-mobile', 23, 0, '2020-02-13 07:42:56', '2020-05-20 07:41:51', '2020-06-12 11:15:59'),
 (7, 1, 5, '', 'nation-competition-cloud-computing-amazon', 'Nation Competition Cloud Computing Amazon', '<p><strong><em>Dirjen Pembelajaran dan Kemahasiswaan (Belmawa) Kemenristekdikti bekerja sama dengan&nbsp;<a href=\"https://aws.amazon.com/\">Amazon Web Service (AWS)</a>&nbsp;dan Universitas Indonesia (UI)</em></strong></p>', 'Publish', 'Berita', 'Aplikasi bisnis berbasis web? Situs pendaftaran online untuk menunjang bisnis Anda? Kami berpengalaman dalam merencanakan & mengembangkan aplikasi tersebut.', 'amazon.jpg', 'fa fa-check', 9, 0, '2020-02-13 07:45:07', '2020-05-14 07:44:27', '2020-06-01 12:01:01'),
 (8, 1, 5, '', 'cloud-computing-itb-2020', 'Cloud Computing ITB 2020', '<p>Rekan Rekan Anggota Del CLoud Club,berhubung Cloud Computing ITB 2020 akan berlangsung di minggu dekat,maka BPH yang sebelumnya sudah melakukan Rapat untuk pengambilan keputusan.Adapun Kesimpulan yang diambil,akan dilakukan seleksi terhadap team yang akan maju nantinya,maka dari itu,dibuka pendaftaran untuk seleksi pada team yang akan maju.Untuk Detailnya,dapat di unduh di &lt;a href=\"download\"&gt;Disini</p>', 'Publish', 'Berita', '', 'Layanan1.png', 'fa fa-check', 11, 0, '2020-05-14 23:44:22', '2020-05-14 23:39:17', '2020-06-10 07:29:28'),
@@ -117,7 +117,7 @@ INSERT INTO `berita` (`id_berita`, `id_user`, `id_kategori`, `updater`, `slug_be
 (10, 1, 5, '', 'cloud-computing-itb-2021', 'Cloud Computing ITB 2021', '<p>Rapat</p>', 'Publish', 'Layanan', '', '8.jpg', 'fa fa-check', 7, 0, '2020-05-17 18:59:38', '2020-05-17 18:59:10', '2020-06-12 11:04:28'),
 (11, 1, 5, '', 'test', 'Test', '<p>test</p>', 'Publish', 'Berita', 'test', '81.jpg', '', 5, 0, '2020-05-17 19:17:53', '2020-05-17 19:17:31', '2020-06-12 10:00:16'),
 (12, 1, 5, '', 'test2', 'Test2', '<p>Test</p>', 'Publish', 'Berita', 'Test2', '82.jpg', '', 21, 0, '2020-05-17 19:18:24', '2020-05-17 19:18:00', '2020-06-10 15:57:30'),
-(13, 1, 5, '', 'rapat-bph', 'Rapat BPH', '<p>Rapat Panitia BPH</p>', 'Publish', 'Berita', '', '811.jpg', 'fa fa-check', 22, 0, '2020-06-01 18:40:11', '2020-06-01 18:39:49', '2020-06-11 15:50:27');
+(13, 1, 5, '', 'rapat-bph', 'Rapat BPH', '<p>Rapat Panitia BPH</p>', 'Publish', 'Berita', '', '811.jpg', 'fa fa-check', 23, 0, '2020-06-01 18:40:11', '2020-06-01 18:39:49', '2020-06-13 03:02:23');
 
 -- --------------------------------------------------------
 
@@ -6055,7 +6055,21 @@ INSERT INTO `kunjungan` (`id_kunjungan`, `alamat`, `ip_address`, `hari`, `waktu`
 (6228, 'http://localhost/psw2/Project3/PA1/home', '::1', '2020-06-12', '2020-06-12 23:10:28', '2020-06-12 16:10:28'),
 (6229, 'http://localhost/psw2/Project3/PA1/', '::1', '2020-06-12', '2020-06-12 23:10:54', '2020-06-12 16:10:54'),
 (6230, 'http://localhost/psw2/Project3/PA1/home', '::1', '2020-06-12', '2020-06-12 23:13:43', '2020-06-12 16:13:43'),
-(6231, 'http://localhost/psw2/Project3/PA1/', '::1', '2020-06-13', '2020-06-13 09:54:24', '2020-06-13 02:54:24');
+(6231, 'http://localhost/psw2/Project3/PA1/', '::1', '2020-06-13', '2020-06-13 09:54:24', '2020-06-13 02:54:24'),
+(6232, 'http://localhost/psw2/Project3/PA1/news/profil/profil-cloud-club-del', '::1', '2020-06-13', '2020-06-13 10:02:19', '2020-06-13 03:02:19'),
+(6233, 'http://localhost/psw2/Project3/PA1/news/timeline/rapat-bph', '::1', '2020-06-13', '2020-06-13 10:02:23', '2020-06-13 03:02:23'),
+(6234, 'http://localhost/psw2/Project3/PA1/news/profil/profil-cloud-club-del', '::1', '2020-06-13', '2020-06-13 10:02:28', '2020-06-13 03:02:28'),
+(6235, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-06-13', '2020-06-13 10:02:37', '2020-06-13 03:02:37'),
+(6236, 'http://localhost/psw2/Project3/PA1/', '::1', '2020-06-13', '2020-06-13 10:02:40', '2020-06-13 03:02:40'),
+(6237, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-06-13', '2020-06-13 10:02:42', '2020-06-13 03:02:42'),
+(6238, 'http://localhost/psw2/Project3/PA1/galeri/all', '::1', '2020-06-13', '2020-06-13 10:02:44', '2020-06-13 03:02:44'),
+(6239, 'http://localhost/psw2/Project3/PA1/galeri', '::1', '2020-06-13', '2020-06-13 10:02:46', '2020-06-13 03:02:46'),
+(6240, 'http://localhost/psw2/Project3/PA1/', '::1', '2020-06-13', '2020-06-13 10:02:49', '2020-06-13 03:02:49'),
+(6241, 'http://localhost/psw2/Project3/PA1/', '::1', '2020-06-13', '2020-06-13 10:06:48', '2020-06-13 03:06:48'),
+(6242, 'http://localhost/psw2/Project3/PA1/news/profil/profil-cloud-club-del', '::1', '2020-06-13', '2020-06-13 10:17:42', '2020-06-13 03:17:42'),
+(6243, 'http://localhost/psw2/Project3/PA1/news/profil/profil-cloud-club-del', '::1', '2020-06-13', '2020-06-13 10:20:51', '2020-06-13 03:20:51'),
+(6244, 'http://localhost/psw2/Project3/PA1/diskusi', '::1', '2020-06-13', '2020-06-13 10:21:14', '2020-06-13 03:21:14'),
+(6245, 'http://localhost/psw2/Project3/PA1/home', '::1', '2020-06-13', '2020-06-13 10:21:29', '2020-06-13 03:21:29');
 
 -- --------------------------------------------------------
 
@@ -6088,7 +6102,7 @@ CREATE TABLE `members` (
 
 INSERT INTO `members` (`id_user`, `NIM`, `Prodi`, `nama`, `email`, `username`, `password`, `password_hint`, `akses_level`, `gambar`, `Motivasi`, `tanggal_daftar`, `slug_member`, `is_active`, `token`, `token_created`) VALUES
 (4, '11319019', 'NULL', 'Evan Richardo', 'evan05@gmail.com', 'evan21', 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '', 'User', NULL, NULL, '1970-01-01 00:00:00', 'f793a293a5a06d242d891790eafe7fff', 'Y', NULL, NULL),
-(6, '11319019', 'TI', 'Evan Richardo', 'evan05@gmail.com', 'evan', '178b62e73cc3fab9e30bf27b2372c9ff92401915', '', 'User', NULL, 'Stay Consistent for everything yo do', '2020-05-12 18:35:43', '98cc7d37dc7b90c14a59ef0c5caa8995', 'Y', NULL, NULL),
+(6, '11319019', 'NULL', 'Evan Richardo', 'evan05@gmail.com', 'evan', '178b62e73cc3fab9e30bf27b2372c9ff92401915', '', 'User', NULL, NULL, '1970-01-01 00:00:00', 'f793a293a5a06d242d891790eafe7fff', 'N', NULL, NULL),
 (8, '11319028(2)', 'IF', 'Ria Anggita Naibaho', 'ria@gmail.com', 'ria', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '', 'User', '11319028_VicktorLambokDesrony_(5)_11.png', '~Stay Consistent for everything yo do yey  ', '2020-05-25 19:40:40', '580687a8020f9984ef1748ae173a329b', 'Y', NULL, NULL),
 (10, '11319029', 'S1 Teknik Elektro', 'Testing', 'tester3@gmail.com', 'h', '27d5482eebd075de44389774fce28c69f45c8a75', '', 'User', NULL, 'h', '2020-05-30 10:20:16', 'ae2b1fca515949e5d54fb22b8ed95575', 'N', NULL, NULL),
 (19, '11319028', 'D3 Teknologi Informasi', 'Vicktor Lambok', 'vldcreation21@gmail.com', 'asd', '7c4a8d09ca3762af61e59520943dc26494f8941b', '', 'User', 'pp1.jpg', 'Stay Consistent for everything you do ', '1970-01-01 00:00:00', 'db556a06ad2c0653fdd254e1c9851dba', 'Y', '7Ij53gcI5M0vxTuJ3vqjxq4ZW4vCq7nqh7UAj71VDWI=', 1591523867),
@@ -6199,9 +6213,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `id_bagian`, `nama`, `email`, `username`, `password`, `password_hint`, `akses_level`, `kode_rahasia`, `gambar`, `keterangan`, `tanggal_post`, `tanggal`, `all_akses`) VALUES
-(1, 0, 'Vicktor Desrony', 'vldreation18@gmail.com', 'vldcreation', 'b8cede8e270ee3dbb44db9671f1f3120c61c4ffe', 'ular', 'Admin', NULL, 'viktor11.png', '', '2019-10-12 15:50:21', '2020-06-07 05:45:40', 1),
+(1, 0, 'Vicktor Desrony', 'vldreation18@gmail.com', 'vldcreation', '6e6a2d5426071da6308900b47fbaffa20501dcc8', 'admindcc', 'Admin', NULL, 'viktor11.png', '', '2019-10-12 15:50:21', '2020-06-13 03:25:46', 1),
 (8, 16, 'Ester Hutabarat', 'esterlina@gmail.com', 'ester', '5265829f3a8df80701d5724ba21d1306cced03b4', '', 'Admin', NULL, 'ester2.png', '<p>Ester</p>', '2020-06-07 12:26:34', '2020-06-11 12:53:32', 0),
-(9, 15, 'Evan Richardo', 'evan05@gmail.com', 'evan21', '178b62e73cc3fab9e30bf27b2372c9ff92401915', '', 'Admin', NULL, NULL, '<p>Evan</p>', '2020-06-07 23:11:54', '2020-06-07 16:11:54', 0);
+(9, 15, 'Evan Richardo', 'evan05@gmail.com', 'evan', '178b62e73cc3fab9e30bf27b2372c9ff92401915', '', 'Admin', NULL, NULL, '<p>Evan</p>', '2020-06-13 10:26:29', '2020-06-13 03:26:37', NULL);
 
 -- --------------------------------------------------------
 
@@ -7192,7 +7206,7 @@ ALTER TABLE `konfigurasi`
 -- AUTO_INCREMENT for table `kunjungan`
 --
 ALTER TABLE `kunjungan`
-  MODIFY `id_kunjungan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6232;
+  MODIFY `id_kunjungan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6246;
 
 --
 -- AUTO_INCREMENT for table `members`

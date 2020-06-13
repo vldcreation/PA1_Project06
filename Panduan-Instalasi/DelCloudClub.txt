@@ -21,7 +21,7 @@ panduan instalasi :
 Informasi akun
 
 Super Admin 
-username : -admin
+username : -vldcreation
 pass     : -admindcc
 
 Admin2 

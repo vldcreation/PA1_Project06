@@ -46,7 +46,7 @@ class Simple_login
 				redirect($pengalihan,'refresh');
 			}else{
 				// Jika ga ada, default masuk ke halaman dasbor
-				redirect(base_url(''),'refresh');
+				redirect(base_url('admin/dasbor'),'refresh');
 			}
 		}else{
 			// Kalau ga ada user yg cocok, suruh login lagi
