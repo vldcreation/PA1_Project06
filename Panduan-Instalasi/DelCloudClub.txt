@@ -1,0 +1,37 @@
+Sistem Informasi DelCloudClub
+
+Build with :
+-Framework Codeigneiter 3.0
+-Theme : AdminLTE 2.0
+-Bootstrap 4
+dll
+
+Panduan instalasi dan Minimun Spesifikasi:
+Minimun spesifikasi : 
+-PHP 5.6 ++
+-Apache 2.4 ++
+
+panduan instalasi :
+-Clone atau download repositori
+-Simpan di Folder htdocs (jika menggunakan server xampp)
+-Import database (cloudclub.sql)
+-Run Aplikasi
+
+
+Informasi akun
+
+Super Admin 
+username : -admin
+pass     : -admindcc
+
+Admin2 
+username : -ester
+pass     : -ester
+
+Admin1
+username : -evan
+pass     : -evan
+
+Member
+username : -evan
+pass     : -evan
