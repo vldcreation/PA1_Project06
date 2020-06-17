@@ -3,8 +3,8 @@ Sistem Informasi DelCloudClub
 Build with :
 ```
 -Framework Codeigneiter 3.0
--Theme : AdminLTE 2.0
--Bootstrap 4
+-Theme : AdminLTE 3.0 (2014-2018)
+-Bootstrap 4 (4.0 - 4.4)
 dll
 ```
 
