@@ -15,14 +15,19 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       
-      <li class="nav-item text-success text-strong">
+      <li class="nav-item text-success">
         <a class="nav-link" href="<?php echo base_url('admin/akun') ?>">
           <i class="fa fa-user"></i> <?php echo $this->session->userdata('nama'); ?>
         </a>
       </li>
-      <li class="nav-item text-danger text-strong">
+      <li class="nav-item text-danger">
         <a class="nav-link" href="<?php echo base_url('loginmember/logout') ?>">
           <i class="fa fa-sign-out"></i> Keluar
+        </a>
+      </li>
+      <li class="nav-item text-danger">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+          <i class="fa fa-th-large"></i>
         </a>
       </li>
     </ul>

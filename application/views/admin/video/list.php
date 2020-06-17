@@ -43,7 +43,7 @@ echo form_open(base_url('admin/video/proses'));
         <td class="video"> <iframe src="https://www.youtube.com/embed/<?php echo $video->video ?>"></iframe></td>
         <td>
 		<?php echo $video->judul ?> - <?php echo $video->urutan ?>
-        <sup><a href="<?php echo base_url('video/detail/'.$video->id_video) ?>"><i class="fa fa-link"></i></a></sup>
+        <sup><a href="<?php echo base_url('video/read/'.$video->id_video) ?>"><i class="fa fa-link"></i></a></sup>
         <br><small>Lang: <span class="flag-icon <?php if($video->bahasa=="English") { echo "flag-icon-gb"; }else{ echo "flag-icon-id"; } ?>"></span> <?php echo $video->bahasa ?></small>
         </td>
         <td><?php echo $video->posisi ?></td>

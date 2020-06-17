@@ -50,7 +50,17 @@ class Member_model extends CI_Model {
 		$this->db->from('members');
 		$this->db->where(array(
 			'email' => $email,
-			'is_active' => 'Y',
+		));
+		$query = $this->db->get()->row();
+		return $query;
+	}
+
+	//check_verify if user untuk reset
+	public function is_Useravailable_activation($email){
+		$this->db->select('*');
+		$this->db->from('members');
+		$this->db->where(array(
+			'email' => $email,
 		));
 		$query = $this->db->get()->row();
 		return $query;
@@ -70,7 +80,7 @@ class Member_model extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('members');
 		$this->db->where(('members.token'),$token);
-		$query = $this->db->get()->row();
+		$query = $this->db->get()->result();
 		return $query;
 	}
 

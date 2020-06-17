@@ -1,47 +1,56 @@
+<!--
+@Project: Learnify
+@Author/Programmer: Syauqi Zaidan Khairan Khalaf
+@URL: syauqi.js.org
+Author E-mail: Zaidanline67@Gmail.com
+
+@About-Learnify :
+Web Edukasi Open Source yang
+dibuat oleh Syauqi Zaidan Khairan Khalaf.
+Learnify adalah Web edukasi yang dilengkapi video, materi, dan soal ( Coming soon )
+yang didesign semenarik dan sesimple mungkin. Learnify dibuat ditujukan agar para siswa
+dan guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
+-->
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title><?php echo $title ?></title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- icon -->
-  <link rel="shortcut icon" href="<?php echo $this->website->icon(); ?>">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/dist/css/adminlte.min.css">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/plugins/iCheck/square/blue.css">
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-  <!-- SWEETALERT -->
+    <link rel="icon" href="<?=base_url('assets/upload/image/'.$site->icon)?>" type="image/png" >
+    <title><?= $site->namaweb?> - Reset Password</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- CSS Libraries -->
+    <link rel="stylesheet"
+        href="<?=base_url('assets/')?>stisla-assets/node_modules/bootstrap-social/bootstrap-social.css">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="<?=base_url('assets/')?>stisla-assets/css/style.css">
+    <link rel="stylesheet" href="<?=base_url('assets/')?>stisla-assets/css/components.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.4/dist/sweetalert2.all.min.js"></script>
+      <!-- SWEETALERT -->
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <style type="text/css" media="screen">
-    .login-box {
-      min-width: 40% !important;
-    }
-  </style>
+
 </head>
-<body class="hold-transition login-page" >
-<div class="login-box">
-  
-  <!-- /.login-logo -->
-  <div class="card">
-    <div class="card-body login-card-body">
-      <div class="login-logo">
-        <a href="<?php echo base_url() ?>"><img src="<?php echo $this->website->icon(); ?>"  alt="<?php echo $this->website->namaweb(); ?>" class="img img-responsive img-thumbnail" style="max-width: 30%; height: auto;"></a>
-        <br>
-        <h2 style="font-weight: bold; font-size: 18px; margin-top: 20px;"><?php echo $this->website->namaweb() ?></h2>
-      </div>
 
-      <p class="login-box-msg">Masukkan Email </p>
+<body>
 
-      <?php 
+    <!-- Main Content -->
+    <div id="app">
+        <section class="section">
+            <div class="d-flex flex-wrap align-items-stretch">
+                <div class="col-lg-4 col-md-6 col-12 order-lg-1 min-vh-100 order-2 bg-white">
+                    <div class="p-4 m-3">
+                        <a href="<?=base_url('')?>"> <img src="<?=base_url('assets/')?>/upload/image/logo.png" site alt="logo"
+                                width="150" class=" mb-5 mt-2"></a>
+                        <h4 class="text-dark font-weight-normal">Masukan Email anda
+                        </h4>
+                        <?php 
       // Notifikasi error
       echo validation_errors('<p class="alert alert-warning">','</p>');
 
@@ -64,13 +73,28 @@
         </div>
       
       <?php echo form_close(); ?>
-
-      
+                    </div>
+                </div>
+                <div class="col-lg-8 col-12 order-lg-2 order-1 min-vh-100 background-walk-y position-relative overlay-gradient-bottom"
+                    data-background="<?=base_url('assets/')?>images/login-bg2.jpg">
+                    <div class="absolute-bottom-left index-2">
+                        <div class="text-light p-5 pb-2">
+                            <div class="mb-5 pb-3">
+                                <h1 class="mb-2 display-4 font-weight-bold text-white">Selamat datang!</h1>
+                                <h5 class="font-weight-normal text-muted-transparent text-white">
+                                <?= $site->deskripsi ?>.
+                                </h5>
+                            </div>
+                            Copyright by &copy; <a class="text-light bb"
+                                target="_blank" href="<?php echo $site->website ?>">DelCloudClub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-    <!-- /.login-card-body -->
-  </div>
-</div>
-<!-- /.login-box -->
+    <!-- End Main Content -->
+
 <!-- SWEETALERT -->
 <?php if($this->session->flashdata('sukses')) { ?>
 <script>
@@ -83,12 +107,6 @@
   swal("Oops...", "<?php echo $this->session->flashdata('warning'); ?>","warning")
 </script>
 <?php } ?>
-<!-- jQuery -->
-<script src="<?php echo base_url() ?>assets/admin/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="<?php echo base_url() ?>assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- iCheck -->
-<script src="<?php echo base_url() ?>assets/admin/plugins/iCheck/icheck.min.js"></script>
 <script>
   $(function () {
     $('input').iCheck({
@@ -98,5 +116,121 @@
     })
   })
 </script>
+
+    <?php if ($this->session->flashdata('success-reg')): ?>
+    <script>
+    Swal.fire({
+        icon: 'success',
+        title: 'Kamu berhasil daftar!',
+        text: 'Silahkan Cek Email Kamu, Buat Verifikasi!',
+        showConfirmButton: false,
+        timer: 2500
+    })
+    </script>
+    <?php endif;?>
+
+    <?php if ($this->session->flashdata('login-success')): ?>
+    <script>
+    Swal.fire({
+        icon: 'success',
+        title: 'Kamu berhasil daftar!',
+        text: 'Sekarang login yuk!',
+        showConfirmButton: false,
+        timer: 2500
+    })
+    </script>
+    <?php endif;?>
+
+    <?php if ($this->session->flashdata('success-verify')): ?>
+    <script>
+    Swal.fire({
+        icon: 'success',
+        title: 'Email Telah Diverifikasi!',
+        text: 'Sekarang login yuk!',
+        showConfirmButton: false,
+        timer: 2500
+    })
+    </script>
+    <?php endif;?>
+
+    <?php if ($this->session->flashdata('success-logout')): ?>
+    <script>
+    Swal.fire({
+        icon: 'success',
+        title: 'Kamu berhasil logout!',
+        text: 'Selamat tinggal, Sampai jumpa lagi!',
+        showConfirmButton: false,
+        timer: 2500
+    })
+    </script>
+    <?php endif;?>
+
+    <?php if ($this->session->flashdata('fail-login')): ?>
+    <script>
+    Swal.fire({
+        icon: 'error',
+        title: 'Gagal login!',
+        text: 'Silahkan Periksa Kembali Email dan Password Kamu!',
+        showConfirmButton: false,
+        timer: 2500
+    });
+    </script>
+    <?php endif;?>
+
+    <?php if ($this->session->flashdata('fail-email')): ?>
+    <script>
+    Swal.fire({
+        icon: 'error',
+        title: 'Email Belum Diverifikasi!',
+        text: 'Silahkan Cek Email Kamu Dahulu!',
+        showConfirmButton: false,
+        timer: 2500
+    })
+    </script>
+    <?php endif;?>
+
+    <?php if ($this->session->flashdata('fail-pass')): ?>
+    <script>
+    Swal.fire({
+        icon: 'error',
+        title: 'Password Salah!',
+        text: 'Silahkan Periksa Kembali Password Kamu!',
+        showConfirmButton: false,
+        timer: 2500
+    });
+    </script>
+    <?php endif;?>
+
+    <?php if ($this->session->flashdata('not-login')): ?>
+    <script>
+    Swal.fire({
+        icon: 'error',
+        title: 'Harap Login Terlebih Dahulu !',
+        text: 'Silahkan Login Dahulu !',
+        showConfirmButton: false,
+        timer: 2500
+    });
+    </script>
+    <?php endif;?>
+    <!-- end sweetalert -->
+
+
+    <!-- General JS Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="<?=base_url('assets/')?>stisla-assets/js/stisla.js"></script>
+    <!-- Template JS File -->
+    <script src="<?=base_url('assets/')?>stisla-assets/js/scripts.js"></script>
+    <script src="<?=base_url('assets/')?>stisla-assets/js/custom.js"></script>
+    <!-- Page Specific JS File -->
 </body>
+
 </html>

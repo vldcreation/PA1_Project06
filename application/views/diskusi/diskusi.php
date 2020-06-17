@@ -31,7 +31,7 @@
     <?php foreach($diskusi as $diskusi) { ?>
         <div class="event-items">
             <div class="event-img">
-                <a href="<?php echo base_url('diskusi/read/' . $diskusi->slug_diskusi); ?>"><img style="width:570px;height:300px;" src="<?php echo base_url('assets/upload/image/diskusi/' . $diskusi->gambar_diskusi); ?>" alt="upcoming-events-img-1" class="img-responsive" /></a>
+                <a href="<?php echo base_url('diskusi/read/' . $diskusi->slug_diskusi); ?>"><img style="width:570px;height:300px;" src="<?php if(isset($diskusi->gambar_diskusi) && ($diskusi->gambar_diskusi) != "") { echo base_url('assets/upload/image/diskusi/' . $diskusi->gambar_diskusi); } else  { echo base_url('assets/upload/image/diskusi/default.png'); } ?>" alt="upcoming-events-img-1" class="img-responsive" /></a>
                 <div class="date-box">
                     <h3><?php echo date('d', strtotime($diskusi->tanggal_diskusi)); ?></h3>
                     <h5><?php echo date('M', strtotime($diskusi->tanggal_diskusi)); ?></h5>
@@ -77,7 +77,7 @@
                                                 <?php foreach($populer as $populer) { ?>
                                                     <li>
                                                         <div class="popular-news-img" style="width: 80px; height: 80px;">
-                                                            <a href="#"><img src="<?php if($populer->gambar_diskusi=="") { echo base_url('assets/upload/image/thumbs/'.$site->icon); }else{ echo base_url('assets/upload/image/diskusi/'.$populer->gambar_diskusi); } ?>" alt="popular-news-img-1" /></a>
+                                                            <a href="#"><img src="<?php if($populer->gambar_diskusi=="") { echo base_url('assets/upload/image/diskusi/default2.jpg'); }else{ echo base_url('assets/upload/image/diskusi/'.$populer->gambar_diskusi); } ?>" alt="popular-news-img-1" /></a>
                                                         </div>
                                                         <!-- .popular-news-img -->
                                                         <div class="popular-news-contant">

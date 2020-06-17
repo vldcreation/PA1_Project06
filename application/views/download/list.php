@@ -39,7 +39,12 @@
              <tr>
                <td><?php echo $i ?></td>
                <td><?php echo $download->judul_download ?></td>
-               <td><?php echo $download->isi ?></td>
+               <td><?php echo $download->isi ?>
+               <br>
+               <?php if($download->website != ""){ ?>
+               <a href="<?php echo $download->website ?>"> <span style="color:blue"><i class="fa fa-link"></i> Lihat Selengkapnya...</span> </a>
+               <?php } ?>
+               </td>
                <td>
                  <a href="<?php echo base_url('download/unduh/'.$download->id_download) ?>" class="btn btn-primary btn-xs" target="_blank">
                    <i class="fa fa-download"></i> Unduh</a>

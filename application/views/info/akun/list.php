@@ -49,16 +49,16 @@
         <div class="form-group row">
 			<label class="col-sm-3 control-label text-right">Prodi <span class="text-danger">*</span></label>
 			<div class="col-sm-9">
-            <select name="Prodi" class="form-control" required>
-            <option value="<?php echo $member->Prodi ?>" selected>--Select Prodi--</option>
-            <option value="IF">Informatika</option>
-            <option value="TE">Teknik Elektro</option>
-            <option value="SI">Sistem Informasi</option>
-            <option value="BP">Bioteknologi</option>
-            <option value="MR">Manajemen Rekayasa</option>
-            <option value="TI">Teknologi Informasi</option>
-            <option value="TRPL">Teknologi Rekayasa Perangkat Lunak</option>
-            <option value="NM">Teknlogi Komputer</option>
+            <select title="Prodi Anda" selected name="Prodi" class="form-control" required>
+				<option value="NULL">--Select Prodi--</option>
+				<option value="S1 Informatika" <?php if($member->Prodi == "S1 Informatika") echo "selected"; ?>>S1 Informatika</option>
+				<option value="S1 Teknik Elektro" <?php if($member->Prodi == "S1 Teknik Elektro") echo "selected"; ?>>S1 Teknik Elektro</option>
+				<option value="S1 Sistem Informasi" <?php if($member->Prodi == "S1 Sistem Informasi") echo "selected"; ?>>S1 Sistem Informasi</option>
+				<option value="S1 Bioteknologi" <?php if($member->Prodi == "S1 Bioteknologi") echo "selected"; ?>>S1 Bioteknologi</option>
+				<option value="S1 Manajemen Rekayasa" <?php if($member->Prodi == "S1 Manajemen Rekayasa") echo "selected"; ?>>S1 Manajemen Rekayasa</option>
+				<option value="D3 Teknologi Informasi" <?php if($member->Prodi == "D3 Teknologi Informasi") { echo "selected"; }?>>D3 Teknologi Informasi</option>
+				<option value="D4 Teknologi Rekayasa Perangkat Lunak" <?php if($member->Prodi == "D4 Teknologi Rekayasa Perangkat Lunak") echo "selected"; ?>>D4 Teknologi Rekayasa Perangkat Lunak</option>
+				<option value="D3 Teknologi Komputer" <?php if($member->Prodi == "D3 Teknologi Komputer") echo "selected"; ?>>D3 Teknologi Komputer</option>
           </select>
 			</div>
 		</div>

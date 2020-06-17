@@ -26,7 +26,8 @@ echo form_open(base_url('admin/download/proses'));
     <th width="10%">UNDUH</th>
     <th width="25%">JUDUL</th>
     <th width="20%">KATEGORI - POSISI</th>
-    <th>AUTHOR</th>
+    <th width="15%">NAMA FILE</th>
+    <th width="15%">AUTHOR</th>
     <th width="15%">ACTION</th>
 </tr>
 </thead>
@@ -43,17 +44,18 @@ echo form_open(base_url('admin/download/proses'));
       </div>
     </td>
     <td>
-      <a href="<?php echo base_url('admin/download/unduh/'.$download->id_download) ?>" class="btn btn-success btn-xs" target="_blank"><i class="fa fa-download"></i> Download</a>
+      <a href="<?php echo base_url('download/unduh/'.$download->id_download) ?>" class="btn btn-success btn-xs" target="_blank"><i class="fa fa-download"></i> Download</a>
     </td>
     <td><?php echo $download->judul_download ?>
       
       <br><small>
       Link:<br> 
-      <textarea name="aa"><?php echo base_url('download/unduh/'.$download->id_download) ?></textarea>
+      <textarea cols="40" name="aa" col="4"><?php echo base_url('download/unduh/'.$download->id_download) ?></textarea>
       </small>
 
     </td>
     <td><?php echo $download->nama_kategori_download ?> - <?php echo $download->jenis_download ?></td>
+    <td><?php echo $download->gambar?></td>
     <td><?php echo $download->nama ?></td>
     <td>
       <div class="btn-group">

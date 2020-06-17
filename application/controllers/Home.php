@@ -59,7 +59,7 @@ class Home extends CI_Controller {
         $config['num_tag_close'] 	= '</li>';
 		$config['per_page'] 		= 8;
 		$config['first_url'] 		= base_url().'home/';
-		$this->pagination->initialize($config); 
+		$this->pagination->initialize($config);
 		$page 		= ($this->uri->segment(3)) ? ($this->uri->segment(3) - 1) * $config['per_page'] : 0;
 		$berita 	= $this->berita_model->berita($config['per_page'], $page);
 

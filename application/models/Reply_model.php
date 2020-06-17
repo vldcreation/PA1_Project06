@@ -52,11 +52,11 @@ public function reply_koment($limit,$start) {
 }
 
 // Listing data
-public function listing($id_diskusi){
-    $this->db->select('reply_koment.*');
+public function listing(){
+    $this->db->select('*');
     $this->db->from('reply_koment');
     // Join dg 2 tabel
-    $this->db->join('diskusi','diskusi.id_diskusi = '.$id_diskusi,'LEFT');
+    $this->db->join('komentar','komentar.id_komentar = reply_koment.id_koment','LEFT');
     // End join
     $this->db->order_by('reply_koment.id_reply_koment','ASC');
     $query = $this->db->get();

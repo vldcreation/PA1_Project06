@@ -176,7 +176,7 @@ h3 a span{
                         <div class="blog-items">
                             <?php if($diskusi->gambar_diskusi !="") { ?>
                                 <div class="blog-img" style="width:770px;height:370px;">
-                                    <a href="#"><img src="<?php echo base_url('assets/upload/image/'.$diskusi->gambar_diskusi) ?>" alt="blog-img-10" class="img-responsive" /></a>
+                                    <a href="#"><img src="<?php  echo base_url('assets/upload/image/' . $diskusi->gambar_diskusi); ?>" alt="blog-img-10" class="img-responsive" /></a>
                                 </div>
                             <?php } ?>
                             <!-- .blog-img -->
@@ -294,7 +294,7 @@ h3 a span{
                                                 <?php foreach($populer as $populer) { ?>
                                                     <li>
                                                         <div class="popular-news-img" style="width: 80px; height: 80px;">
-                                                            <a href="#"><img src="<?php if($populer->gambar_diskusi=="") { echo base_url('assets/upload/image/thumbs/'.$site->icon); }else{ echo base_url('assets/upload/image/diskusi/'.$populer->gambar_diskusi); } ?>" alt="popular-news-img-1" /></a>
+                                                            <a href="#"><img src="<?php if($populer->gambar_diskusi=="") { echo base_url('assets/upload/image/diskusi/default2.jpg'); } else { echo base_url('assets/upload/image/diskusi/'.$populer->gambar_diskusi); } ?>" alt="popular-news-img-1" /></a>
                                                         </div>
                                                         <!-- .popular-news-img -->
                                                         <div class="popular-news-contant">
@@ -315,6 +315,37 @@ h3 a span{
                                 <!-- .sidebar -->
                             </div>
                     <!-- .col-md-4 -->
+                    <!-- .col-md-12 -->
+                    <div class="col-md-12">
+                                <div class="sidebar">
+                                    <div class="widget">
+                                        <h2 style="font-size : 25px;" class="sidebar-widget-title"><span>Diskusi Lainnya</span></h2>
+                                        <div class="widget-content">
+                                            <ul class="popular-news-option">
+                                                <?php foreach($other as $other) { ?>
+                                                    <li>
+                                                        <div class="popular-news-img" style="width: 80px; height: 80px;">
+                                                            <a href="#"><img src="<?php if($other->gambar_diskusi=="") { echo base_url('assets/upload/image/diskusi/default2.jpg'); } else { echo base_url('assets/upload/image/diskusi/'.$other->gambar_diskusi); } ?>" alt="popular-news-img-1" /></a>
+                                                        </div>
+                                                        <!-- .popular-news-img -->
+                                                        <div class="popular-news-contant">
+                                                            <h5><a href="<?php echo base_url('diskusi/read/' . $other->slug_diskusi); ?>"><?php echo $other->judul_diskusi; ?></a></h5>
+                                                            <p>
+                                                                <i class="fa fa-calendar"></i> <?php echo date('d M Y', strtotime($other->tanggal_diskusi)); ?> <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> <?php echo $other->hits; ?> Viewer</a>
+                                                            </p>
+                                                        </div>
+                                                        <!-- .popular-news-img -->
+                                                    </li>
+                                                <?php } ?>
+                                            </ul>
+
+                                        </div>
+                                        <!-- .widget-content -->
+                                    </div>
+                                </div>
+                                <!-- .sidebar -->
+                            </div>
+                    <!-- .col-md-12 -->
                 </div>
                 <!-- .row -->
             </div>
@@ -365,11 +396,12 @@ $(document).ready(function(){
         <div class="form-group">
         <div class="comments">
                                             <div class="comments avatar-image-container">
-                                            <?php if($this->session->userdata('pp') != "") {?>
-                                                <img src="<?php echo base_url('assets/upload/user/thumbs/'.$this->session->userdata('pp'))?>" alt="">
+                                            <?php $user2 = $this->session;
+                                            if($user2->userdata('pp') != "") {?>
+                                                <img src="<?php echo base_url('assets/upload/user/thumbs/'.$user2->userdata('pp'))?>" alt="">
                                             <?php } else{?>
                                                 <img src="<?php echo base_url('assets/upload/user/thumbs/64/guest.jpg')?>" alt="">
-                                            <?php } ?>
+                                            <?php }  ?>
                                             </div>
                                             <div class="comments comment-block">
                                             <div class="comments comment-header">

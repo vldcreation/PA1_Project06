@@ -1,4 +1,4 @@
-<?php
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 // Tambahkan proteksi halaman
 $url_pengalihan = str_replace('index.php/', '', current_url());
 $pengalihan 	= $this->session->set_userdata('pengalihan',$url_pengalihan);

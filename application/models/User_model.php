@@ -66,7 +66,7 @@ class User_model extends CI_Model {
 		$query = $this->db->get();
 		return $query->row();
 	}
-
+	
 	// Detail
 	public function detail($id_user)
 	{

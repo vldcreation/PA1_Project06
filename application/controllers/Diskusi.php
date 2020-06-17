@@ -9,6 +9,7 @@ class Diskusi extends CI_Controller{
         $this->load->model('info_model');
         $this->load->model('komentar_model');
         $this->load->model('quotes_model');
+        $this->load->model('reply_model');
         //check login
         // // Tambahkan proteksi halaman
 		 $url_pengalihan = str_replace('index.php/', '', current_url());
@@ -237,7 +238,9 @@ class Diskusi extends CI_Controller{
 		$site 		= $this->konfigurasi_model->listing();
 		$diskusi 	= $this->diskusi_model->read($slug_diskusi);
         $listing 	= $this->diskusi_model->populer();
+        $other      = $this->diskusi_model->other();
         $komentar   = $this->komentar_model->listing($diskusi->id_diskusi);
+        $reply      = $this->reply_model->listing();
         $user       = $this->info_model->get_one($this->session->userdata('nama'));
         $quotes     = $this->quotes_model->listing();
 
@@ -265,7 +268,8 @@ class Diskusi extends CI_Controller{
 		$data = array(	'title'		=> $diskusi->judul_diskusi.' post by -'.$diskusi->penulis_diskusi,
 						'deskripsi'	=> $diskusi->judul_diskusi,
 						'diskusi'	=> $diskusi,
-						'populer'	=> $listing,
+                        'populer'	=> $listing,
+                        'other'     =>$other,
                         'site'		=> $site,
                         'user'      => $user,
                         'komentar'  => $komentar,
@@ -430,7 +434,7 @@ class Diskusi extends CI_Controller{
     $this->komentar_model->tambah($data);
 
     $url_refresh = $i->post('slug_diskusi');
-    $this->session->set_flashdata('sukses', 'Data telah ditambah');
+    // $this->session->set_flashdata('sukses', 'Data telah ditambah');
 	redirect(base_url('diskusi/read/'.$url_refresh),'refresh');
 
     }

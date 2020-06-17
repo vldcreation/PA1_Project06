@@ -35,17 +35,16 @@ echo form_open(base_url('admin/member/edit/'.$member->id_user));
 		<div class="form-group">
 			<label>PRODI <span class="text-danger">*</span></label>
 			<select name="Prodi" class="form-control">
-				<option value="NULL" selected>--Select Prodi--</option>
-				<option value="S1 Informatika">S1 Informatika</option>
-				<option value="S1 Teknik Elektro">S1 Teknik Elektro</option>
-				<option value="S1 Sistem Informasi">S1 Sistem Informasi</option>
-				<option value="S1 Bioteknologi">S1 Bioteknologi</option>
-				<option value="S1 Manajemen Rekayasa">S1 Manajemen Rekayasa</option>
-				<option value="D3 Teknologi Informasi">D3 Teknologi Informasi</option>
-				<option value="D4 Teknologi Rekayasa Perangkat Lunak">D4 Teknologi Rekayasa Perangkat Lunak</option>
-				<option value="D3 Teknologi Komputer">D3 Teknologi Komputer</option>
+				<option value="NULL">--Select Prodi--</option>
+				<option value="S1 Informatika" <?php if($member->Prodi == "S1 Informatika") echo "selected"; ?>></option>>S1 Informatika</option>
+				<option value="S1 Teknik Elektro" <?php if($member->Prodi == "S1 Teknik Elektro") echo "selected"; ?>>S1 Teknik Elektro</option>
+				<option value="S1 Sistem Informasi" <?php if($member->Prodi == "S1 Sistem Informasi") echo "selected"; ?>>S1 Sistem Informasi</option>
+				<option value="S1 Bioteknologi" <?php if($member->Prodi == "S1 Bioteknologi") echo "selected"; ?>>S1 Bioteknologi</option>
+				<option value="S1 Manajemen Rekayasa" <?php if($member->Prodi == "S1 Manajemen Rekayasa") echo "selected"; ?>>S1 Manajemen Rekayasa</option>
+				<option value="D3 Teknologi Informasi" <?php if($member->Prodi == "D3 Teknologi Informasi") { echo "selected"; }?>>D3 Teknologi Informasi</option>
+				<option value="D4 Teknologi Rekayasa Perangkat Lunak" <?php if($member->Prodi == "D4 Teknologi Rekayasa Perangkat Lunak") echo "selected"; ?>>D4 Teknologi Rekayasa Perangkat Lunak</option>
+				<option value="D3 Teknologi Komputer" <?php if($member->Prodi == "D3 Teknologi Komputer") echo "selected"; ?>>D3 Teknologi Komputer</option>
           </select>
-			</select>
 		</div>
 	</div>
 

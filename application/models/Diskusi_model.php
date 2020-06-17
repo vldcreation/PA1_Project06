@@ -171,6 +171,16 @@ public function populer()
     $query = $this->db->get();
     return $query->result();
 }
+// Kunjungan diskusi lainnya
+public function other()
+{
+    $this->db->select('*');
+    $this->db->from('diskusi');
+    $this->db->order_by('hits','ASC');
+    $this->db->limit(8);
+    $query = $this->db->get();
+    return $query->result();
+}
 
 	// Listing hasil search diskusi
 	public function search($keywords,$limit,$start) {

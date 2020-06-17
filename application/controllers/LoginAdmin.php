@@ -8,11 +8,13 @@ class LoginAdmin extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('user_model');
+		$this->load->model('konfigurasi_model');
 	}
 
 	// Login page
 	public function index()
 	{
+		$site = $this->konfigurasi_model->listing();
 		// Validasi input
 		$this->form_validation->set_rules('username','Username','required',
 			array(	'required'	=> '%s harus diisi'));
@@ -28,7 +30,9 @@ class LoginAdmin extends CI_Controller {
 		}
 		// End validasi
 
-		$data = array(	'title'		=> 'Halaman Login Admin');
+		$data = array(	'title'		=> 'Halaman Login Admin',
+						'site'		=> $site,
+	);
 		$this->load->view('login/list', $data, FALSE);
 	}
 

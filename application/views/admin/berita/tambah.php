@@ -56,7 +56,7 @@ echo form_open_multipart(base_url('admin/berita/tambah'));
 
 <div class="form-group form-group-lg">
 <label>Status Berita</label>
-<select name="status_berita" class="form-control">
+<select name="status_berita" class="form-control select2">
 	<option value="Publish">Publikasikan</option>
 	<option value="Draft">Simpan sebagai draft</option>}
 </select>
@@ -68,7 +68,7 @@ echo form_open_multipart(base_url('admin/berita/tambah'));
 
 <div class="form-group">
 <label>Jenis Berita</label>
-<select name="jenis_berita" class="form-control">
+<select name="jenis_berita" class="form-control select2">
 	<option value="Berita">Berita</option>
 	<option value="Profil">Profil</option>
   <option value="Layanan">Layanan</option>
@@ -83,7 +83,7 @@ echo form_open_multipart(base_url('admin/berita/tambah'));
 
 <div class="form-group">
 <label>Kategori Berita</label>
-<select name="id_kategori" class="form-control">
+<select name="id_kategori" class="form-control select2">
 
 	<?php foreach($kategori as $kategori) { ?>
 	<option value="<?php echo $kategori->id_kategori ?>"><?php echo $kategori->nama_kategori ?></option>

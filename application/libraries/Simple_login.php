@@ -75,7 +75,7 @@ class Simple_login
 			$is_active		= $user_login->is_active;
 			if($is_active != 'Y'){
 				// Kalau Akun member belum aktive
-			$this->CI->session->set_flashdata('warning', 'Maaf akun anda belum aktif :( Silahkan check email anda untuk aktivasi akun => '.$email);
+			$this->CI->session->set_flashdata('verifagain', 'Maaf akun anda belum aktif :( Silahkan check email anda untuk aktivasi akun => '.$email);
 			redirect(base_url('loginmember'),'refresh');
 
 			}else{
@@ -138,7 +138,7 @@ class Simple_login
 		$this->CI->session->unset_userdata('pengalihan');
 		// Redirect ke halaman login
 		$this->CI->session->set_flashdata('sukses', 'Anda berhasil logout');
-		redirect(base_url('home'),'refresh');
+		redirect(base_url(''),'refresh');
 	}
 
 	// Fungsi check login: seseorang sudah login atau belum
@@ -173,7 +173,7 @@ class Simple_login
 		}
 	}
 
-	// Fungsi check login: seseorang sudah login atau belum
+	// Fungsi check login Member: seseorang sudah login atau belum
 	public function cek_login($pengalihan)
 	{
 		// Check status login (kita ambil status username dan akses level)
@@ -182,6 +182,18 @@ class Simple_login
 		{
 			$this->CI->session->set_flashdata('warning', 'Anda belum login');
 			redirect(base_url('loginmember'),'refresh');
+		}
+	}
+
+	// Fungsi check login Admin: seseorang sudah login atau belum
+	public function cek_login_admin($pengalihan)
+	{
+		// Check status login (kita ambil status username dan akses level)
+		if($this->CI->session->userdata('username') == "" && 
+			$this->CI->session->userdata('akses_level') == "")
+		{
+			$this->CI->session->set_flashdata('warning', 'Anda belum login');
+			redirect(base_url('loginadmin'),'refresh');
 		}
 	}
 }

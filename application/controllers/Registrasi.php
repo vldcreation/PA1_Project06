@@ -8,13 +8,17 @@ class Registrasi extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('member_model');
+		$this->load->model('konfigurasi_model');
 	}
 
 	// Login page
 	public function index()
 	{
-		$data = array(	'title'		=> 'Halaman Register');
-		$this->load->view('register/list', $data, FALSE);
+		$site = $this->konfigurasi_model->listing();
+		$data = array(	'title'		=> 'Halaman Register',
+						'site'		=> $site,
+	);
+		$this->load->view('register/list2', $data, FALSE);
 	}
 	
 	public function member()
@@ -94,11 +98,15 @@ class Registrasi extends CI_Controller {
 	}
 		// End validasi
 
-		$data = array(	'title'		=> 'Halaman Register');
-		$this->load->view('register/list', $data, FALSE);
+		$site = $this->konfigurasi_model->listing();
+		$data = array(	'title'		=> 'Halaman Register',
+						'site'		=> $site,
+	);
+		$this->load->view('register/list2', $data, FALSE);
 	}
 
 	public function reset_password(){
+		$site = $this->konfigurasi_model->listing();
 		// Validasi input
 		$this->form_validation->set_rules('email','Email','required',
 		array(	'required'	=> '%s harus diisi'),'refresh');
@@ -134,7 +142,9 @@ class Registrasi extends CI_Controller {
 
 	// End validasi
 
-	$data = array(	'title'		=> 'Reset Password');
+	$data = array(	'title'		=> 'Reset Password',
+					'site'		=> $site,
+);
 	$this->load->view('loginmember/reset', $data, FALSE);
 
 	}
@@ -158,14 +168,22 @@ class Registrasi extends CI_Controller {
 		$this->email->to($this->input->post('email'));
 		
 		if($type == 'verify'){
+			$data2 = array(
+				'name'		=> 'Del Cloud Club',
+				'link2'		=> base_url().'registrasi/verify?email=' . $this->input->post('email').'&token='. $token,
+			);
 			$this->email->subject('Account Verification');
-			$this->email->message('Click this link to verify your account : 
-			<a href="'.base_url().'registrasi/verify?email=' . $this->input->post('email').'&token='. $token .'">Activate</a>');	
+			$body = $this->load->view('template/email_verif.php', $data2, true);
+			$this->email->message($body);	
 		}
 		elseif($type == 'reset'){
+			$data = array(
+				'name'		=> 'Del Cloud Club',
+				'link'		=> base_url().'registrasi/reset?email=' . $this->input->post('email').'&token='. $token,
+			);
 			$this->email->subject('Reset Password');
-			$this->email->message('Click this link to Reset your Password : 
-			<a href="'.base_url().'registrasi/reset?email=' . $this->input->post('email').'&token='. $token .'">Reset Password</a>');
+			$body = $this->load->view('template/email_reset.php', $data, true);
+			$this->email->message($body);
 		}
 		
 		if($this->email->send()){

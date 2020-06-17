@@ -181,7 +181,11 @@ $nav_profil     = $this->nav_model->nav_profil();
                         <a class="list-li" href="<?php echo base_url() ?>registrasi"> <i class="fa fa-arrow-right"></i>  Daftar </a>
                     </li>
                     <li>
+                    <?php if($this->session->userdata('akses_level') == "") { ?>
                     <a class="list-li" href="<?php echo base_url() ?>loginmember"> <i class="fa fa-arrow-right"></i> Masuk </span></a>
+                    <?php } else {?>
+                      <a class="list-li" href="<?php echo base_url() ?>loginmember/logout"> <i class="fa fa-arrow-right"></i> (<?= $this->session->userdata('nama') ?>)  Keluar </span></a>
+                    <?php } ?>
                     </li>
                     <li>
                     <a class="list-li" href="<?php echo base_url() ?>diskusi"> <i class="fa fa-users"></i> Forum Diskusi </span></a>

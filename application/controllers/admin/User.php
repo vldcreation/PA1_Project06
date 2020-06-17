@@ -20,7 +20,7 @@ class User extends CI_Controller {
 		$url_pengalihan = str_replace('index.php/', '', current_url());
 		$pengalihan 	= $this->session->set_userdata('pengalihan',$url_pengalihan);
 		// Ambil check login dari simple_login
-		$this->simple_login->check_login($pengalihan);
+		$this->simple_login->cek_login_admin($pengalihan);
 		$this->simple_login->check_bagian_kompetisi(0,$pengalihan);
 
 		//Check Hak Akses

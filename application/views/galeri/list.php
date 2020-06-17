@@ -7,7 +7,7 @@
                     <div class="recent-project photo-gallery">
                         <div id="filters" class="button-group ">
                             <a href="<?php echo base_url('galeri/all'); ?>" class="btn btn-info btn-sm">Show All</a>
-                            <button class="button is-checked" data-filter="*">show all</button>
+                            <!-- <button class="button is-checked" data-filter="*">show all</button> -->
                             <?php if(count($kategori)>1) { foreach($kategori as $kategori) { ?>
                             <button class="button" data-filter=".<?php echo $kategori->slug_kategori ?>"><?php echo $kategori->nama_kategori ?></button>
                             <?php }} ?>

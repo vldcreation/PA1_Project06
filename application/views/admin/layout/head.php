@@ -21,13 +21,16 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <!-- iCheck -->
-  <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/plugins/iCheck/flat/blue.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/plugins/iCheck/flat/_all.css">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <!-- jQuery -->
   <script src="<?php echo base_url() ?>assets/admin/plugins/jquery/jquery.min.js"></script>
   <!-- JQUERY UI -->
   <link rel="stylesheet" href="<?php echo base_url('assets/jquery-ui/jquery-ui.min.css') ?>">
+  <!-- Skin Navbar -->
+  <link rel="stylesheet" href="<?php echo base_url('assets/admin/dist/skins/skin-blue.min.css') ?>">
+<!-- Jqueri-ui-min -->
   <script src="<?php echo base_url('assets/jquery-ui/jquery-ui.min.js') ?>" type="text/javascript"></script>
   <!-- SWEETALERT -->
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -60,4 +63,4 @@
 <script src="<?php echo base_url() ?>assets/viewerjs/pdf.js"></script>
 </head>
 
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini">

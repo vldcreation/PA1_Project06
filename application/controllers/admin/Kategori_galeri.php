@@ -13,7 +13,7 @@ class Kategori_galeri extends CI_Controller {
 		$url_pengalihan = str_replace('index.php/', '', current_url());
 		$pengalihan 	= $this->session->set_userdata('pengalihan',$url_pengalihan);
 		// Ambil check login dari simple_login
-		$this->simple_login->check_login($pengalihan);
+		$this->simple_login->cek_login_admin($pengalihan);
 
 		//Check Hak Akses
 		$akses = $this->session->userdata('akses_level');
