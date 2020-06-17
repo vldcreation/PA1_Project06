@@ -19,6 +19,7 @@ panduan instalasi :
 -Clone atau download repositori
 -Simpan di Folder htdocs (jika menggunakan server xampp)
 -Import database (cloudclub.sql)
+-Gunakan internet, karena website ini menggunakan CDN Bootstrap
 -Run Aplikasi
 ```
 
