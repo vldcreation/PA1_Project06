@@ -9,7 +9,7 @@
   </div>
 
 ## 🧑 Dosen Pembimbing
-👤 <a href="javascript:void(0)"> **Monalisa Pasaribu**</a>
+👤 <a href="javascript:void(0)"> **Monalisa Pasaribu**</a> <br>
 👤 <a href="javascript:void(0)"> **Teamsar Muliadi Panggabean**</a>
 
 ## 🧑 Owner
