@@ -1,6 +1,5 @@
 # PA1_Project06
-
-Project Akhir 1
+<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/vldcreation/PA1_Project06?color=green"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/vldcreation/Pak-Alpha-Site"><a href="https://github.com/vldcreation/PA1_Project06/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/vldcreation/PA1_Project06"></a><img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/vldcreation/PA1_Project06">
 ```
 Del Cloud Club
 ```
