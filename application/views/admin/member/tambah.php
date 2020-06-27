@@ -3,7 +3,7 @@
 echo validation_errors('<p class="alert alert-warning">','</p>');
 
 // Form open
-echo form_open(base_url('admin/user/tambah'));
+echo form_open(base_url('admin/member/tambah'));
 ?>
 <div class="row">
 	<div class="col-md-6">
@@ -46,7 +46,7 @@ echo form_open(base_url('admin/user/tambah'));
 	<div class="col-md-3">
 		<div class="form-group">
 			<label>NIM <span class="text-danger">*</span></label>
-			<input type="email" name="NIM" class="form-control" value="<?php echo set_value('NIM') ?>" placeholder="NIM" required>
+			<input type="text" name="NIM" class="form-control" value="<?php echo set_value('NIM') ?>" placeholder="NIM" required>
 		</div>
 	</div>
 

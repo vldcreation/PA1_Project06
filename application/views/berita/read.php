@@ -73,7 +73,7 @@ h3 a span{
                                                 </div>
                                                 <!-- .popular-news-img -->
                                                 <div class="popular-news-contant">
-                                                    <h5><a href="<?php echo base_url('news/read/' . $listing->slug_berita); ?>"><?php echo $listing->judul_berita; ?></a></h5>
+                                                    <h5><a href="<?php echo base_url('berita/' . $listing->slug_berita); ?>"><?php echo $listing->judul_berita; ?></a></h5>
                                                     <p><?php echo date('d M Y', strtotime($listing->tanggal_publish)); ?></p>
                                                 </div>
                                                 <!-- .popular-news-img -->

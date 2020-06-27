@@ -14,8 +14,10 @@
 </div>
 <!-- .section-header -->
 <div class="row">
+<!-- Sorting -->
+        <div class="col-md-4">
+        </div>
         <!-- Search form -->
-        <div class="col-md-4"></div>
             <div class="col-md-4"></div>
         <div class="col-md-4" style="padding-bottom:10px;">
             <form action="<?php echo base_url('diskusi/search'); ?>">
@@ -29,7 +31,7 @@
         <div class="alert-info"> Total Pencarian untuk <span style="font-weight : bold;"><?= $keyword; ?></span> : ( <?= $total ?> ) </div>
     <?php } } ?>
     <?php foreach($diskusi as $diskusi) { ?>
-        <div class="event-items">
+        <div class="event-items" id="diskusi">
             <div class="event-img">
                 <a href="<?php echo base_url('diskusi/read/' . $diskusi->slug_diskusi); ?>"><img style="width:570px;height:300px;" src="<?php if(isset($diskusi->gambar_diskusi) && ($diskusi->gambar_diskusi) != "") { echo base_url('assets/upload/image/diskusi/' . $diskusi->gambar_diskusi); } else  { echo base_url('assets/upload/image/diskusi/default.png'); } ?>" alt="upcoming-events-img-1" class="img-responsive" /></a>
                 <div class="date-box">
@@ -108,6 +110,4 @@
 </div>
 <!-- .container -->
 </section>
-
-
 <!-- End Upcoming Events Section -->

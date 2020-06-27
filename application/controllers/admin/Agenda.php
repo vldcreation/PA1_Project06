@@ -13,7 +13,6 @@ class Agenda extends CI_Controller {
 		$pengalihan 	= $this->session->set_userdata('pengalihan',$url_pengalihan);
 		// Ambil check login dari simple_login
 		$this->simple_login->cek_login_admin($pengalihan);
-		$this->simple_login->check_bagian_kompetisi(0,$pengalihan);
 
 		//Check Hak Akses
 		$akses = $this->session->userdata('akses_level');

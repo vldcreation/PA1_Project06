@@ -55,6 +55,12 @@ dan guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
                         <?= $site->deskripsi ?>
                         </p>
                             <?php 
+                    // Notifikasi session login habis 
+                    if($this->session->flashdata('session_habis')) { 
+                        echo '<div class="alert alert-danger  alert-dismissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
+                        echo $this->session->flashdata('session_habis');
+                        echo '</div>';
+                    } 
                       // Notifikasi error
                       echo validation_errors('<p class="alert alert-warning">','</p>');
 

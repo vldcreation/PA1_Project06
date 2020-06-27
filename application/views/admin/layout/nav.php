@@ -164,6 +164,9 @@
               
             </ul>
           </li>
+
+          <!-- MENU Kategori Diskusi -->
+         <!-- ComingSoon -->
           
           <?php if($this->session->userdata('akses_level')=="Admin") { ?>
           <!-- MENU USER -->
@@ -171,7 +174,7 @@
             <a href="<?php echo base_url('admin/user') ?>" class="nav-link">
               <i class="nav-icon fa fa-lock"></i>
               <p>
-                Kelola Data Team
+                Kelola Data Pengurus
               </p>
             </a>
           </li>

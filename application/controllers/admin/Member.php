@@ -66,8 +66,8 @@ class Member extends CI_Controller {
 
 		$this->form_validation->set_rules('password','Password anda','required',
 			array( 	'required' => '%s harus diisi'));
-			$this->form_validation->set_rules('confirm_pass','Konfirmasi Password','required|matches[password]',
-			array( 	'required' => '%s harus diisi','matches' => '%s Tidak sama'));
+			// $this->form_validation->set_rules('confirm_pass','Konfirmasi Password','required|matches[password]',
+			// array( 	'required' => '%s harus diisi','matches' => '%s Tidak sama'));
 
 			$i = $this->input;
 		if($this->form_validation->run() ===FALSE ){

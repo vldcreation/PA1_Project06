@@ -107,8 +107,15 @@ echo validation_errors('<div class="alert alert-success  alert-dismissible"><a h
     <h3>Google Map</h3><hr>
     <div class="form-group">
     <label>Google Map</label>
-    <textarea name="google_map" rows="5" class="form-control" placeholder="Kode dari Google Map"><?php echo $site->google_map ?></textarea>
+    <textarea name="google_map" rows="5" class="form-control" placeholder="Masukan Kode dari google map"><?php echo $site->google_map; ?></textarea>
+    <span class="text-danger"><?php echo "iframe src=''"; ?></span>
     </div>
+    <div class="form-group">
+   	  <label> Lihat Detail</label>
+      	<a href="<?php echo base_url('assets/images/googlemaps.jpg') ?>" target="_blank">
+        <img src="<?php echo base_url('assets/images/googlemaps.jpg') ?>" class="img-responsive img-thumbnail">
+        </a>
+	</div>
     
     <div class="form-group map">
         <style type="text/css" media="screen">
@@ -117,7 +124,7 @@ echo validation_errors('<div class="alert alert-success  alert-dismissible"><a h
                 max-height: 200px;
             }
         </style>
-    <?php echo $site->google_map ?>
+    <iframe src="<?php echo $site->google_map; ?>" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
 
     <hr>
     <div class="form-group btn-group">

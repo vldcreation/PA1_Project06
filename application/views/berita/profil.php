@@ -65,6 +65,11 @@ $nav_layanan = $this->nav_model->nav_layanan();
                                     <h2 style="font-size : 25px;" class="sidebar-widget-title"><span>Jadwal Agenda Terkini</span></h2>
                                         <div class="widget-content">
                                             <ul class="popular-news-option">
+                                            <?php if($total < 1) {?>
+                                                <div class="alert alert-info">
+                                                Tidak ada agenda saat ini
+                                                </div>
+                                            <?php } else { ?>
                                                 <?php foreach($agenda as $agenda) { ?>
                                                     <li>
                                                         <div class="popular-news-img" style="width: 80px; height: 100px;">
@@ -88,7 +93,7 @@ $nav_layanan = $this->nav_model->nav_layanan();
                                                         </div>
                                                         <!-- .popular-news-img -->
                                                     </li>
-                                                <?php } ?>
+                                                <?php } } ?>
                                             </ul>
 
                                         </div>

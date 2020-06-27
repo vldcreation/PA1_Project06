@@ -13,6 +13,8 @@ class Bagian extends CI_Controller {
 		// Ambil check login dari simple_login
 		$this->simple_login->cek_login_admin($pengalihan);
 		$this->load->model('bagian_model');
+		// Check bagian
+		$this->simple_login->check_all_bagian(0,$pengalihan);
 
 		//Check Hak Akses
 		$akses = $this->session->userdata('akses_level');

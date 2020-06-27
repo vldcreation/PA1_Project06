@@ -10,12 +10,19 @@ class Diskusi extends CI_Controller{
         $this->load->model('komentar_model');
         $this->load->model('quotes_model');
         $this->load->model('reply_model');
+        $this->load->model('kategori_diskusi_model');
         //check login
         // // Tambahkan proteksi halaman
 		 $url_pengalihan = str_replace('index.php/', '', current_url());
-		 $pengalihan 	= $this->session->set_userdata('pengalihan',$url_pengalihan);
+         $pengalihan 	= $this->session->set_userdata('pengalihan',$url_pengalihan);
+        //  Check session
+        if($this->session->sess_expiration){
+            $this->session->set_flashdata('session_habis','Waktu session habis');
+            redirect(base_url('loginmember','refresh'));
+        }
 		 //Ambil check login dari simple_login
-		 $this->simple_login->check_login($pengalihan);
+         $this->simple_login->check_login($pengalihan);
+        
     }
     public function index(){
         $useraktif = $this->session->userdata('nama');
@@ -57,6 +64,59 @@ class Diskusi extends CI_Controller{
 		$this->pagination->initialize($config); 
 		$page 		= ($this->uri->segment(3)) ? ($this->uri->segment(3) - 1) * $config['per_page'] : 0;
 		$diskusi 	= $this->diskusi_model->diskusi($config['per_page'], $page);
+
+        $data = array(
+            'title' => "Forum Diskusi - $useraktif",
+            'isi' => 'diskusi/list',
+            'populer'   => $populer,
+            'site'      => $site,
+            'pagin' 	=> $this->pagination->create_links(),
+            'diskusi' => $diskusi,
+        );
+        $this->load->view('layout/wrapper',$data,FALSE);
+    }
+
+    
+    public function load_kategori($id_kategori){
+        $useraktif = $this->session->userdata('nama');
+        $site 		= $this->konfigurasi_model->listing();
+        //diskusi populer
+        $populer	= $this->diskusi_model->populer();
+        // diskusi dan paginasi
+		$this->load->library('pagination');
+		$config['base_url'] 		= base_url().'diskusi/index/';
+		$config['total_rows'] 		= count($this->diskusi_model->total());
+		$config['use_page_numbers'] = TRUE;
+		$config['num_links'] 		= 5;
+		$config['uri_segment'] 		= 3;
+		$config['full_tag_open'] 	= '<ul class="pagination">';
+        $config['full_tag_close'] 	= '</ul>';
+        $config['first_link'] 		= '&laquo; First';
+        $config['first_tag_open'] 	= '<li class="prev page">';
+        $config['first_tag_close'] 	= '</li>';
+
+        $config['last_link'] 		= 'Last &raquo;';
+        $config['last_tag_open'] 	= '<li class="next page">';
+        $config['last_tag_close'] 	= '</li>';
+
+        $config['next_link'] 		= 'Next &rarr;';
+        $config['next_tag_open'] 	= '<li class="next page">';
+        $config['next_tag_close'] 	= '</li>';
+
+        $config['prev_link'] 		= '&larr; Preivious';
+        $config['prev_tag_open'] 	= '<li class="prev page">';
+        $config['prev_tag_close'] 	= '</li>';
+
+        $config['cur_tag_open'] 	= '<li class="active"><a href="">';
+        $config['cur_tag_close'] 	= '</a></li>';
+
+        $config['num_tag_open'] 	= '<li class="page">';
+        $config['num_tag_close'] 	= '</li>';
+		$config['per_page'] 		= count($this->diskusi_model->total());;
+		$config['first_url'] 		= base_url().'diskusi/';
+		$this->pagination->initialize($config); 
+		$page 		= ($this->uri->segment(3)) ? ($this->uri->segment(3) - 1) * $config['per_page'] : 0;
+		$diskusi 	= $this->diskusi_model->load_diskusi($config['per_page'], $page , $id_kategori);
 
         $data = array(
             'title' => "Forum Diskusi - $useraktif",
@@ -176,7 +236,7 @@ class Diskusi extends CI_Controller{
 		$this->load->helper('security');
 		$keyword 	= xss_clean($_GET['s']);
 		$keywords	= encode_php_tags($keyword);
-		$populer	= $this->diskusi_model->populer();
+        $populer	= $this->diskusi_model->populer();
 
 		if($keywords=="") {
 			redirect(base_url('diskusi'),'refresh');
@@ -229,7 +289,8 @@ class Diskusi extends CI_Controller{
                         'site'		=> $site,
                         'total'     => count($this->diskusi_model->total_search($keyword)),
                         'keyword'   => $keyword,
-						'populer'	=> $populer,
+                        'populer'	=> $populer,
+        
 						'isi'		=> 'diskusi/list');
 		$this->load->view('layout/wrapper', $data, FALSE);
 	}
@@ -274,13 +335,14 @@ class Diskusi extends CI_Controller{
                         'user'      => $user,
                         'komentar'  => $komentar,
                         'quotes'    =>  $quotes,
+        
 						'isi'		=> 'diskusi/read');
 		$this->load->view('layout/wrapper', $data, FALSE);
 	}
 
     // Tambah diskusi
 	public function tambah()	{
-		// Validasi
+        // Validasi
 		$valid = $this->form_validation;
 
 		$valid->set_rules('judul_diskusi','Judul','required',
@@ -295,16 +357,7 @@ class Diskusi extends CI_Controller{
       		$config['max_size']      = '12000'; // KB  
             $this->load->library('upload', $config);
             
-            if(! $this->upload->do_upload('gambar')) {
-                // End validasi
-        
-                $data = array(	'title'				=> 'Tambah Diskusi',
-                                'error'    			=> $this->upload->display_errors(),
-                                'isi'				=> 'diskusi/tambah');
-                $this->load->view('layout/wrapper', $data, FALSE);
-                // Masuk database
-                }else{
-      		
+         
 			$upload_data        		= array('uploads' =>$this->upload->data());
 	        // Image Editor
 	        $config['image_library']  	= 'gd2';
@@ -336,7 +389,7 @@ class Diskusi extends CI_Controller{
             $this->diskusi_model->tambah($data);
 	        $this->session->set_flashdata('sukses', 'Data telah ditambah');
 	        redirect(base_url('diskusi/viewall'),'refresh');
-		}}
+		}
 		// End masuk database
 		$data = array(	'title'				=> 'Tambah Topik Diskusi Baru',
                         'isi'				=> 'diskusi/tambah');
@@ -409,6 +462,7 @@ class Diskusi extends CI_Controller{
 		$data = array(	'title'				=> 'Edit Diskusi - '.$diskusi->judul_diskusi,
                         'isi'				=> 'diskusi/edit',
                         'diskusi'           => $diskusi,
+        
                     );
 		$this->load->view('layout/wrapper', $data, FALSE);		
     }

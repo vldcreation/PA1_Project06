@@ -49,6 +49,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+// manipulasi URL Profile
+$route['profile'] = "news/profil/profil-cloud-club-del";
+$route['kegiatan'] = "news/kategori/kegiatan";
+$route['berita/(:any)'] = "news/read/$1";
 $route['default_controller'] = 'home';
 $route['404_override'] = 'home/wkwkwk';
 $route['translate_uri_dashes'] = FALSE;

@@ -71,7 +71,6 @@ echo form_open_multipart(base_url('admin/berita/tambah'));
 <select name="jenis_berita" class="form-control select2">
 	<option value="Berita">Berita</option>
 	<option value="Profil">Profil</option>
-  <option value="Layanan">Layanan</option>
 </select>
 
 </div>

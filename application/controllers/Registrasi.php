@@ -49,10 +49,10 @@ class Registrasi extends CI_Controller {
 			array( 	'required' => '%s harus diisi'));
 			$this->form_validation->set_rules('confirm_pass','Konfirmasi Password','required|matches[password]',
 			array( 	'required' => '%s harus diisi','matches' => '%s Tidak sama'));
-
+		
 			$i = $this->input;
 		if($this->form_validation->run()) {
-			//toke member
+			//token member
 			$token = base64_encode(random_bytes(32));
 			$token_created = time();
 			//data member
@@ -97,10 +97,25 @@ class Registrasi extends CI_Controller {
 		
 	}
 		// End validasi
+		
+		// Cek email khusus
+	// 	if($this->input->post('email')!= ""){
+	// 		$email_spesial = strpos($this->input->post('email'),"del.ac.id");
+	// 		if(!$email_spesial){
+	// 			$error = "Email harus menggunakan email Civitas Del";
+	// 		}
+	// 		else{
+	// 			$error = NULL;
+	// 		}
+	// }
+	// else{
+	// 	$error = NULL;
+	// }
 
 		$site = $this->konfigurasi_model->listing();
 		$data = array(	'title'		=> 'Halaman Register',
 						'site'		=> $site,
+						// 'message_error'	=> $error,
 	);
 		$this->load->view('register/list2', $data, FALSE);
 	}

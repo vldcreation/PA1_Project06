@@ -34,7 +34,7 @@ $status = $this->session;
 
               <!-- PROFIL -->
               <li>
-                <a href="<?php echo base_url('news/profil/profil-cloud-club-del') ?>"> <i class="fa fa-cloud"></i> PROFIL</a>
+                <a href="<?php echo base_url('profile') ?>"> <i class="fa fa-cloud"></i> PROFIL</a>
             </li>
 
             <!-- berita -->
@@ -43,7 +43,7 @@ $status = $this->session;
                 <i class="fa fa-newspaper-o"></i> Berita <span class="caret"></span></a>
                 <ul class="dropdown-menu sub-menu">
                     <?php foreach($nav_berita as $nav_berita) { ?>
-                    <li class="sub-active"><a href="<?php echo base_url('news/kategori/'.$nav_berita->slug_kategori) ?>"><i class="fa fa-angle-double-right" aria-hidden="true"></i> <?php echo $nav_berita->nama_kategori ?></a></li>
+                    <li class="sub-active"><a href="<?php echo base_url('kegiatan') ?>"><i class="fa fa-angle-double-right" aria-hidden="true"></i> <?php echo $nav_berita->nama_kategori ?></a></li>
                     <?php } ?>
                     <li class="sub-active"><a href="<?php echo base_url('news') ?>"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Indeks Berita</a></li>                   
                 </ul>

@@ -60,6 +60,7 @@ class Agenda extends CI_Controller {
 		$data = array(
 					'title' 	=> 'Agenda '.$judul,
 					'agenda'	=> $agenda,
+					'total'		=> $agenda,
 					'deskripsi'	=> $judul,
 					'keywords'	=> $judul,
 					'pagin' 	=> $this->pagination->create_links(),

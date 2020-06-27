@@ -9,7 +9,7 @@ class Log_user
 	{
         $this->CI =& get_instance();
         $this->CI->load->model('kunjungan_model');
-        $this->CI->load->model('user_model');
+		$this->CI->load->model('user_model');
 	}
 
 	// Inser user log

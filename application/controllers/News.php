@@ -251,6 +251,7 @@ class News extends CI_Controller {
 						'site'		=> $site,
 						'listing'	=> $profil,
 						'agenda'	=> $agenda,
+						'total'		=> count($agenda),
 						'nav_layanan'	=> $nav_layanan,
 						'isi'		=> 'berita/profil',
 						'quotes'	=> $quotes,);

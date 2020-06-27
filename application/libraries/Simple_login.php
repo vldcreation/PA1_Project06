@@ -154,9 +154,19 @@ class Simple_login
 	}
 
 	//check status bagian
+	public function check_all_bagian($bagian,$pengalihan){
+		if($this->CI->session->userdata('id_bagian') != $bagian ){
+			$this->CI->session->set_flashdata('warning', 'Hanya Super Administrator yang dapat mengakses fitur ini');
+			echo "<script>
+ 					window.location=history.go(-1);
+ 					</script>";
+		}
+	}
+
+	//check status bagian
 	public function check_bagian_kompetisi($bagian,$pengalihan){
 		if($this->CI->session->userdata('id_bagian') != $bagian ){
-			$this->CI->session->set_flashdata('warning', 'Anda Tidak dapat melakukannya');
+			$this->CI->session->set_flashdata('warning', 'Hanya Pengurus bagian kompetisi dan Super Admin yang berhak mengakses fitur ini');
 			echo "<script>
  					window.location=history.go(-1);
  					</script>";

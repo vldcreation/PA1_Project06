@@ -239,5 +239,5 @@
         min-height: 400px;
     }
 </style>
-<div id="map"><?php echo $site->google_map; ?></div>
+<div id="map"><iframe src="<?php echo $site->google_map; ?>" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
 <!-- End Maps Section -->

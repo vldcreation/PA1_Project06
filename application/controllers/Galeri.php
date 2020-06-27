@@ -134,9 +134,10 @@ class Galeri extends CI_Controller {
 	public function read($id_galeri) {
 		$site 		= $this->konfigurasi_model->listing();
 		$galeri 	= $this->galeri_model->detail($id_galeri);
+		$total 	= $this->galeri_model->total_detail($id_galeri);
 		$listing 	= $this->galeri_model->galeri_home();
 
-		if(count($galeri) < 1) {
+		if(count($total) < 1) {
 			redirect(base_url('oops'),'refresh');
 		}
 		

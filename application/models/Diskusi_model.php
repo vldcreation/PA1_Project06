@@ -56,6 +56,20 @@ public function diskusi($limit,$start) {
     $this->db->limit($limit,$start);
     $query = $this->db->get();
     return $query->result();
+
+}
+// Listing realtime ajax
+public function load_diskusi($limit,$start,$id_kategori) {
+    $this->db->select('*');
+    $this->db->from('diskusi');
+    $this->db->join('users','users.id_user = diskusi.id_users','LEFT');
+    // End join
+    // where
+    $this->db->where('diskusi.id_kategori',$id_kategori);
+    $this->db->order_by('diskusi.id_diskusi','ASC');
+    $this->db->limit($limit,$start);
+    $query = $this->db->get();
+    return $query->result();
 }
 
 public function mytopik(){

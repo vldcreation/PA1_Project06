@@ -59,8 +59,6 @@ echo form_open(base_url('admin/galeri/proses'));
         Urutan: <?php echo $galeri->urutan ?>
       <br>
       Status Tampil Teks: <?php echo $galeri->status_text ?><br>
-      <textarea name="aa"><?php echo base_url('assets/upload/image/'.$galeri->gambar) ?></textarea>
-      </small>
 
     </td>
     <td><?php echo $galeri->nama_kategori_galeri ?> - <?php echo $galeri->jenis_galeri ?></td>

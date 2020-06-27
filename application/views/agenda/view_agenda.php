@@ -56,6 +56,15 @@ h1{
 	text-transform: uppercase;
 }
 </style>
+	<?php if($total < 1) {?>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 alert alert-info">
+					Tidak ada agenda saat ini
+				</div>
+			</div>
+		</div>
+	<?php } else {?>
 	  <?php foreach($agenda as $agenda) { ?>
 	  <div class="col-md-4 rel text-center">
           <div class="agendaku">
@@ -77,7 +86,7 @@ h1{
 			  <div class="clearfix"></div><br>
 			</div>
 		</div>
-		<?php } ?>
+		<?php } } ?>
 </div>
 
     <div class="clearfix"></div>

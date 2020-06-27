@@ -182,6 +182,15 @@ class Galeri_model extends CI_Model {
 		$query = $this->db->get();
 		return $query->row();
 	}
+	// Total Detail data
+	public function total_detail($id_galeri) {
+		$this->db->select('*');
+		$this->db->from('galeri');
+		$this->db->where('id_galeri',$id_galeri);
+		$this->db->order_by('id_galeri','DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
 
 	// Tambah
 	public function tambah($data) {

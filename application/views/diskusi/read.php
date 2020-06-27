@@ -160,8 +160,8 @@ h3 a span{
 
 <section class="bg-single-blog">
     <div class="container">
-            <!-- Search form -->
             <div class="col-md-4"></div>
+            <!-- Search form -->
             <div class="col-md-4"></div>
             <div class="col-md-4" style="padding-bottom:10px;">
             <form action="<?php echo base_url('diskusi/search'); ?>">

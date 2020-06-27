@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+  .warning{
+    color : red;
+    font-size : 14px;
+    font-family : arial;
+  }
+</style>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title><?php echo $title ?></title>
@@ -38,12 +45,17 @@
         <br>
         <h2 style="font-weight: bold; font-size: 18px; margin-top: 20px;"><?php echo $this->website->namaweb() ?></h2>
       </div>
+        <!-- <div class="text-center">
+        <label for="attention" class="warning">Disclaimer: Hanya bisa digunakan oleh civitas IT Del.</label>
+        </div> -->
 
       <p class="login-box-msg">Isi Data Diri dengan lengkap</p>
 
       <?php 
       // Notifikasi error
-      echo validation_errors('<p class="alert alert-warning">','</p>');
+      // if(isset($message_error)){
+      //   echo '<p class="alert alert-warning">'.$message_error.'</p>';
+      // }
 
       // Form open 
       echo form_open(base_url('registrasi/member'));
@@ -60,13 +72,16 @@
         </div>
       </div> <br>
         <div class="form-group">
-          <input type="text" title="Nama Lengkap Anda" name="nama" class="form-control" placeholder="Nama Lengkap">
+          <input type="text" title="Nama Lengkap Anda" value="<?php if(isset($_POST['nama'])) echo $_POST['nama']; ?>" name="nama" class="form-control" placeholder="Nama Lengkap">
+          <?=form_error('nama', '<small class="text-danger">', '</small>');?>
         </div>
         <div class="form-group">
-          <input title="Email Anda" type="text" name="email" class="form-control" placeholder="Email">
+          <input title="Email Anda" value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>" type="text" name="email" class="form-control" placeholder="Email">
+          <?=form_error('email', '<small class="text-danger">', '</small>');?>
         </div>
         <div class="form-group">
-          <input type="text" title="Nim anda" name="NIM" class="form-control" placeholder="NIM">
+          <input type="text" title="Nim anda" name="NIM" class="form-control" value="<?php if(isset($_POST['NIM'])) echo $_POST['NIM']; ?>" placeholder="NIM">
+          <?=form_error('NIM', '<small class="text-danger">', '</small>');?>
         </div>
         <div class="form-group">
           <select title="Prodi Anda" selected name="Prodi" class="form-control" required>
@@ -80,42 +95,54 @@
             <option value="D4 Teknologi Rekayasa Perangkat Lunak">D4 Teknologi Rekayasa Perangkat Lunak</option>
             <option value="D3 Teknologi Komputer">D3 Teknologi Komputer</option>
           </select>
+          <?=form_error('prodi', '<small class="text-danger">', '</small>');?>
         </div>
         <div class="form-group">
         <textarea title="Motivasi anda" class="form-control text-area" name="Motivasi" rows="3" placeholder="Motivasi Anda..."></textarea>
           </textarea>
+          <?=form_error('Motivasi', '<small class="text-danger">', '</small>');?>
         </div>
         <div class="form-group">
-          <input title="Username untuk akun" type="username" name="username" class="form-control" placeholder="Username">
+          <input title="Username untuk akun" type="username" name="username" value="<?php if(isset($_POST['username'])) echo $_POST['username']; ?>" class="form-control" placeholder="Username">
+          <?=form_error('username', '<small class="text-danger">', '</small>');?>
         </div>
         <div class="form-group">
           <input title="Password untuk akun" type="password" name="password" class="form-control" placeholder="Password">
+          <?=form_error('password', '<small class="text-danger">', '</small>');?>
         </div>
         <div class="form-group">
           <input title="Confirm Password" type="password" name="confirm_pass" class="form-control" placeholder="Konfirmasi Password">
+          <?=form_error('confirm_pass', '<small class="text-danger">', '</small>');?>
         </div>
         <div class="form-group">
           <input title="Bantuan untuk ingat password" type="text" name="pasword_hint" class="form-control" placeholder="Password Hint anda">
         </div>
         <div class="row">
           <div class="col-12">
-            <div class="checkbox icheck">
-              <label>
-                <input title="Set session" type="checkbox"> Ingat Saya
-              </label>
+            <div>
+                <input name="check" required="required" class="form-check-input checkbox" type="checkbox" id="defaultCheck1"
+                           title="I Agree" onchange="document.getElementById('btnsubmit').disabled = !this.checked;">
+                           <label class=" form-check-label" for="defaultCheck1">
+                           Saya Setuju.
+                        </label>
+                        <p class="terms" style="font-size:14px">Dengan daftar anda menyetujui <i>privasi dan persyaratan ketentuan
+                            yang berlaku </i> .</p>
+                            <?=form_error('check', '<small class="text-danger">', '</small>');?>
             </div>
           </div>
           <!-- /.col -->
           <div class="col-6">
-            <button type="submit" class="btn btn-primary btn-block btn-lg">Registrasi</button>
+          <button type="submit" name="submit" id="btnsubmit"
+                        class="btn btn-block btn-info btn-submit">Daftar
+                        Sekarang!</button>
           </div>
           <div class="col-6">
-            <a href="<?php echo base_url('loginmember');?>" class="btn btn-info btn-block btn-lg">Login</a>
+            <a href="<?php echo base_url('loginmember');?>" class="btn btn-info btn-block">Login</a>
           </div>
           <!-- /.col -->
         </div>
       
-      <?php echo form_close(); ?>
+      <?php echo form_close();  ?>
 
       
     </div>
@@ -150,5 +177,17 @@
     })
   })
 </script>
+<!-- Check box harus di centang dulu -->
+<script>
+    $('.tab1_btn').prop('disabled', !$('.tab1_chk:checked')
+        .length);
+    $('input[type=checkbox]').click(function() {
+        if ($('.tab1_chk:checkbox:checked').length > 0) {
+            $('.btn-submit').prop('disabled', false);
+        } else {
+            $('.btn-submit').prop('disabled', true);
+        }
+    });
+    </script>
 </body>
 </html>
