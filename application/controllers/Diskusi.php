@@ -10,7 +10,6 @@ class Diskusi extends CI_Controller{
         $this->load->model('komentar_model');
         $this->load->model('quotes_model');
         $this->load->model('reply_model');
-        $this->load->model('kategori_diskusi_model');
         //check login
         // // Tambahkan proteksi halaman
 		 $url_pengalihan = str_replace('index.php/', '', current_url());
