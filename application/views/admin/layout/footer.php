@@ -91,27 +91,7 @@ swal({
   } 
 });
 } 
-
-// Kirim ulang
-function kirim(ev) {
-ev.preventDefault();
-var urlToRedirect = ev.currentTarget.getAttribute('href'); //use currentTarget because the click may be on the nested i tag and not a tag causing the href to be empty
-console.log(urlToRedirect); // verify if this is the right URL
-swal({
-  title: "Yakin Ingin Mengirim Surat Ini?",
-  text: "Pengiriman Surat Sebaiknya Kurang dari 200 Kali/jam agar tidak terkena Blokir Server. Klik CANCEL untuk membatalkan. Klik OK untuk mengirim surat.",
-  icon: "warning",
-  buttons: true,
-  dangerMode: true,
-})
-.then((willDelete) => {
-  // redirect with javascript here as per your logic after showing the alert using the urlToRedirect value
-  if (willDelete) {
-    // Proses ke URL
-    window.location.href = urlToRedirect;
-  } 
-});
-} 
+ 
 // Akses
 // Sweet alert
 function akses(ev) {
